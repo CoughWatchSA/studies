@@ -1,0 +1,2189 @@
+{
+  "props": {
+    "name": [
+      {
+        "code": "en",
+        "parts": [
+          {
+            "str": "Intake Questionnaire"
+          }
+        ]
+      }
+    ],
+    "description": [
+      {
+        "code": "en",
+        "parts": [
+          {
+            "str": ""
+          }
+        ]
+      }
+    ],
+    "typicalDuration": [
+      {
+        "code": "en",
+        "parts": [
+          {
+            "str": "Duration 5-10 minutes"
+          }
+        ]
+      }
+    ]
+  },
+  "versionId": "",
+  "surveyDefinition": {
+    "key": "intake",
+    "items": [
+      {
+        "key": "intake.q01_age",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "How old are you?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "num",
+                  "role": "numberInput",
+                  "properties": {},
+                  "content": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "Please enter your age in years"
+                        }
+                      ]
+                    }
+                  ],
+                  "style": [
+                    {
+                      "key": "inputMaxWidth",
+                      "value": "5em"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q01_age"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "intake.q02_gender",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "What best describes your gender?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Man"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Woman"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Prefer not to say"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "3",
+                      "role": "input",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Prefer to self-describe: "
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q02_gender"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "intake.q03_postal_code",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "What is your residential postal code?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "ic",
+                  "role": "input",
+                  "content": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "Postal Code: "
+                        }
+                      ]
+                    }
+                  ],
+                  "style": [
+                    {
+                      "key": "inputMaxWidth",
+                      "value": "10em"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q03_postal_code"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "intake.q04_province",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "In which province do you live in?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Gauteng"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "KwaZulu Natal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Free State"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "3",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "North West"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "4",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Western Cape"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "5",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Eastern Cape"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "6",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Northern Cape"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "7",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Limpopo"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "8",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Mpumalanga"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q04_province"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "intake.q05_education",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "What is your highest education level?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Diploma/Degree/Postgraduate"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Matric Certificate"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Primary to high school"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "3",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No formal schooling"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q05_education"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "intake.q06_employment",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Are you employed or earning income from self-employment?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q06_employment"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
+        "condition": {
+          "name": "gte",
+          "data": [
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "getResponseValueAsNum",
+                "returnType": "float",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "intake.q01_age"
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "rg.num"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "num",
+              "num": 18
+            }
+          ]
+        }
+      },
+      {
+        "key": "intake.q07_health_care_worker",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Are you a health care worker?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q07_health_care_worker"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
+        "condition": {
+          "name": "gte",
+          "data": [
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "getResponseValueAsNum",
+                "returnType": "float",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "intake.q01_age"
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "rg.num"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "num",
+              "num": 18
+            }
+          ]
+        }
+      },
+      {
+        "key": "intake.q08_educator",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Are you an educator?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q08_educator"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
+        "condition": {
+          "name": "gte",
+          "data": [
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "getResponseValueAsNum",
+                "returnType": "float",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "intake.q01_age"
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "rg.num"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "num",
+              "num": 18
+            }
+          ]
+        }
+      },
+      {
+        "key": "intake.q09_weekly_contacts",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Please indicate on average, how many people do you come in contact with per week day at your workplace or school"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Less than 5 people"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "6 to 10 people"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "More than 10 people"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "3",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "None"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q09_weekly_contacts"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "intake.q10_public_transport",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Do you use public transport?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q10_public_transport"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "intake.q11_public_transport_morning",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Please indicate on average how many hours do you spend on public transport in the morning"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "slider",
+                  "role": "sliderNumeric",
+                  "content": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "Morning: "
+                        }
+                      ]
+                    }
+                  ],
+                  "description": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "Slide the blue circle to the appropriate time frame. Extreme left is 0 hours and extreme right is 6 hours"
+                        }
+                      ]
+                    }
+                  ],
+                  "properties": {
+                    "min": {
+                      "dtype": "num",
+                      "num": 0
+                    },
+                    "max": {
+                      "dtype": "num",
+                      "num": 6
+                    },
+                    "stepSize": {
+                      "dtype": "num",
+                      "num": 1
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "condition": {
+          "name": "responseHasKeysAny",
+          "data": [
+            {
+              "dtype": "str",
+              "str": "intake.q10_public_transport"
+            },
+            {
+              "dtype": "str",
+              "str": "rg.scg"
+            },
+            {
+              "dtype": "str",
+              "str": "0"
+            }
+          ]
+        }
+      },
+      {
+        "key": "intake.q12_public_transport_afternoon",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Please indicate on average how many hours do you spend on public transport in the afternoon"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "slider",
+                  "role": "sliderNumeric",
+                  "content": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "Afternoon: "
+                        }
+                      ]
+                    }
+                  ],
+                  "description": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "Slide the blue circle to the appropriate time frame. Extreme left is 0 hours and extreme right is 6 hours"
+                        }
+                      ]
+                    }
+                  ],
+                  "properties": {
+                    "min": {
+                      "dtype": "num",
+                      "num": 0
+                    },
+                    "max": {
+                      "dtype": "num",
+                      "num": 6
+                    },
+                    "stepSize": {
+                      "dtype": "num",
+                      "num": 1
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "condition": {
+          "name": "responseHasKeysAny",
+          "data": [
+            {
+              "dtype": "str",
+              "str": "intake.q10_public_transport"
+            },
+            {
+              "dtype": "str",
+              "str": "rg.scg"
+            },
+            {
+              "dtype": "str",
+              "str": "0"
+            }
+          ]
+        }
+      },
+      {
+        "key": "intake.q13_people_household",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "How many people live in your household?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Live alone"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "2 people"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "3 people"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "3",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "4 people"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "4",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "5 people"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "5",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "6 people"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "6",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "7 people"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "7",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "8 people"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "8",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "9 people"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "9",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "10 or more people"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q13_people_household"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "intake.q14_rooms_sleeping",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "How many rooms are used for sleeping?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "1 bedroom"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "2 bedrooms"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "3 bedrooms"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "3",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "4 bedrooms"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "4",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "5 bedrooms"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "5",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "6 or more bedrooms"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q14_rooms_sleeping"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "intake.q15_alcohol",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Do you consume alcohol?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q15_alcohol"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "intake.q16_tobacco",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Do you smoke any tobacco products?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q16_tobacco"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "intake.q17_comorbidities",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Do you have any of the following comorbidities (underlying medical illness)?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "mcg",
+                  "role": "multipleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Chronic cardiac diseases"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Hypertension"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Chronic pulmonary disease (not ashtma)"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "3",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Ashtma (physician diagnosed)"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "4",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Tuberculosis (pulmonary)"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "5",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Tuberculosis (extra pulmonary)"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "6",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Chronic kidney disease"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "7",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Liver disease"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "8",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Chronic neurological disorder"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "9",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Malignant neoplasm (cancer)"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "10",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Chronic hematologic disease"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "11",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Obesity (BMI > 30)"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "12",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Diabetes"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "13",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Rheumatologic disorder"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "14",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Dementia"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "15",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Immunosuppressive therapy"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "16",
+                      "role": "input",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Other: "
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "key": "intake.q18_healthcare_sector",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "In what sector do you usually obtain healthcare?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Private"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Public"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Both"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q18_healthcare_sector"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "selectionMethod": {
+      "name": "sequential"
+    }
+  }
+}
