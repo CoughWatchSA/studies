@@ -1,0 +1,317 @@
+{
+  "props": {
+    "name": [
+      {
+        "code": "en",
+        "parts": [
+          {
+            "str": "Survey name"
+          }
+        ]
+      }
+    ],
+    "description": [
+      {
+        "code": "en",
+        "parts": [
+          {
+            "str": "Survey description"
+          }
+        ]
+      }
+    ],
+    "typicalDuration": [
+      {
+        "code": "en",
+        "parts": [
+          {
+            "str": "Duration 5-10 minutes"
+          }
+        ]
+      }
+    ]
+  },
+  "versionId": "",
+  "surveyDefinition": {
+    "key": "example",
+    "items": [
+      {
+        "key": "example.q01_single_choice",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Single choice question"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "0"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "1"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "2"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "3",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "3"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "4",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "4 or more"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "5",
+                      "role": "input",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Other"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "example.q01_single_choice"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "example.q02_numeric",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Numeric"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "num",
+                  "role": "numberInput",
+                  "properties": {},
+                  "content": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "number"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "example.q02_numeric"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "example.q03_slider",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Slider question"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "slider",
+                  "role": "sliderNumeric",
+                  "content": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "slider"
+                        }
+                      ]
+                    }
+                  ],
+                  "description": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "choose a number"
+                        }
+                      ]
+                    }
+                  ],
+                  "properties": {
+                    "min": {
+                      "dtype": "num",
+                      "num": 0
+                    },
+                    "max": {
+                      "dtype": "num",
+                      "num": 8
+                    },
+                    "stepSize": {
+                      "dtype": "num",
+                      "num": 1
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "selectionMethod": {
+      "name": "sequential"
+    }
+  }
+}
