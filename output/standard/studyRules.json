@@ -1,0 +1,60 @@
+[
+  {
+    "name": "IFTHEN",
+    "data": [
+      {
+        "dtype": "exp",
+        "exp": {
+          "name": "checkEventType",
+          "data": [
+            {
+              "dtype": "str",
+              "str": "ENTER"
+            }
+          ]
+        }
+      },
+      {
+        "dtype": "exp",
+        "exp": {
+          "name": "ADD_NEW_SURVEY",
+          "data": [
+            {
+              "dtype": "str",
+              "str": "intake"
+            },
+            {
+              "dtype": "num",
+              "num": 0
+            },
+            {
+              "dtype": "num",
+              "num": 0
+            },
+            {
+              "dtype": "str",
+              "str": "normal"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "IFTHEN",
+    "data": [
+      {
+        "dtype": "exp",
+        "exp": {
+          "name": "checkEventType",
+          "data": [
+            {
+              "dtype": "str",
+              "str": "SUBMIT"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]
