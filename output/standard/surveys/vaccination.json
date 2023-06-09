@@ -1,0 +1,1665 @@
+{
+  "props": {
+    "name": [
+      {
+        "code": "en",
+        "parts": [
+          {
+            "str": "Vaccination Questionnaire"
+          }
+        ]
+      }
+    ],
+    "description": [
+      {
+        "code": "en",
+        "parts": [
+          {
+            "str": ""
+          }
+        ]
+      }
+    ],
+    "typicalDuration": [
+      {
+        "code": "en",
+        "parts": [
+          {
+            "str": "Duration 5-10 minutes"
+          }
+        ]
+      }
+    ]
+  },
+  "versionId": "",
+  "surveyDefinition": {
+    "key": "vaccination",
+    "items": [
+      {
+        "key": "vaccination.q01_flu_vaccine",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Have you received a flu vaccine for this year (2023)?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "vaccination.q01_flu_vaccine"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "vaccination.q02_flu_vaccine_when",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "When were you vaccinated?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "date",
+                  "role": "dateInput",
+                  "properties": {
+                    "dateInputMode": {
+                      "str": "YM"
+                    },
+                    "min": {
+                      "dtype": "exp",
+                      "exp": {
+                        "name": "timestampWithOffset",
+                        "data": [
+                          {
+                            "dtype": "num",
+                            "num": -31536000
+                          }
+                        ]
+                      }
+                    },
+                    "max": {
+                      "dtype": "exp",
+                      "exp": {
+                        "name": "timestampWithOffset",
+                        "data": [
+                          {
+                            "dtype": "num",
+                            "num": 31536000
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "content": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "Date"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "vaccination.q02_flu_vaccine_when"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
+        "condition": {
+          "name": "responseHasKeysAny",
+          "data": [
+            {
+              "dtype": "str",
+              "str": "vaccination.q01_flu_vaccine"
+            },
+            {
+              "dtype": "str",
+              "str": "rg.scg"
+            },
+            {
+              "dtype": "str",
+              "str": "0"
+            }
+          ]
+        }
+      },
+      {
+        "key": "vaccination.q03_flu_vaccine_previous_season",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Have you received a flu vaccine for the previous season (2022)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "vaccination.q03_flu_vaccine_previous_season"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "vaccination.q04_covid_vaccine",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Did you receive a COVID19 vaccine?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "vaccination.q04_covid_vaccine"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "vaccination.q05_covid_vaccine_doses",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "How many doses of the Pfizer vaccine did you receive?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "One dose"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Two doses"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    },
+                    {
+                      "key": "3",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Three doses"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    },
+                    {
+                      "key": "4",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Four doses"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    },
+                    {
+                      "key": "5",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Five doses"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "vaccination.q05_covid_vaccine_doses"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
+        "condition": {
+          "name": "responseHasKeysAny",
+          "data": [
+            {
+              "dtype": "str",
+              "str": "vaccination.q04_covid_vaccine"
+            },
+            {
+              "dtype": "str",
+              "str": "rg.scg"
+            },
+            {
+              "dtype": "str",
+              "str": "0"
+            }
+          ]
+        }
+      },
+      {
+        "key": "vaccination.q06_covid_vaccine_first_dose",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Please select which vaccine did you receive for the first dose and when you received it"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "dateInput",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Pfizer"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "dateInputMode": {
+                          "str": "YM"
+                        },
+                        "min": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": -94608000
+                              }
+                            ]
+                          }
+                        },
+                        "max": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "key": "1",
+                      "role": "dateInput",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Johnson & Johnson"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "dateInputMode": {
+                          "str": "YM"
+                        },
+                        "min": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": -94608000
+                              }
+                            ]
+                          }
+                        },
+                        "max": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "vaccination.q06_covid_vaccine_first_dose"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
+        "condition": {
+          "name": "responseHasKeysAny",
+          "data": [
+            {
+              "dtype": "str",
+              "str": "vaccination.q05_covid_vaccine_doses"
+            },
+            {
+              "dtype": "str",
+              "str": "rg.scg"
+            },
+            {
+              "dtype": "str",
+              "str": "0"
+            },
+            {
+              "dtype": "str",
+              "str": "1"
+            },
+            {
+              "dtype": "str",
+              "str": "3"
+            },
+            {
+              "dtype": "str",
+              "str": "4"
+            },
+            {
+              "dtype": "str",
+              "str": "5"
+            }
+          ]
+        }
+      },
+      {
+        "key": "vaccination.q07_covid_vaccine_second_dose",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Please select which vaccine did you receive for the second dose and when you received it"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "dateInput",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Pfizer"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "dateInputMode": {
+                          "str": "YM"
+                        },
+                        "min": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": -94608000
+                              }
+                            ]
+                          }
+                        },
+                        "max": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "key": "1",
+                      "role": "dateInput",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Johnson & Johnson"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "dateInputMode": {
+                          "str": "YM"
+                        },
+                        "min": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": -94608000
+                              }
+                            ]
+                          }
+                        },
+                        "max": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "vaccination.q07_covid_vaccine_second_dose"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
+        "condition": {
+          "name": "responseHasKeysAny",
+          "data": [
+            {
+              "dtype": "str",
+              "str": "vaccination.q05_covid_vaccine_doses"
+            },
+            {
+              "dtype": "str",
+              "str": "rg.scg"
+            },
+            {
+              "dtype": "str",
+              "str": "1"
+            },
+            {
+              "dtype": "str",
+              "str": "3"
+            },
+            {
+              "dtype": "str",
+              "str": "4"
+            },
+            {
+              "dtype": "str",
+              "str": "5"
+            }
+          ]
+        }
+      },
+      {
+        "key": "vaccination.q08_covid_vaccine_third_dose",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Please select which vaccine did you receive for the third dose and when you received it"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "dateInput",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Pfizer"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "dateInputMode": {
+                          "str": "YM"
+                        },
+                        "min": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": -94608000
+                              }
+                            ]
+                          }
+                        },
+                        "max": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "key": "1",
+                      "role": "dateInput",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Johnson & Johnson"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "dateInputMode": {
+                          "str": "YM"
+                        },
+                        "min": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": -94608000
+                              }
+                            ]
+                          }
+                        },
+                        "max": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "vaccination.q08_covid_vaccine_third_dose"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
+        "condition": {
+          "name": "responseHasKeysAny",
+          "data": [
+            {
+              "dtype": "str",
+              "str": "vaccination.q05_covid_vaccine_doses"
+            },
+            {
+              "dtype": "str",
+              "str": "rg.scg"
+            },
+            {
+              "dtype": "str",
+              "str": "3"
+            },
+            {
+              "dtype": "str",
+              "str": "4"
+            },
+            {
+              "dtype": "str",
+              "str": "5"
+            }
+          ]
+        }
+      },
+      {
+        "key": "vaccination.q09_covid_vaccine_fourth_dose",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Please select which vaccine did you receive for the fourth dose and when you received it"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "dateInput",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Pfizer"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "dateInputMode": {
+                          "str": "YM"
+                        },
+                        "min": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": -94608000
+                              }
+                            ]
+                          }
+                        },
+                        "max": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "key": "1",
+                      "role": "dateInput",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Johnson & Johnson"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "dateInputMode": {
+                          "str": "YM"
+                        },
+                        "min": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": -94608000
+                              }
+                            ]
+                          }
+                        },
+                        "max": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "vaccination.q09_covid_vaccine_fourth_dose"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
+        "condition": {
+          "name": "responseHasKeysAny",
+          "data": [
+            {
+              "dtype": "str",
+              "str": "vaccination.q05_covid_vaccine_doses"
+            },
+            {
+              "dtype": "str",
+              "str": "rg.scg"
+            },
+            {
+              "dtype": "str",
+              "str": "4"
+            },
+            {
+              "dtype": "str",
+              "str": "5"
+            }
+          ]
+        }
+      },
+      {
+        "key": "vaccination.q10_covid_vaccine_fifth_dose",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Please select which vaccine did you receive for the fifth dose and when you received it"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "dateInput",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Pfizer"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "dateInputMode": {
+                          "str": "YM"
+                        },
+                        "min": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": -94608000
+                              }
+                            ]
+                          }
+                        },
+                        "max": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "key": "1",
+                      "role": "dateInput",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Johnson & Johnson"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "dateInputMode": {
+                          "str": "YM"
+                        },
+                        "min": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": -94608000
+                              }
+                            ]
+                          }
+                        },
+                        "max": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "vaccination.q10_covid_vaccine_fifth_dose"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
+        "condition": {
+          "name": "responseHasKeysAny",
+          "data": [
+            {
+              "dtype": "str",
+              "str": "vaccination.q05_covid_vaccine_doses"
+            },
+            {
+              "dtype": "str",
+              "str": "rg.scg"
+            },
+            {
+              "dtype": "str",
+              "str": "5"
+            }
+          ]
+        }
+      },
+      {
+        "key": "vaccination.q11_covid_vaccine_booster",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Have you received a booster dose for COVID19?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "vaccination.q11_covid_vaccine_booster"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
+        "condition": {
+          "name": "and",
+          "data": [
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "responseHasKeysAny",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "vaccination.q05_covid_vaccine_doses"
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "rg.scg"
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "0"
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "1"
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "3"
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "4"
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "5"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "responseHasKeysAny",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "vaccination.q04_covid_vaccine"
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "rg.scg"
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "key": "vaccination.q12_covid_vaccine_booster_type",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Which vaccine did you receive for your booster?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Pfizer"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Johnson & Johnson"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "vaccination.q12_covid_vaccine_booster_type"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
+        "condition": {
+          "name": "responseHasKeysAny",
+          "data": [
+            {
+              "dtype": "str",
+              "str": "vaccination.q11_covid_vaccine_booster"
+            },
+            {
+              "dtype": "str",
+              "str": "rg.scg"
+            },
+            {
+              "dtype": "str",
+              "str": "0"
+            }
+          ]
+        }
+      }
+    ],
+    "selectionMethod": {
+      "name": "sequential"
+    }
+  }
+}

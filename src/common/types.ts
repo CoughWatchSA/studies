@@ -1,10 +1,7 @@
+import { Expression, ExpressionArg, SurveyItem } from "survey-engine/data_types";
+import { SingleChoiceOptionTypes, SurveyItems } from "case-editor-tools/surveys";
 import {
-  Expression,
-  ExpressionArg,
-  SurveyItem,
-} from "survey-engine/data_types";
-import { SurveyItems } from "case-editor-tools/surveys";
-import {
+  DateInputProps,
   DateInputQuestionProps,
   Item,
   NumericInputQuestionProps,
@@ -14,10 +11,7 @@ import {
 } from "case-editor-tools/surveys/types";
 import { StudyEngine } from "case-editor-tools/expression-utils/studyEngineExpressions";
 
-import {
-  DropDownQuestionProps,
-  OptionQuestionProps,
-} from "case-editor-tools/surveys/survey-items";
+import { DropDownQuestionProps, OptionQuestionProps } from "case-editor-tools/surveys/survey-items";
 
 export type LanguageMap = Record<string, Map<string, string>>;
 
@@ -36,10 +30,7 @@ export abstract class Survey extends SurveyDefinition {
   }
 
   addQuestion<T extends Item>(
-    Question: new (
-      key: string,
-      strings: Record<string, Map<string, string>>
-    ) => T,
+    Question: new (key: string, strings: Record<string, Map<string, string>>) => T,
     condition?: Expression
   ): SurveyItem {
     const item = new Question(this.key, this.strings).get();
@@ -52,10 +43,13 @@ export abstract class Survey extends SurveyDefinition {
   }
 }
 
+export type DateInputProperties = DateInputProps & { key: string; displayCondition?: Expression };
+
 export type TResponse = {
   key: string;
   value: string;
-  role?: "option" | "input";
+  role?: "option" | "input" | "dateInput";
+  dateInputProperties?: DateInputProperties;
   disabled?: {
     operator: "any" | "none" | "all";
     valueSelectors: Array<() => string>;
@@ -86,10 +80,7 @@ abstract class QuestionItem extends Item {
   }
 }
 
-export type SingleChoiceQuestionOptions = Omit<
-  OptionQuestionProps,
-  keyof CommonOptions
->;
+export type SingleChoiceQuestionOptions = Omit<OptionQuestionProps, keyof CommonOptions>;
 
 export abstract class SingleChoiceQuestion extends QuestionItem {
   abstract options: SingleChoiceQuestionOptions;
@@ -99,10 +90,7 @@ export abstract class SingleChoiceQuestion extends QuestionItem {
   }
 }
 
-export type DropDownQuestionOptions = Omit<
-  DropDownQuestionProps,
-  keyof CommonOptions
->;
+export type DropDownQuestionOptions = Omit<DropDownQuestionProps, keyof CommonOptions>;
 
 export abstract class DropDownQuestion extends QuestionItem {
   abstract options: DropDownQuestionOptions;
@@ -112,10 +100,7 @@ export abstract class DropDownQuestion extends QuestionItem {
   }
 }
 
-export type MultipleChoiceQuestionOptions = Omit<
-  OptionQuestionProps,
-  keyof CommonOptions
->;
+export type MultipleChoiceQuestionOptions = Omit<OptionQuestionProps, keyof CommonOptions>;
 
 export abstract class MultipleChoiceQuestion extends QuestionItem {
   abstract options: MultipleChoiceQuestionOptions;
@@ -166,8 +151,7 @@ export abstract class NumericSliderQuestion extends QuestionItem {
 
 export type TextInputQuestionOptions = Omit<
   TextInputQuestionProps,
-  | keyof CommonOptions
-  | keyof Pick<TextInputQuestionProps, "inputLabel" | "placeholderText">
+  keyof CommonOptions | keyof Pick<TextInputQuestionProps, "inputLabel" | "placeholderText">
 >;
 
 export abstract class TextInputQuestion extends QuestionItem {
@@ -205,16 +189,25 @@ export function ToOptionDef(
   responses: TResponse[],
   text: Record<string, Map<string, string>>
 ): OptionDef[] {
-  return responses.map((response) => ({
-    key: response.value,
-    role: response.role ?? "option",
-    content: text[`${obj.itemKey}.${response.key}`],
-    disabled:
-      response.disabled !== undefined
-        ? StudyEngine.multipleChoice[response.disabled.operator](
-            obj.key,
-            ...response.disabled.valueSelectors.map((selector) => selector())
-          )
-        : undefined,
-  }));
+  return responses.map((response) => {
+    const dateInputProperties = response.dateInputProperties
+      ? SingleChoiceOptionTypes.dateInput(response.dateInputProperties).optionProps
+      : {};
+
+    return {
+      key: response.value,
+      role: response.role ?? "option",
+      content: text[`${obj.itemKey}.${response.key}`],
+      optionProps: {
+        ...dateInputProperties,
+      },
+      disabled:
+        response.disabled !== undefined
+          ? StudyEngine.multipleChoice[response.disabled.operator](
+              obj.key,
+              ...response.disabled.valueSelectors.map((selector) => selector())
+            )
+          : undefined,
+    };
+  });
 }
