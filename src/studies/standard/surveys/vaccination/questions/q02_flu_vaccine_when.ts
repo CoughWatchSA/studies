@@ -1,9 +1,4 @@
-import { SurveyEngine } from "case-editor-tools/surveys";
-import {
-  LanguageMap,
-  DateInputQuestion,
-  DateInputQuestionOptions,
-} from "../../../../../common/types";
+import { LanguageMap, DateInputQuestion, DateInputQuestionOptions } from "../../../../../common/types";
 
 export class Q02_FluVaccineWhen extends DateInputQuestion {
   options: DateInputQuestionOptions;
@@ -15,10 +10,10 @@ export class Q02_FluVaccineWhen extends DateInputQuestion {
       isRequired: true,
       dateInputMode: "YM",
       maxRelativeDate: {
-        delta: { years: 1 },
+        delta: { years: 0 },
       },
       minRelativeDate: {
-        delta: { years: -1 },
+        delta: { years: 0 },
       },
     };
   }

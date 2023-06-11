@@ -63,64 +63,46 @@ const s = {
     en: "Please select which vaccine did you receive for the first dose and when you received it",
   },
   "q06_covid_vaccine_first_dose.pfizer": {
-    en: "Pfizer",
+    en: "Pfizer - Date: ",
   },
   "q06_covid_vaccine_first_dose.johnsonjohnson": {
-    en: "Johnson & Johnson",
+    en: "Johnson & Johnson - Date: ",
   },
   "q07_covid_vaccine_second_dose.title": {
     en: "Please select which vaccine did you receive for the second dose and when you received it",
   },
   "q07_covid_vaccine_second_dose.pfizer": {
-    en: "Pfizer",
+    en: "Pfizer - Date: ",
   },
   "q07_covid_vaccine_second_dose.johnsonjohnson": {
-    en: "Johnson & Johnson",
+    en: "Johnson & Johnson - Date: ",
   },
   "q08_covid_vaccine_third_dose.title": {
     en: "Please select which vaccine did you receive for the third dose and when you received it",
   },
   "q08_covid_vaccine_third_dose.pfizer": {
-    en: "Pfizer",
+    en: "Pfizer - Date: ",
   },
   "q08_covid_vaccine_third_dose.johnsonjohnson": {
-    en: "Johnson & Johnson",
+    en: "Johnson & Johnson - Date: ",
   },
   "q09_covid_vaccine_fourth_dose.title": {
     en: "Please select which vaccine did you receive for the fourth dose and when you received it",
   },
   "q09_covid_vaccine_fourth_dose.pfizer": {
-    en: "Pfizer",
+    en: "Pfizer - Date: ",
   },
   "q09_covid_vaccine_fourth_dose.johnsonjohnson": {
-    en: "Johnson & Johnson",
+    en: "Johnson & Johnson - Date: ",
   },
   "q10_covid_vaccine_fifth_dose.title": {
     en: "Please select which vaccine did you receive for the fifth dose and when you received it",
   },
   "q10_covid_vaccine_fifth_dose.pfizer": {
-    en: "Pfizer",
+    en: "Pfizer - Date: ",
   },
   "q10_covid_vaccine_fifth_dose.johnsonjohnson": {
-    en: "Johnson & Johnson",
-  },
-  "q11_covid_vaccine_booster.title": {
-    en: "Have you received a booster dose for COVID19?",
-  },
-  "q11_covid_vaccine_booster.yes": {
-    en: "Yes",
-  },
-  "q11_covid_vaccine_booster.no": {
-    en: "No",
-  },
-  "q12_covid_vaccine_booster_type.title": {
-    en: "Which vaccine did you receive for your booster?",
-  },
-  "q12_covid_vaccine_booster_type.pfizer": {
-    en: "Pfizer",
-  },
-  "q12_covid_vaccine_booster_type.johnsonjohnson": {
-    en: "Johnson & Johnson",
+    en: "Johnson & Johnson - Date: ",
   },
 };
 

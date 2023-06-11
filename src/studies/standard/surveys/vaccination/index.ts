@@ -6,8 +6,6 @@ import { Q02_FluVaccineWhen } from "./questions/q02_flu_vaccine_when";
 import { Q03_FluVaccinePreviousSeason } from "./questions/q03_flu_vaccine_previous_season";
 import { Q04_CovidVaccine } from "./questions/q04_covid_vaccine";
 import { Q05_CovidVaccineDoses } from "./questions/q05_covid_vaccine_doses";
-import { Q11_CovidVaccineBooster } from "./questions/q11_covid_vaccine_booster";
-import { Q12_CovidVaccineBoosterType } from "./questions/q12_covid_vaccine_booster_type";
 import { Q06_CovidVaccine_First_Dose } from "./questions/q06_covid_vaccine_first_dose";
 import { Q07_CovidVaccine_Second_Dose } from "./questions/q07_covid_vaccine_second_dose";
 import { Q08_CovidVaccine_Third_Dose } from "./questions/q08_covid_vaccine_third_dose";
@@ -30,6 +28,8 @@ export class Vaccination extends Survey {
     );
 
     this.addQuestion(Q03_FluVaccinePreviousSeason);
+
+    this.addPageBreak();
 
     const q04_covid_vaccine = this.addQuestion(Q04_CovidVaccine);
 
@@ -83,26 +83,6 @@ export class Vaccination extends Survey {
     this.addQuestion(
       Q10_CovidVaccine_Fifth_Dose,
       SurveyEngine.singleChoice.any(q05_covid_vaccine_doses.key, Q05_CovidVaccineDoses.Responses.FiveDoses.value)
-    );
-
-    const q11_covid_vaccine_booster = this.addQuestion(
-      Q11_CovidVaccineBooster,
-      SurveyEngine.logic.and(
-        SurveyEngine.singleChoice.any(
-          q05_covid_vaccine_doses.key,
-          Q05_CovidVaccineDoses.Responses.OneDose.value,
-          Q05_CovidVaccineDoses.Responses.TwoDoses.value,
-          Q05_CovidVaccineDoses.Responses.ThreeDoses.value,
-          Q05_CovidVaccineDoses.Responses.FourDoses.value,
-          Q05_CovidVaccineDoses.Responses.FiveDoses.value
-        ),
-        SurveyEngine.singleChoice.any(q04_covid_vaccine.key, Q04_CovidVaccine.Responses.Yes.value)
-      )
-    );
-
-    this.addQuestion(
-      Q12_CovidVaccineBoosterType,
-      SurveyEngine.singleChoice.any(q11_covid_vaccine_booster.key, Q11_CovidVaccineBooster.Responses.Yes.value)
     );
   }
 }

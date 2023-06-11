@@ -1,4 +1,3 @@
-import { covidVaccineDateInputProps } from "../../../../../common/constants";
 import {
   SingleChoiceQuestionOptions,
   SingleChoiceQuestion,
@@ -6,6 +5,7 @@ import {
   ToOptionDef,
   LanguageMap,
 } from "../../../../../common/types";
+import { covidVaccineDateInputProps } from "../constants";
 
 export class Q06_CovidVaccine_First_Dose extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;

@@ -162,7 +162,7 @@
                         "data": [
                           {
                             "dtype": "num",
-                            "num": -31536000
+                            "num": 0
                           }
                         ]
                       }
@@ -174,7 +174,7 @@
                         "data": [
                           {
                             "dtype": "num",
-                            "num": 31536000
+                            "num": 0
                           }
                         ]
                       }
@@ -319,6 +319,10 @@
             }
           }
         ]
+      },
+      {
+        "key": "vaccination.PB_CemX",
+        "type": "pageBreak"
       },
       {
         "key": "vaccination.q04_covid_vaccine",
@@ -595,7 +599,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Pfizer"
+                              "str": "Pfizer - Date: "
                             }
                           ]
                         }
@@ -611,7 +615,7 @@
                             "data": [
                               {
                                 "dtype": "num",
-                                "num": -94608000
+                                "num": -63072000
                               }
                             ]
                           }
@@ -638,7 +642,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Johnson & Johnson"
+                              "str": "Johnson & Johnson - Date: "
                             }
                           ]
                         }
@@ -654,7 +658,7 @@
                             "data": [
                               {
                                 "dtype": "num",
-                                "num": -94608000
+                                "num": -63072000
                               }
                             ]
                           }
@@ -772,7 +776,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Pfizer"
+                              "str": "Pfizer - Date: "
                             }
                           ]
                         }
@@ -788,7 +792,7 @@
                             "data": [
                               {
                                 "dtype": "num",
-                                "num": -94608000
+                                "num": -63072000
                               }
                             ]
                           }
@@ -815,7 +819,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Johnson & Johnson"
+                              "str": "Johnson & Johnson - Date: "
                             }
                           ]
                         }
@@ -831,7 +835,7 @@
                             "data": [
                               {
                                 "dtype": "num",
-                                "num": -94608000
+                                "num": -63072000
                               }
                             ]
                           }
@@ -945,7 +949,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Pfizer"
+                              "str": "Pfizer - Date: "
                             }
                           ]
                         }
@@ -961,7 +965,7 @@
                             "data": [
                               {
                                 "dtype": "num",
-                                "num": -94608000
+                                "num": -63072000
                               }
                             ]
                           }
@@ -988,7 +992,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Johnson & Johnson"
+                              "str": "Johnson & Johnson - Date: "
                             }
                           ]
                         }
@@ -1004,7 +1008,7 @@
                             "data": [
                               {
                                 "dtype": "num",
-                                "num": -94608000
+                                "num": -63072000
                               }
                             ]
                           }
@@ -1114,7 +1118,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Pfizer"
+                              "str": "Pfizer - Date: "
                             }
                           ]
                         }
@@ -1130,7 +1134,7 @@
                             "data": [
                               {
                                 "dtype": "num",
-                                "num": -94608000
+                                "num": -63072000
                               }
                             ]
                           }
@@ -1157,7 +1161,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Johnson & Johnson"
+                              "str": "Johnson & Johnson - Date: "
                             }
                           ]
                         }
@@ -1173,7 +1177,7 @@
                             "data": [
                               {
                                 "dtype": "num",
-                                "num": -94608000
+                                "num": -63072000
                               }
                             ]
                           }
@@ -1279,7 +1283,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Pfizer"
+                              "str": "Pfizer - Date: "
                             }
                           ]
                         }
@@ -1295,7 +1299,7 @@
                             "data": [
                               {
                                 "dtype": "num",
-                                "num": -94608000
+                                "num": -63072000
                               }
                             ]
                           }
@@ -1322,7 +1326,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Johnson & Johnson"
+                              "str": "Johnson & Johnson - Date: "
                             }
                           ]
                         }
@@ -1338,7 +1342,7 @@
                             "data": [
                               {
                                 "dtype": "num",
-                                "num": -94608000
+                                "num": -63072000
                               }
                             ]
                           }
@@ -1399,260 +1403,6 @@
             {
               "dtype": "str",
               "str": "5"
-            }
-          ]
-        }
-      },
-      {
-        "key": "vaccination.q11_covid_vaccine_booster",
-        "components": {
-          "role": "root",
-          "order": {
-            "name": "sequential"
-          },
-          "items": [
-            {
-              "role": "title",
-              "content": [
-                {
-                  "code": "en",
-                  "parts": [
-                    {
-                      "str": "Have you received a booster dose for COVID19?"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "key": "rg",
-              "role": "responseGroup",
-              "items": [
-                {
-                  "key": "scg",
-                  "role": "singleChoiceGroup",
-                  "items": [
-                    {
-                      "key": "0",
-                      "role": "option",
-                      "content": [
-                        {
-                          "code": "en",
-                          "parts": [
-                            {
-                              "str": "Yes"
-                            }
-                          ]
-                        }
-                      ],
-                      "properties": {}
-                    },
-                    {
-                      "key": "1",
-                      "role": "option",
-                      "content": [
-                        {
-                          "code": "en",
-                          "parts": [
-                            {
-                              "str": "No"
-                            }
-                          ]
-                        }
-                      ],
-                      "properties": {}
-                    }
-                  ],
-                  "order": {
-                    "name": "sequential"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        "validations": [
-          {
-            "key": "r1",
-            "type": "hard",
-            "rule": {
-              "name": "hasResponse",
-              "data": [
-                {
-                  "dtype": "str",
-                  "str": "vaccination.q11_covid_vaccine_booster"
-                },
-                {
-                  "dtype": "str",
-                  "str": "rg"
-                }
-              ]
-            }
-          }
-        ],
-        "condition": {
-          "name": "and",
-          "data": [
-            {
-              "dtype": "exp",
-              "exp": {
-                "name": "responseHasKeysAny",
-                "data": [
-                  {
-                    "dtype": "str",
-                    "str": "vaccination.q05_covid_vaccine_doses"
-                  },
-                  {
-                    "dtype": "str",
-                    "str": "rg.scg"
-                  },
-                  {
-                    "dtype": "str",
-                    "str": "0"
-                  },
-                  {
-                    "dtype": "str",
-                    "str": "1"
-                  },
-                  {
-                    "dtype": "str",
-                    "str": "3"
-                  },
-                  {
-                    "dtype": "str",
-                    "str": "4"
-                  },
-                  {
-                    "dtype": "str",
-                    "str": "5"
-                  }
-                ]
-              }
-            },
-            {
-              "dtype": "exp",
-              "exp": {
-                "name": "responseHasKeysAny",
-                "data": [
-                  {
-                    "dtype": "str",
-                    "str": "vaccination.q04_covid_vaccine"
-                  },
-                  {
-                    "dtype": "str",
-                    "str": "rg.scg"
-                  },
-                  {
-                    "dtype": "str",
-                    "str": "0"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "key": "vaccination.q12_covid_vaccine_booster_type",
-        "components": {
-          "role": "root",
-          "order": {
-            "name": "sequential"
-          },
-          "items": [
-            {
-              "role": "title",
-              "content": [
-                {
-                  "code": "en",
-                  "parts": [
-                    {
-                      "str": "Which vaccine did you receive for your booster?"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "key": "rg",
-              "role": "responseGroup",
-              "items": [
-                {
-                  "key": "scg",
-                  "role": "singleChoiceGroup",
-                  "items": [
-                    {
-                      "key": "0",
-                      "role": "option",
-                      "content": [
-                        {
-                          "code": "en",
-                          "parts": [
-                            {
-                              "str": "Pfizer"
-                            }
-                          ]
-                        }
-                      ],
-                      "properties": {}
-                    },
-                    {
-                      "key": "1",
-                      "role": "option",
-                      "content": [
-                        {
-                          "code": "en",
-                          "parts": [
-                            {
-                              "str": "Johnson & Johnson"
-                            }
-                          ]
-                        }
-                      ],
-                      "properties": {}
-                    }
-                  ],
-                  "order": {
-                    "name": "sequential"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        "validations": [
-          {
-            "key": "r1",
-            "type": "hard",
-            "rule": {
-              "name": "hasResponse",
-              "data": [
-                {
-                  "dtype": "str",
-                  "str": "vaccination.q12_covid_vaccine_booster_type"
-                },
-                {
-                  "dtype": "str",
-                  "str": "rg"
-                }
-              ]
-            }
-          }
-        ],
-        "condition": {
-          "name": "responseHasKeysAny",
-          "data": [
-            {
-              "dtype": "str",
-              "str": "vaccination.q11_covid_vaccine_booster"
-            },
-            {
-              "dtype": "str",
-              "str": "rg.scg"
-            },
-            {
-              "dtype": "str",
-              "str": "0"
             }
           ]
         }
