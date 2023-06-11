@@ -14,6 +14,9 @@ const s = {
   "q01_age.inputLabel": {
     en: "Please enter your age in years",
   },
+  "q01_age.validation.age": {
+    en: "Age must be a number between 0 and 120",
+  },
   "q02_gender.title": {
     en: "What best describes your gender?",
   },
@@ -34,6 +37,9 @@ const s = {
   },
   "q03_postal_code.inputLabel": {
     en: "Postal Code: ",
+  },
+  "q03_postal_code.validation.postal_code": {
+    en: "A valid postal code is composed of four digits number",
   },
   "q04_province.title": {
     en: "In which province do you live in?",
@@ -290,8 +296,5 @@ const s = {
 };
 
 export const strings = Object.fromEntries(
-  Object.entries(s).map((value) => [
-    value[0],
-    new Map(Object.entries(value[1])),
-  ])
+  Object.entries(s).map((value) => [value[0], new Map(Object.entries(value[1]))])
 );

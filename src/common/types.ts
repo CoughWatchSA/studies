@@ -1,4 +1,4 @@
-import { Expression, ExpressionArg, SurveyItem } from "survey-engine/data_types";
+import { Expression, ExpressionArg, LocalizedString, SurveyItem } from "survey-engine/data_types";
 import { SingleChoiceOptionTypes, SurveyItems } from "case-editor-tools/surveys";
 import {
   DateInputProps,
@@ -14,6 +14,19 @@ import { StudyEngine } from "case-editor-tools/expression-utils/studyEngineExpre
 import { DropDownQuestionProps, OptionQuestionProps } from "case-editor-tools/surveys/survey-items";
 
 export type LanguageMap = Record<string, Map<string, string>>;
+
+// this should be exported by survey engine
+export const generateLocStrings = (translations: Map<string, string>): LocalizedString[] => {
+  const locString = new Array<LocalizedString>();
+  translations.forEach((value, key) => {
+    const item: LocalizedString = {
+      code: key,
+      parts: [{ str: value }],
+    };
+    locString.push(item);
+  });
+  return locString;
+};
 
 export abstract class Survey extends SurveyDefinition {
   strings: LanguageMap;

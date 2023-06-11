@@ -19,7 +19,7 @@ import { Q15_Alcohol } from "./questions/q15_alcohol";
 import { Q16_Tobacco } from "./questions/q16_tobacco";
 import { Q17_Comorbidities } from "./questions/q17_comorbidities";
 import { Q18_HealthcareSector } from "./questions/q18_healthcare_sector";
-import { numericInputResponseKey } from "../../../../common/constants";
+import { fullAge, numericInputResponseKey } from "../../../../common/constants";
 
 export class Intake extends Survey {
   static surveyKey = "intake";
@@ -37,40 +37,26 @@ export class Intake extends Survey {
 
     this.addQuestion(Q04_Province);
 
+    this.addPageBreak();
+
     this.addQuestion(Q05_Education);
 
     this.addQuestion(
       Q06_Employment,
-      SurveyEngine.compare.gte(
-        SurveyEngine.getResponseValueAsNum(
-          q01_age.key,
-          numericInputResponseKey
-        ),
-        18
-      )
+      SurveyEngine.compare.gte(SurveyEngine.getResponseValueAsNum(q01_age.key, numericInputResponseKey), fullAge)
     );
 
     this.addQuestion(
       Q07_HealthCareWorker,
-      SurveyEngine.compare.gte(
-        SurveyEngine.getResponseValueAsNum(
-          q01_age.key,
-          numericInputResponseKey
-        ),
-        18
-      )
+      SurveyEngine.compare.gte(SurveyEngine.getResponseValueAsNum(q01_age.key, numericInputResponseKey), fullAge)
     );
 
     this.addQuestion(
       Q08_Educator,
-      SurveyEngine.compare.gte(
-        SurveyEngine.getResponseValueAsNum(
-          q01_age.key,
-          numericInputResponseKey
-        ),
-        18
-      )
+      SurveyEngine.compare.gte(SurveyEngine.getResponseValueAsNum(q01_age.key, numericInputResponseKey), fullAge)
     );
+
+    this.addPageBreak();
 
     this.addQuestion(Q09_WeeklyContacts);
 
@@ -78,27 +64,29 @@ export class Intake extends Survey {
 
     this.addQuestion(
       Q11_PublicTransportMorning,
-      SurveyEngine.singleChoice.any(
-        q10_public_transport.key,
-        Q10_PublicTransport.Responses.Yes.value
-      )
+      SurveyEngine.singleChoice.any(q10_public_transport.key, Q10_PublicTransport.Responses.Yes.value)
     );
 
     this.addQuestion(
       Q12_PublicTransportAfternoon,
-      SurveyEngine.singleChoice.any(
-        q10_public_transport.key,
-        Q10_PublicTransport.Responses.Yes.value
-      )
+      SurveyEngine.singleChoice.any(q10_public_transport.key, Q10_PublicTransport.Responses.Yes.value)
     );
 
     this.addQuestion(Q13_PeopleHousehold);
 
     this.addQuestion(Q14_RoomsSleeping);
 
-    this.addQuestion(Q15_Alcohol);
+    this.addQuestion(
+      Q15_Alcohol,
+      SurveyEngine.compare.gte(SurveyEngine.getResponseValueAsNum(q01_age.key, numericInputResponseKey), fullAge)
+    );
 
-    this.addQuestion(Q16_Tobacco);
+    this.addQuestion(
+      Q16_Tobacco,
+      SurveyEngine.compare.gte(SurveyEngine.getResponseValueAsNum(q01_age.key, numericInputResponseKey), fullAge)
+    );
+
+    this.addPageBreak();
 
     this.addQuestion(Q17_Comorbidities);
 

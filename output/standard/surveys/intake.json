@@ -82,6 +82,72 @@
                   ]
                 }
               ]
+            },
+            {
+              "role": "error",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Age must be a number between 0 and 120"
+                    }
+                  ]
+                }
+              ],
+              "displayCondition": {
+                "name": "or",
+                "data": [
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "not",
+                      "data": [
+                        {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "getSurveyItemValidation",
+                            "data": [
+                              {
+                                "dtype": "str",
+                                "str": "this"
+                              },
+                              {
+                                "dtype": "str",
+                                "str": "minAge"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "not",
+                      "data": [
+                        {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "getSurveyItemValidation",
+                            "data": [
+                              {
+                                "dtype": "str",
+                                "str": "this"
+                              },
+                              {
+                                "dtype": "str",
+                                "str": "maxAge"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
             }
           ]
         },
@@ -102,6 +168,66 @@
                 }
               ]
             }
+          },
+          {
+            "key": "minAge",
+            "rule": {
+              "name": "gte",
+              "data": [
+                {
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "getResponseValueAsNum",
+                    "returnType": "float",
+                    "data": [
+                      {
+                        "dtype": "str",
+                        "str": "intake.q01_age"
+                      },
+                      {
+                        "dtype": "str",
+                        "str": "rg.num"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "dtype": "num",
+                  "num": 0
+                }
+              ]
+            },
+            "type": "hard"
+          },
+          {
+            "key": "maxAge",
+            "rule": {
+              "name": "lte",
+              "data": [
+                {
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "getResponseValueAsNum",
+                    "returnType": "float",
+                    "data": [
+                      {
+                        "dtype": "str",
+                        "str": "intake.q01_age"
+                      },
+                      {
+                        "dtype": "str",
+                        "str": "rg.num"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "dtype": "num",
+                  "num": 120
+                }
+              ]
+            },
+            "type": "hard"
           }
         ]
       },
@@ -269,6 +395,40 @@
                   ]
                 }
               ]
+            },
+            {
+              "role": "error",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "A valid postal code is composed of four digits number"
+                    }
+                  ]
+                }
+              ],
+              "displayCondition": {
+                "name": "not",
+                "data": [
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "getSurveyItemValidation",
+                      "data": [
+                        {
+                          "dtype": "str",
+                          "str": "this"
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "postal_code"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
             }
           ]
         },
@@ -289,6 +449,27 @@
                 }
               ]
             }
+          },
+          {
+            "key": "postal_code",
+            "rule": {
+              "name": "checkResponseValueWithRegex",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "intake.q03_postal_code"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg.ic"
+                },
+                {
+                  "dtype": "str",
+                  "str": "^\\d{4}$"
+                }
+              ]
+            },
+            "type": "hard"
           }
         ]
       },
@@ -484,6 +665,10 @@
             }
           }
         ]
+      },
+      {
+        "key": "intake.PB_U6dg",
+        "type": "pageBreak"
       },
       {
         "key": "intake.q05_education",
@@ -944,6 +1129,10 @@
             }
           ]
         }
+      },
+      {
+        "key": "intake.PB_cHoq",
+        "type": "pageBreak"
       },
       {
         "key": "intake.q09_weekly_contacts",
@@ -1763,7 +1952,33 @@
               ]
             }
           }
-        ]
+        ],
+        "condition": {
+          "name": "gte",
+          "data": [
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "getResponseValueAsNum",
+                "returnType": "float",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "intake.q01_age"
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "rg.num"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "num",
+              "num": 18
+            }
+          ]
+        }
       },
       {
         "key": "intake.q16_tobacco",
@@ -1851,7 +2066,37 @@
               ]
             }
           }
-        ]
+        ],
+        "condition": {
+          "name": "gte",
+          "data": [
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "getResponseValueAsNum",
+                "returnType": "float",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "intake.q01_age"
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "rg.num"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "num",
+              "num": 18
+            }
+          ]
+        }
+      },
+      {
+        "key": "intake.PB_kV5t",
+        "type": "pageBreak"
       },
       {
         "key": "intake.q17_comorbidities",
