@@ -1,0 +1,11 @@
+studyKey: standard
+status: active
+props:
+  systemDefaultStudy: true
+  startDate: 1590969600
+  name:
+    en: Standard
+  description:
+    en: Standard CoughWatchSA study
+  tags:
+    - en: coughwatchsa
