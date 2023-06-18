@@ -1,0 +1,375 @@
+{
+  "props": {
+    "name": [
+      {
+        "code": "en",
+        "parts": [
+          {
+            "str": "Weekly Questionnaire"
+          }
+        ]
+      }
+    ],
+    "description": [
+      {
+        "code": "en",
+        "parts": [
+          {
+            "str": ""
+          }
+        ]
+      }
+    ],
+    "typicalDuration": [
+      {
+        "code": "en",
+        "parts": [
+          {
+            "str": "Duration 5-10 minutes"
+          }
+        ]
+      }
+    ]
+  },
+  "versionId": "",
+  "surveyDefinition": {
+    "key": "weekly",
+    "items": [
+      {
+        "key": "weekly.q01_symptoms_any",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Have you experienced any symptoms this week?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    },
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q01_symptoms_any"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q02_symptoms_same_episode",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "When you filled in the previous questionnaire, you indicated that you were still ill. Are the symptoms you are reporting now part of the same episode?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    },
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q02_symptoms_same_episode"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
+        "condition": {
+          "name": "eq",
+          "data": [
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "getAttribute",
+                "data": [
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "getAttribute",
+                      "data": [
+                        {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "getContext",
+                            "data": []
+                          }
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "participantFlags"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "hasOngoingSymptoms"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "str",
+              "str": "1"
+            }
+          ]
+        }
+      },
+      {
+        "key": "weekly.q03_symptoms_ended",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "When did the symptoms end?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "dateInput",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "dateInputMode": {
+                          "str": "YMD"
+                        },
+                        "min": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": -604800
+                              }
+                            ]
+                          }
+                        },
+                        "max": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Still ongoing"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {}
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q03_symptoms_ended"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "selectionMethod": {
+      "name": "sequential"
+    }
+  }
+}
