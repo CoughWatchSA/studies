@@ -8,6 +8,7 @@ import { intake } from "./surveys/intake";
 import { vaccination } from "./surveys/vaccination";
 import { weekly } from "./surveys/weekly";
 import { Q03_SymptomsEnded } from "./surveys/weekly/questions/q03_symptoms_ended";
+import { swabZipCodes } from "./surveys/intake/constants";
 
 const entryRules: Expression[] = [
   StudyEngine.participantActions.assignedSurveys.add(intake.key, "normal"),
@@ -19,7 +20,11 @@ const handleIntake = StudyEngine.ifThen(
   StudyEngine.checkSurveyResponseKey(intake.key),
   StudyEngine.if(
     // if eligible for swab:
-    StudyEngine.hasResponseKeyWithValue(intake.q03_postal_code.key, textInputResponseKey, "1201"),
+    StudyEngine.or(
+      ...Object.values(swabZipCodes).map((zip) =>
+        StudyEngine.hasResponseKeyWithValue(intake.q03_postal_code.key, textInputResponseKey, zip)
+      )
+    ),
     // then:
     StudyEngine.participantActions.updateFlag(
       ParticipantFlags.eligibleForSwab.key,
