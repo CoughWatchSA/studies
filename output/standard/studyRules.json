@@ -102,6 +102,258 @@
             }
           ]
         }
+      },
+      {
+        "dtype": "exp",
+        "exp": {
+          "name": "IFTHEN",
+          "data": [
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "checkSurveyResponseKey",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "intake"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "IF",
+                "data": [
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "hasResponseKeyWithValue",
+                      "data": [
+                        {
+                          "dtype": "str",
+                          "str": "intake.q03_postal_code"
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "rg.ic"
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "1201"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "UPDATE_FLAG",
+                      "data": [
+                        {
+                          "dtype": "str",
+                          "str": "eligibleForSwab"
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "1"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "UPDATE_FLAG",
+                      "data": [
+                        {
+                          "dtype": "str",
+                          "str": "eligibleForSwab"
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "0"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "dtype": "exp",
+        "exp": {
+          "name": "IFTHEN",
+          "data": [
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "checkSurveyResponseKey",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "weekly"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "REMOVE_SURVEYS_BY_KEY",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "weekly"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "ADD_NEW_SURVEY",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "weekly"
+                  },
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "timestampWithOffset",
+                      "data": [
+                        {
+                          "dtype": "num",
+                          "num": 3600
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "dtype": "num",
+                    "num": 0
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "prio"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "IF",
+                "data": [
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "responseHasKeysAny",
+                      "data": [
+                        {
+                          "dtype": "str",
+                          "str": "weekly.q03_symptoms_ended"
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "rg.scg"
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "0"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "UPDATE_FLAG",
+                      "data": [
+                        {
+                          "dtype": "str",
+                          "str": "hasOngoingSymptoms"
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "1"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "UPDATE_FLAG",
+                      "data": [
+                        {
+                          "dtype": "str",
+                          "str": "hasOngoingSymptoms"
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "0"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "IF",
+                "data": [
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "hasParticipantFlag",
+                      "data": [
+                        {
+                          "dtype": "str",
+                          "str": "eligibleForSwab"
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "1"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "ADD_MESSAGE",
+                      "data": [
+                        {
+                          "dtype": "str",
+                          "str": "swab-invitation"
+                        },
+                        {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
       }
     ]
   }
