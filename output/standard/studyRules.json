@@ -128,19 +128,87 @@
                   {
                     "dtype": "exp",
                     "exp": {
-                      "name": "hasResponseKeyWithValue",
+                      "name": "or",
                       "data": [
                         {
-                          "dtype": "str",
-                          "str": "intake.q03_postal_code"
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "hasResponseKeyWithValue",
+                            "data": [
+                              {
+                                "dtype": "str",
+                                "str": "intake.q03_postal_code"
+                              },
+                              {
+                                "dtype": "str",
+                                "str": "rg.ic"
+                              },
+                              {
+                                "dtype": "str",
+                                "str": "0001"
+                              }
+                            ]
+                          }
                         },
                         {
-                          "dtype": "str",
-                          "str": "rg.ic"
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "hasResponseKeyWithValue",
+                            "data": [
+                              {
+                                "dtype": "str",
+                                "str": "intake.q03_postal_code"
+                              },
+                              {
+                                "dtype": "str",
+                                "str": "rg.ic"
+                              },
+                              {
+                                "dtype": "str",
+                                "str": "0002"
+                              }
+                            ]
+                          }
                         },
                         {
-                          "dtype": "str",
-                          "str": "1201"
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "hasResponseKeyWithValue",
+                            "data": [
+                              {
+                                "dtype": "str",
+                                "str": "intake.q03_postal_code"
+                              },
+                              {
+                                "dtype": "str",
+                                "str": "rg.ic"
+                              },
+                              {
+                                "dtype": "str",
+                                "str": "0003"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "hasResponseKeyWithValue",
+                            "data": [
+                              {
+                                "dtype": "str",
+                                "str": "intake.q03_postal_code"
+                              },
+                              {
+                                "dtype": "str",
+                                "str": "rg.ic"
+                              },
+                              {
+                                "dtype": "str",
+                                "str": "0004"
+                              }
+                            ]
+                          }
                         }
                       ]
                     }
