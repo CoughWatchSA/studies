@@ -25,8 +25,12 @@ import { SurveyItem } from "survey-engine/data_types";
 class Intake extends Survey {
   static surveyKey = "intake";
 
+  q03_postal_code: SurveyItem;
+
   constructor() {
     super(Intake.surveyKey, strings);
+
+    this.q03_postal_code = this.buildQuestion(Q03_Postal_Code);
   }
 
   buildSurvey() {
@@ -34,7 +38,7 @@ class Intake extends Survey {
 
     this.addQuestion(Q02_Gender);
 
-    this.addQuestion(Q03_Postal_Code);
+    this.addItem(this.q03_postal_code);
 
     this.addQuestion(Q04_Province);
 

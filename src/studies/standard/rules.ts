@@ -1,9 +1,13 @@
 import { StudyEngine } from "case-editor-tools/expression-utils/studyEngineExpressions";
 import { StudyRules } from "case-editor-tools/types/studyRules";
 import { Expression } from "survey-engine/data_types";
+import { textInputResponseKey } from "../../common/constants";
+import { messages } from "./messages";
+import { ParticipantFlags } from "./participantFalgs";
 import { intake } from "./surveys/intake";
 import { vaccination } from "./surveys/vaccination";
 import { weekly } from "./surveys/weekly";
+import { Q03_SymptomsEnded } from "./surveys/weekly/questions/q03_symptoms_ended";
 
 const entryRules: Expression[] = [
   StudyEngine.participantActions.assignedSurveys.add(intake.key, "normal"),
@@ -11,7 +15,59 @@ const entryRules: Expression[] = [
   StudyEngine.participantActions.assignedSurveys.add(weekly.key, "normal"),
 ];
 
+const handleIntake = StudyEngine.ifThen(
+  StudyEngine.checkSurveyResponseKey(intake.key),
+  StudyEngine.if(
+    // if eligible for swab:
+    StudyEngine.hasResponseKeyWithValue(intake.q03_postal_code.key, textInputResponseKey, "1201"),
+    // then:
+    StudyEngine.participantActions.updateFlag(
+      ParticipantFlags.eligibleForSwab.key,
+      ParticipantFlags.hasOnGoingSymptoms.values.yes
+    ),
+    // else:
+    StudyEngine.participantActions.updateFlag(
+      ParticipantFlags.eligibleForSwab.key,
+      ParticipantFlags.eligibleForSwab.values.no
+    )
+  )
+);
 
-export const studyRules = new StudyRules(
-    entryRules,
-    []);
+const handleWeekly = StudyEngine.ifThen(
+  StudyEngine.checkSurveyResponseKey(weekly.key),
+  // remove weekly and re-add it with new a new timeout
+  StudyEngine.participantActions.assignedSurveys.remove(weekly.key, "all"),
+  StudyEngine.participantActions.assignedSurveys.add(
+    weekly.key,
+    "prio",
+    StudyEngine.timestampWithOffset({
+      hours: 1,
+    })
+  ),
+  // Manage flags:
+  StudyEngine.if(
+    // if has ongoing symptoms:
+    StudyEngine.singleChoice.any(weekly.q03_symptoms_ended.key, Q03_SymptomsEnded.Responses.Ongoing.value),
+    // then:
+    StudyEngine.participantActions.updateFlag(
+      ParticipantFlags.hasOnGoingSymptoms.key,
+      ParticipantFlags.hasOnGoingSymptoms.values.yes
+    ),
+    // else:
+    StudyEngine.participantActions.updateFlag(
+      ParticipantFlags.hasOnGoingSymptoms.key,
+      ParticipantFlags.hasOnGoingSymptoms.values.no
+    )
+  ),
+  StudyEngine.if(
+    // if is swab eligible:
+    StudyEngine.participantState.hasParticipantFlagKeyAndValue(
+      ParticipantFlags.eligibleForSwab.key,
+      ParticipantFlags.eligibleForSwab.values.yes
+    ),
+    // then:
+    StudyEngine.participantActions.messages.add(messages.inviteSelfSwab, StudyEngine.timestampWithOffset({ days: 0 }))
+  )
+);
+
+export const studyRules = new StudyRules(entryRules, [handleIntake, handleWeekly]);
