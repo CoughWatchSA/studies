@@ -20,8 +20,9 @@ import { Q16_Tobacco } from "./questions/q16_tobacco";
 import { Q17_Comorbidities } from "./questions/q17_comorbidities";
 import { Q18_HealthcareSector } from "./questions/q18_healthcare_sector";
 import { fullAge, numericInputResponseKey } from "../../../../common/constants";
+import { SurveyItem } from "survey-engine/data_types";
 
-export class Intake extends Survey {
+class Intake extends Survey {
   static surveyKey = "intake";
 
   constructor() {
@@ -93,3 +94,5 @@ export class Intake extends Survey {
     this.addQuestion(Q18_HealthcareSector);
   }
 }
+
+export const intake = new Intake();

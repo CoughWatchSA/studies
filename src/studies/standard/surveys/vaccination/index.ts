@@ -12,7 +12,7 @@ import { Q08_CovidVaccine_Third_Dose } from "./questions/q08_covid_vaccine_third
 import { Q09_CovidVaccine_Fourth_Dose } from "./questions/q09_covid_vaccine_fourth_dose";
 import { Q10_CovidVaccine_Fifth_Dose } from "./questions/q10_covid_vaccine_fifth_dose";
 
-export class Vaccination extends Survey {
+class Vaccination extends Survey {
   static surveyKey = "vaccination";
 
   constructor() {
@@ -86,3 +86,5 @@ export class Vaccination extends Survey {
     );
   }
 }
+
+export const vaccination = new Vaccination();
