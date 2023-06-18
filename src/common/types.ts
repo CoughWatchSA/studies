@@ -42,6 +42,12 @@ export abstract class Survey extends SurveyDefinition {
     this.strings = strings;
   }
 
+  buildQuestion<T extends Item>(
+    Question: new (key: string, strings: Record<string, Map<string, string>>) => T
+  ): SurveyItem {
+    return new Question(this.key, this.strings).get();
+  }
+
   addQuestion<T extends Item>(
     Question: new (key: string, strings: Record<string, Map<string, string>>) => T,
     condition?: Expression
