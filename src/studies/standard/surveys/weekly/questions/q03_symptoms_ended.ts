@@ -46,7 +46,7 @@ export namespace Q03_SymptomsEnded {
     },
     Ongoing: {
       key: "ongoing",
-      value: "0",
+      value: "1",
     },
   };
 }
