@@ -13,6 +13,7 @@ import {
 import { StudyEngine } from "case-editor-tools/expression-utils/studyEngineExpressions";
 
 import { DropDownQuestionProps, OptionQuestionProps } from "case-editor-tools/surveys/survey-items";
+import _ from "lodash";
 
 export type LanguageMap = Record<string, Map<string, string>>;
 
@@ -295,4 +296,24 @@ export function ToOptionDef(
 
     return def;
   });
+}
+
+// TODO: MD would like to get rid of the TResponse[] and work directly with the
+// Responses object using Object.keys but there is no strict guarantee on the
+// iteration order on the keys:
+//
+// https://dev.to/frehner/the-order-of-js-object-keys-458d
+//
+// unless we limit ourselves to strings, maybe raising if any key can be cast to
+// a number
+export function ToOptionDefDict(
+  obj: QuestionItem,
+  responses: Record<string, TChoiceResponse>,
+  text: Record<string, Map<string, string>>
+): OptionDef[] {
+  return ToOptionDef(
+    obj,
+    Object.keys(responses).map((key) => ({ ...{ key: _.snakeCase(key) }, ...responses[key] })),
+    text
+  );
 }
