@@ -2,7 +2,7 @@ import {
   SingleChoiceQuestionOptions,
   SingleChoiceQuestion,
   TResponse,
-  ToOptionDef,
+  ToOptionDefDict,
   LanguageMap,
 } from "../../../../../common/types";
 import { strings } from "../data/strings";
@@ -15,9 +15,9 @@ export class Q03_SymptomsEnded extends SingleChoiceQuestion {
 
     this.options = {
       isRequired: true,
-      responseOptions: ToOptionDef(
+      responseOptions: ToOptionDefDict(
         this,
-        [Q03_SymptomsEnded.Responses.Yes, Q03_SymptomsEnded.Responses.Ongoing],
+        Q03_SymptomsEnded.Responses,
         strings
       ),
     };
@@ -31,7 +31,6 @@ export namespace Q03_SymptomsEnded {
 
   export const Responses: Record<TResponses, TResponse> = {
     Yes: {
-      key: "yes",
       value: "0",
       role: "dateInput",
       dateInputMode: "YMD",
@@ -44,7 +43,6 @@ export namespace Q03_SymptomsEnded {
       },
     },
     Ongoing: {
-      key: "ongoing",
       value: "1",
     },
   };

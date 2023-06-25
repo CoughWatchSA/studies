@@ -2,30 +2,30 @@ import {
   SingleChoiceQuestionOptions,
   SingleChoiceQuestion,
   TResponse,
-  ToOptionDef,
+  ToOptionDefDict,
   LanguageMap,
 } from "../../../../../common/types";
 import { TYesNoResponses, YesNoResponses } from "../../common";
 
-export class Q02_SymptomsSameEpisode extends SingleChoiceQuestion {
+export class Q01_1_SymptomsSameEpisode extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;
 
   constructor(parentKey: string, strings: LanguageMap) {
-    super(parentKey, Q02_SymptomsSameEpisode.key, strings);
+    super(parentKey, Q01_1_SymptomsSameEpisode.key, strings);
 
     this.options = {
       isRequired: true,
-      responseOptions: ToOptionDef(
+      responseOptions: ToOptionDefDict(
         this,
-        [Q02_SymptomsSameEpisode.Responses.Yes, Q02_SymptomsSameEpisode.Responses.No],
+        Q01_1_SymptomsSameEpisode.Responses,
         strings
       ),
     };
   }
 }
 
-export namespace Q02_SymptomsSameEpisode {
-  export const key = "q02_symptoms_same_episode";
+export namespace Q01_1_SymptomsSameEpisode {
+  export const key = "q01_1_symptoms_same_episode";
 
   type TResponses = TYesNoResponses
 

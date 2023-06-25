@@ -17,13 +17,13 @@ const s = {
   "q01_symptoms_any.no": {
     en: "No",
   },
-  "q02_symptoms_same_episode.title": {
+  "q01_1_symptoms_same_episode.title": {
     en: "When you filled in the previous questionnaire, you indicated that you were still ill. Are the symptoms you are reporting now part of the same episode?",
   },
-  "q02_symptoms_same_episode.yes": {
+  "q01_1_symptoms_same_episode.yes": {
     en: "Yes",
   },
-  "q02_symptoms_same_episode.no": {
+  "q01_1_symptoms_same_episode.no": {
     en: "No",
   },
   "q03_symptoms_ended.title": {

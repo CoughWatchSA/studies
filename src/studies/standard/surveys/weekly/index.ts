@@ -3,7 +3,7 @@ import { Survey } from "../../../../common/types";
 import { ParticipantFlags } from "../../participantFalgs";
 import { strings } from "./data/strings";
 import { Q01_SymptomsAny } from "./questions/q01_symptoms_any";
-import { Q02_SymptomsSameEpisode } from "./questions/q02_symptoms_same_episode";
+import { Q01_1_SymptomsSameEpisode } from "./questions/q01_1_symptoms_same_episode";
 import { Q03_SymptomsEnded } from "./questions/q03_symptoms_ended";
 
 class Weekly extends Survey {
@@ -18,7 +18,7 @@ class Weekly extends Survey {
 
     this.q01_symptoms_any = this.buildQuestion(Q01_SymptomsAny);
 
-    this.q02_symptoms_same_episode = this.buildQuestion(Q02_SymptomsSameEpisode);
+    this.q02_symptoms_same_episode = this.buildQuestion(Q01_1_SymptomsSameEpisode);
 
     this.q03_symptoms_ended = this.buildQuestion(Q03_SymptomsEnded);
   }

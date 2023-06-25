@@ -124,7 +124,7 @@
         ]
       },
       {
-        "key": "weekly.q02_symptoms_same_episode",
+        "key": "weekly.q01_1_symptoms_same_episode",
         "components": {
           "role": "root",
           "order": {
@@ -200,7 +200,7 @@
               "data": [
                 {
                   "dtype": "str",
-                  "str": "weekly.q02_symptoms_same_episode"
+                  "str": "weekly.q01_1_symptoms_same_episode"
                 },
                 {
                   "dtype": "str",
