@@ -77,7 +77,7 @@
                           ]
                         }
                       ],
-                      "properties": {}
+                      "style": []
                     },
                     {
                       "key": "0",
@@ -92,7 +92,7 @@
                           ]
                         }
                       ],
-                      "properties": {}
+                      "style": []
                     }
                   ],
                   "order": {
@@ -165,7 +165,7 @@
                           ]
                         }
                       ],
-                      "properties": {}
+                      "style": []
                     },
                     {
                       "key": "0",
@@ -180,7 +180,7 @@
                           ]
                         }
                       ],
-                      "properties": {}
+                      "style": []
                     }
                   ],
                   "order": {
@@ -336,7 +336,7 @@
                           ]
                         }
                       ],
-                      "properties": {}
+                      "style": []
                     }
                   ],
                   "order": {
