@@ -276,7 +276,8 @@ export function ToOptionDef(
       }
       case "dateInput": {
         if (props.inputLabelText === undefined) props.inputLabelText = props.content;
-        def = SingleChoiceOptionTypes.dateInput(props);
+        // TODO: fix placeholderText inside SingleChoiceOptionTypes.dateInput
+        def = {...SingleChoiceOptionTypes.dateInput(props), ...{description: props.placeholderText}};
         break;
       }
       case "dateInput_old": {
@@ -285,7 +286,8 @@ export function ToOptionDef(
 
         def = {
           ...SingleChoiceOptionTypes.dateInput(props_),
-          ...{ role: "dateInput" },
+          // TODO: fix placeholderText inside SingleChoiceOptionTypes.dateInput
+          ...{ role: "dateInput", description: props_.placeholderText },
         };
         break;
       }
