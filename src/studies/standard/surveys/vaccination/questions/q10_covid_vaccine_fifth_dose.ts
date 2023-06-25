@@ -33,13 +33,13 @@ export namespace Q10_CovidVaccine_Fifth_Dose {
     Pfizer: {
       key: "pfizer",
       value: "0",
-      role: "dateInput",
+      role: "dateInput_old",
       dateInputProperties: covidVaccineDateInputProps,
     },
     JohnsonJohnson: {
       key: "johnsonjohnson",
       value: "1",
-      role: "dateInput",
+      role: "dateInput_old",
       dateInputProperties: covidVaccineDateInputProps,
     },
   };

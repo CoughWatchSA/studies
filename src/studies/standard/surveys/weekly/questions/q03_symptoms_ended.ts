@@ -33,15 +33,12 @@ export namespace Q03_SymptomsEnded {
       key: "yes",
       value: "0",
       role: "dateInput",
-      dateInputProperties: {
-        key: "date",
-        dateInputMode: "YMD",
-        maxRelativeDate: {
-          delta: { days: 0 },
-        },
-        minRelativeDate: {
-          delta: { days: -7 },
-        },
+      dateInputMode: "YMD",
+      maxRelativeDate: {
+        delta: { days: 0 },
+      },
+      minRelativeDate: {
+        delta: { days: -7 },
       },
     },
     Ongoing: {

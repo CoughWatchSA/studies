@@ -7,6 +7,7 @@ import {
   NumericInputQuestionProps,
   OptionDef,
   SurveyDefinition,
+  TextInputProps,
   TextInputQuestionProps,
 } from "case-editor-tools/surveys/types";
 import { StudyEngine } from "case-editor-tools/expression-utils/studyEngineExpressions";
@@ -48,6 +49,7 @@ export abstract class Survey extends SurveyDefinition {
     return new Question(this.key, this.strings).get();
   }
 
+  // FIXME: for backward compatibility, should be removed
   addQuestion<T extends Item>(
     Question: new (key: string, strings: Record<string, Map<string, string>>) => T,
     condition?: Expression
@@ -64,16 +66,44 @@ export abstract class Survey extends SurveyDefinition {
 
 export type DateInputProperties = DateInputProps & { key: string; displayCondition?: Expression };
 
-export type TResponse = {
-  key: string;
+export type TChoiceBaseResponse = {
+  key?: string;
   value: string;
-  role?: "option" | "input" | "dateInput";
-  dateInputProperties?: DateInputProperties;
   disabled?: {
     operator: "any" | "none" | "all";
     valueSelectors: Array<() => string>;
   };
 };
+
+export type TChoiceOptionResponse = {
+  role?: "option";
+} & TChoiceBaseResponse;
+
+export type TChoiceTextInputResponse = {
+  role: "input";
+} & TChoiceBaseResponse &
+  TextInputProps;
+
+export type TChoiceDateInputResponse = {
+  role: "dateInput";
+} & TChoiceBaseResponse &
+  DateInputProps;
+
+// FIXME: for backward compatibility, to be dropped
+export type TChoiceDateInputResponseOld = {
+  role: "dateInput_old";
+  dateInputProperties: DateInputProps;
+} & TChoiceBaseResponse;
+
+export type TChoiceResponse =
+  | TChoiceOptionResponse
+  | TChoiceTextInputResponse
+  | TChoiceDateInputResponse
+  | TChoiceDateInputResponseOld;
+
+// FIXME: maybe drop TResponse as it is too generic and used oly for typing
+// single / multiple choices
+export type TResponse = TChoiceResponse;
 
 type CommonOptions = {
   parentKey: string;
@@ -203,30 +233,66 @@ export abstract class DateInputQuestion extends QuestionItem {
   }
 }
 
+// NOTE: converts TResponse[] to OptionDef[], maybe using helpers from
+// case-editor-tools, TChoiceResponse is basically an OptionDef with an added
+// property:
+// - key
+// not to be confused (even if you are led to) with the OptionDef key
 export function ToOptionDef(
   obj: QuestionItem,
   responses: TResponse[],
   text: Record<string, Map<string, string>>
 ): OptionDef[] {
   return responses.map((response) => {
-    const dateInputProperties = response.dateInputProperties
-      ? SingleChoiceOptionTypes.dateInput(response.dateInputProperties).optionProps
-      : {};
+    let def;
 
-    return {
-      key: response.value,
-      role: response.role ?? "option",
-      content: text[`${obj.itemKey}.${response.key}`],
-      optionProps: {
-        ...dateInputProperties,
+    // FIXME: maybe change key -> id and value -> key in TBaseResponse
+    const props = {
+      ...response,
+      ...{ key: response.value, content: text[`${obj.itemKey}.${response.key}`] },
+      ...{
+        disabled:
+          // FIXME: why multiplechoice? because enabling / disabling options makes
+          // sense only for multiple choice
+          response.disabled !== undefined
+            ? StudyEngine.multipleChoice[response.disabled.operator](
+                obj.key,
+                ...response.disabled.valueSelectors.map((selector) => selector())
+              )
+            : undefined,
       },
-      disabled:
-        response.disabled !== undefined
-          ? StudyEngine.multipleChoice[response.disabled.operator](
-              obj.key,
-              ...response.disabled.valueSelectors.map((selector) => selector())
-            )
-          : undefined,
     };
+
+    switch (props.role) {
+      case "option": {
+        def = SingleChoiceOptionTypes.option(props.key, props.content);
+        break;
+      }
+      case "input": {
+        if (props.inputLabel === undefined) props.inputLabel = props.content;
+        def = SingleChoiceOptionTypes.textInput(props);
+        break;
+      }
+      case "dateInput": {
+        if (props.inputLabelText === undefined) props.inputLabelText = props.content;
+        def = SingleChoiceOptionTypes.dateInput(props);
+        break;
+      }
+      case "dateInput_old": {
+        const props_ = { ...props.dateInputProperties, ...props };
+        if (props_.inputLabelText === undefined) props_.inputLabelText = props_.content;
+
+        def = {
+          ...SingleChoiceOptionTypes.dateInput(props_),
+          ...{ role: "dateInput" },
+        };
+        break;
+      }
+      default: {
+        def = SingleChoiceOptionTypes.option(props.key, props.content);
+      }
+    }
+
+    return def;
   });
 }

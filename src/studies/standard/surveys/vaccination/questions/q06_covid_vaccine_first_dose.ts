@@ -33,13 +33,13 @@ export namespace Q06_CovidVaccine_First_Dose {
     Pfizer: {
       key: "pfizer",
       value: "0",
-      role: "dateInput",
+      role: "dateInput_old",
       dateInputProperties: covidVaccineDateInputProps,
     },
     JohnsonJohnson: {
       key: "johnsonjohnson",
       value: "1",
-      role: "dateInput",
+      role: "dateInput_old",
       dateInputProperties: covidVaccineDateInputProps,
     },
   };

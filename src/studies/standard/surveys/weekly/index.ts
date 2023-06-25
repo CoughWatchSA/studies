@@ -1,5 +1,4 @@
 import { SurveyEngine } from "case-editor-tools/surveys";
-import { SurveyItem } from "survey-engine/data_types";
 import { Survey } from "../../../../common/types";
 import { ParticipantFlags } from "../../participantFalgs";
 import { strings } from "./data/strings";
@@ -10,9 +9,9 @@ import { Q03_SymptomsEnded } from "./questions/q03_symptoms_ended";
 class Weekly extends Survey {
   static surveyKey = "weekly";
 
-  q01_symptoms_any: SurveyItem;
-  q02_symptoms_same_episode: SurveyItem;
-  q03_symptoms_ended: SurveyItem;
+  q01_symptoms_any;
+  q02_symptoms_same_episode;
+  q03_symptoms_ended;
 
   constructor() {
     super(Weekly.surveyKey, strings);
