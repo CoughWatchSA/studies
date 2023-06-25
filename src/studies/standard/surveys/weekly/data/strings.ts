@@ -9,7 +9,7 @@ const s = {
     en: "Duration 5-10 minutes",
   },
   "q01_symptoms_any.title": {
-    en: "Have you experienced any symptoms this week?",
+    en: "Have you experienced any symptoms in the past week?",
   },
   "q01_symptoms_any.yes": {
     en: "Yes",
@@ -27,10 +27,13 @@ const s = {
     en: "No",
   },
   "q03_symptoms_ended.title": {
-    en: "When did the symptoms end?",
+    en: "Have your symptoms ended?",
   },
   "q03_symptoms_ended.yes": {
-    en: "Yes",
+    en: "Yes, on: ",
+  },
+  "q03_symptoms_ended.yes.date_placeholder": {
+    en: "Select date",
   },
   "q03_symptoms_ended.ongoing": {
     en: "Still ongoing",

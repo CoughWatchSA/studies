@@ -5,6 +5,7 @@ import {
   ToOptionDef,
   LanguageMap,
 } from "../../../../../common/types";
+import { strings } from "../data/strings";
 
 export class Q03_SymptomsEnded extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;
@@ -34,6 +35,7 @@ export namespace Q03_SymptomsEnded {
       value: "0",
       role: "dateInput",
       dateInputMode: "YMD",
+      placeholderText: strings["q03_symptoms_ended.yes.date_placeholder"],
       maxRelativeDate: {
         delta: { days: 0 },
       },
