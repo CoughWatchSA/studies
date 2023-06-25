@@ -50,7 +50,7 @@
                   "code": "en",
                   "parts": [
                     {
-                      "str": "Have you experienced any symptoms this week?"
+                      "str": "Have you experienced any symptoms in the past week?"
                     }
                   ]
                 }
@@ -266,7 +266,7 @@
                   "code": "en",
                   "parts": [
                     {
-                      "str": "When did the symptoms end?"
+                      "str": "Have your symptoms ended?"
                     }
                   ]
                 }
@@ -288,7 +288,17 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Yes"
+                              "str": "Yes, on: "
+                            }
+                          ]
+                        }
+                      ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Select date"
                             }
                           ]
                         }
