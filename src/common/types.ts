@@ -1,4 +1,4 @@
-import { Expression, ExpressionArg, LocalizedString, SurveyItem } from "survey-engine/data_types";
+import { Expression, ExpressionArg, LocalizedString, SurveyItem, SurveySingleItem } from "survey-engine/data_types";
 import { SingleChoiceOptionTypes, SurveyItems } from "case-editor-tools/surveys";
 import {
   DateInputProps,
@@ -45,7 +45,7 @@ export abstract class Survey extends SurveyDefinition {
 
   buildQuestion<T extends Item>(
     Question: new (key: string, strings: Record<string, Map<string, string>>) => T
-  ): SurveyItem {
+  ): SurveySingleItem {
     return new Question(this.key, this.strings).get();
   }
 
@@ -53,7 +53,7 @@ export abstract class Survey extends SurveyDefinition {
   addQuestion<T extends Item>(
     Question: new (key: string, strings: Record<string, Map<string, string>>) => T,
     condition?: Expression
-  ): SurveyItem {
+  ): SurveySingleItem {
     const item = new Question(this.key, this.strings).get();
 
     if (condition) item.condition = condition;
