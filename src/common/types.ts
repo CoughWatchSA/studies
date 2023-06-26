@@ -70,8 +70,9 @@ export abstract class Survey extends SurveyDefinition {
 export type DateInputProperties = DateInputProps & { key: string; displayCondition?: Expression };
 
 export type TChoiceBaseResponse = {
-  key?: string;
+  key: string;
   value: string;
+  textKey?: string;
   disabled?: {
     operator: "any" | "none" | "all";
     valueSelectors: Array<() => string>;
@@ -104,13 +105,15 @@ export type TChoiceResponse =
   | TChoiceDateInputResponse
   | TChoiceDateInputResponseOld;
 
-// FIXME: maybe drop TResponse as it is too generic and used oly for typing
-// single / multiple choices
+export type TResponsesKeys<T extends string> = keyof {[K in keyof Record<T, object> as `${SnakeCase<K>}`]: string}
+export type TResponseWithKeys<T extends string> = TChoiceResponse & {key: TResponsesKeys<T>};
+export type TCommonResponseWithKeys<T extends string> = TChoiceResponse & {key: TResponsesKeys<T>, textKey: string};
 export type TResponse = TChoiceResponse;
 
-export type TResponsesText<T extends { key: string; Responses?: Record<string, TResponse> }> = {
-  [K in keyof T["Responses"] | "title" as `${SnakeCase<T["key"]>}.${SnakeCase<K> & string}`]: { en: string };
+export type TResponsesText<T extends { key: string; Responses?: Record<string, TResponse>, StandardResponses?: Record<string, TResponse> }> = {
+  [K in keyof Omit<T["Responses"], keyof T["StandardResponses"]> | "title" as `${SnakeCase<T["key"]>}.${SnakeCase<K> & string}`]: { en: string };
 };
+
 
 type CommonOptions = {
   parentKey: string;
@@ -256,7 +259,7 @@ export function ToOptionDef(
     // FIXME: maybe change key -> id and value -> key in TBaseResponse
     const props = {
       ...response,
-      ...{ key: response.value, content: text[`${obj.itemKey}.${response.key}`] },
+      ...{ key: response.value, content: response.textKey ? text[response.textKey] : text[`${obj.itemKey}.${response.key}`] },
       ...{
         disabled:
           // FIXME: why multiplechoice? because enabling / disabling options makes
