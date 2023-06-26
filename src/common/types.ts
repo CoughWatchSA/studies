@@ -13,7 +13,9 @@ import {
 import { StudyEngine } from "case-editor-tools/expression-utils/studyEngineExpressions";
 
 import { DropDownQuestionProps, OptionQuestionProps } from "case-editor-tools/surveys/survey-items";
+
 import _ from "lodash";
+import type { SnakeCase } from "type-fest";
 
 export type LanguageMap = Record<string, Map<string, string>>;
 
@@ -105,6 +107,10 @@ export type TChoiceResponse =
 // FIXME: maybe drop TResponse as it is too generic and used oly for typing
 // single / multiple choices
 export type TResponse = TChoiceResponse;
+
+export type TResponsesText<T extends { key: string; Responses?: Record<string, TResponse> }> = {
+  [K in keyof T["Responses"] | "title" as `${SnakeCase<T["key"]>}.${SnakeCase<K> & string}`]: { en: string };
+};
 
 type CommonOptions = {
   parentKey: string;
