@@ -252,6 +252,384 @@
         }
       },
       {
+        "key": "weekly.q02_symptoms_which",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Please select the symptoms you experienced this week:"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "mcg",
+                  "role": "multipleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Fever"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Chills"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Runny or blocked nose"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "3",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Sneezing"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "4",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Sore throat"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "5",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Cough"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "6",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Shortness of breath"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "7",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Headache"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "8",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Muscle/joint pain"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "9",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Chest pain"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "10",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Feeling tired or exhausted (malaise)"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "11",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Loss of appetite"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "12",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Colored sputum/phlegm"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "13",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Watery, bloodshot eyes"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "14",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Nausea"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "15",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Vomiting"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "16",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Diarrhea"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "17",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Stomach ache"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "18",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Loss of smell"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "19",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Loss of taste"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "20",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Nose bleed"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "99",
+                      "role": "input",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Other:"
+                            }
+                          ]
+                        }
+                      ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "please specify"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
         "key": "weekly.q03_symptoms_ended",
         "components": {
           "role": "root",
@@ -1268,6 +1646,16 @@
                     {
                       "key": "2",
                       "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "N/A"
+                            }
+                          ]
+                        }
+                      ],
                       "style": []
                     }
                   ],
@@ -1361,6 +1749,16 @@
                     {
                       "key": "2",
                       "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "I do not know"
+                            }
+                          ]
+                        }
+                      ],
                       "style": []
                     }
                   ],
@@ -1546,6 +1944,16 @@
                     {
                       "key": "2",
                       "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "N/A"
+                            }
+                          ]
+                        }
+                      ],
                       "style": []
                     }
                   ],
@@ -1639,6 +2047,16 @@
                     {
                       "key": "2",
                       "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "N/A"
+                            }
+                          ]
+                        }
+                      ],
                       "style": []
                     }
                   ],
@@ -1975,59 +2393,6 @@
                   "role": "singleChoiceGroup",
                   "items": [
                     {
-                      "key": "0",
-                      "role": "dateInput",
-                      "content": [
-                        {
-                          "code": "en",
-                          "parts": [
-                            {
-                              "str": "Yes, on: "
-                            }
-                          ]
-                        }
-                      ],
-                      "description": [
-                        {
-                          "code": "en",
-                          "parts": [
-                            {
-                              "str": "Select date"
-                            }
-                          ]
-                        }
-                      ],
-                      "properties": {
-                        "dateInputMode": {
-                          "str": "YMD"
-                        },
-                        "min": {
-                          "dtype": "exp",
-                          "exp": {
-                            "name": "timestampWithOffset",
-                            "data": [
-                              {
-                                "dtype": "num",
-                                "num": -604800
-                              }
-                            ]
-                          }
-                        },
-                        "max": {
-                          "dtype": "exp",
-                          "exp": {
-                            "name": "timestampWithOffset",
-                            "data": [
-                              {
-                                "dtype": "num",
-                                "num": 0
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    },
-                    {
                       "key": "1",
                       "role": "option",
                       "content": [
@@ -2035,7 +2400,22 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Still ongoing"
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
                             }
                           ]
                         }
@@ -2060,7 +2440,213 @@
               "data": [
                 {
                   "dtype": "str",
-                  "str": "weekly.q03_symptoms_ended"
+                  "str": "weekly.q09_routine_change"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q09_1_time_off",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Did you take time off work or school as a result of your illness?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q09_1_time_off"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q09_2_time_off_days",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "If yes, how many days of school or work did you take off?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "1 day"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "2 days"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "3 days"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "3",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "4 or more days"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q09_2_time_off_days"
                 },
                 {
                   "dtype": "str",
