@@ -1,11 +1,10 @@
 import {
   SingleChoiceQuestionOptions,
   SingleChoiceQuestion,
-  TResponse,
   ToOptionDefDict,
   LanguageMap,
 } from "../../../../../common/types";
-import { TYesNoResponses, YesNoResponses } from "../../common";
+import {YesNoResponses } from "../constants";
 
 export class Q01_1_SymptomsSameEpisode extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;
@@ -27,9 +26,6 @@ export class Q01_1_SymptomsSameEpisode extends SingleChoiceQuestion {
 export namespace Q01_1_SymptomsSameEpisode {
   export const key = "q01_1_symptoms_same_episode";
 
-  type TResponses = TYesNoResponses
-
-  export const Responses: Record<TResponses, TResponse> = {
-    ...YesNoResponses
-  };
+  export const StandardResponses = YesNoResponses;
+  export const Responses = {...StandardResponses};
 }

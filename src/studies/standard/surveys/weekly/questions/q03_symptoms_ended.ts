@@ -1,9 +1,9 @@
 import {
   SingleChoiceQuestionOptions,
   SingleChoiceQuestion,
-  TResponse,
   ToOptionDefDict,
   LanguageMap,
+  TResponseWithKeys,
 } from "../../../../../common/types";
 import { strings } from "../data/strings";
 
@@ -29,12 +29,13 @@ export namespace Q03_SymptomsEnded {
 
   type TResponses = "Yes" | "Ongoing";
 
-  export const Responses: Record<TResponses, TResponse> = {
+  export const Responses: Record<TResponses, TResponseWithKeys<TResponses>> = {
     Yes: {
+      key: "yes",
       value: "0",
       role: "dateInput",
       dateInputMode: "YMD",
-      placeholderText: strings["q03_symptoms_ended.yes.date_placeholder"],
+      placeholderText: strings["date_placeholder_ymd"],
       maxRelativeDate: {
         delta: { days: 0 },
       },
@@ -44,6 +45,7 @@ export namespace Q03_SymptomsEnded {
     },
     Ongoing: {
       value: "1",
+      key: "ongoing"
     },
   };
 }

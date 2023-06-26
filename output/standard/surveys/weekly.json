@@ -298,6 +298,1700 @@
                           "code": "en",
                           "parts": [
                             {
+                              "str": "select date"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "dateInputMode": {
+                          "str": "YMD"
+                        },
+                        "min": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": -604800
+                              }
+                            ]
+                          }
+                        },
+                        "max": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Still ongoing"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q03_symptoms_ended"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q04_symptoms_started",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "When did the first symptoms appear?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "date",
+                  "role": "dateInput",
+                  "properties": {
+                    "dateInputMode": {
+                      "str": "YMD"
+                    },
+                    "min": {
+                      "dtype": "exp",
+                      "exp": {
+                        "name": "timestampWithOffset",
+                        "data": [
+                          {
+                            "dtype": "num",
+                            "num": -604800
+                          }
+                        ]
+                      }
+                    },
+                    "max": {
+                      "dtype": "exp",
+                      "exp": {
+                        "name": "timestampWithOffset",
+                        "data": [
+                          {
+                            "dtype": "num",
+                            "num": 0
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "description": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "select date"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q04_symptoms_started"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q05_fever_started",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "When did your fever begin?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "date",
+                  "role": "dateInput",
+                  "properties": {
+                    "dateInputMode": {
+                      "str": "YMD"
+                    },
+                    "min": {
+                      "dtype": "exp",
+                      "exp": {
+                        "name": "timestampWithOffset",
+                        "data": [
+                          {
+                            "dtype": "num",
+                            "num": -604800
+                          }
+                        ]
+                      }
+                    },
+                    "max": {
+                      "dtype": "exp",
+                      "exp": {
+                        "name": "timestampWithOffset",
+                        "data": [
+                          {
+                            "dtype": "num",
+                            "num": 0
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "description": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "select date"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q05_fever_started"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q05_1_temperature",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Did you measure your temperature and if so, what was the temperature?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "mcg",
+                  "role": "multipleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes, below 37°C"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes, between 37° - 37.4°C"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "3",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes, between 37.5° - 37.9°C"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "4",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes, between 38° – 38.9°C"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "5",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes, between 39° - 39.9°C"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "6",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes, 40°C or more"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "7",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "I don’t know/can’t remember"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "key": "weekly.q06_seek_care",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Because of your symptoms, did you seek any medical care (face-to-face visit or teleconsult)?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q06_seek_care"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q06_1_seek_care_which",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Please indicate which medical care option you sought:"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "mcg",
+                  "role": "multipleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Private GP"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "GP’s practice or pharmacy nurse"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Pharmacist"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "3",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Public Clinic"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "4",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Hospital admission"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "key": "weekly.q06_2_seek_care_other",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Did you seek any other forms of care or interventions?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q06_2_seek_care_other"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q06_3_seek_care_other_which",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Which forms of care or interventions did you seek?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "mcg",
+                  "role": "multipleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Google/Internet search"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Home remedies"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Traditional healer"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "3",
+                      "role": "input",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Other:"
+                            }
+                          ]
+                        }
+                      ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "please specify"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "key": "weekly.q07_test_taken_any",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Did you have any test taken for this illness?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "mcg",
+                  "role": "multipleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Influenza"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Covid19"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q07_test_taken_any"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q07_1a_influenza_test_results",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "What was the result for your Influenza test?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Positive"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Negative"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "style": []
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q07_1a_influenza_test_results"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q07_2a_influenza_test_type",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "What type of test did you take for Influenza?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "PCR"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Rapid"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "style": []
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q07_2a_influenza_test_type"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q07_3a_influenza_test_date",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "When did you get tested for Influenza?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "date",
+                  "role": "dateInput",
+                  "properties": {
+                    "dateInputMode": {
+                      "str": "YMD"
+                    },
+                    "min": {
+                      "dtype": "exp",
+                      "exp": {
+                        "name": "timestampWithOffset",
+                        "data": [
+                          {
+                            "dtype": "num",
+                            "num": -604800
+                          }
+                        ]
+                      }
+                    },
+                    "max": {
+                      "dtype": "exp",
+                      "exp": {
+                        "name": "timestampWithOffset",
+                        "data": [
+                          {
+                            "dtype": "num",
+                            "num": 0
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "description": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "select date"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q07_3a_influenza_test_date"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q07_1b_covid_test_results",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "What was the result for your Covid test?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Positive"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Negative"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "style": []
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q07_1b_covid_test_results"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q07_2b_covid_test_type",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "What type of test did you take for Covid?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Positive"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Negative"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "style": []
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q07_2b_covid_test_type"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q07_3b_covid_test_date",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "When did you get tested for Covid?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "date",
+                  "role": "dateInput",
+                  "properties": {
+                    "dateInputMode": {
+                      "str": "YMD"
+                    },
+                    "min": {
+                      "dtype": "exp",
+                      "exp": {
+                        "name": "timestampWithOffset",
+                        "data": [
+                          {
+                            "dtype": "num",
+                            "num": -604800
+                          }
+                        ]
+                      }
+                    },
+                    "max": {
+                      "dtype": "exp",
+                      "exp": {
+                        "name": "timestampWithOffset",
+                        "data": [
+                          {
+                            "dtype": "num",
+                            "num": 0
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "description": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "select date"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q07_3b_covid_test_date"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "key": "weekly.q08_medication_any",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Did you take any medication for these symptoms?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "mcg",
+                  "role": "multipleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "No medication"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "1",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Pain Killers (e.g. paracetamol, ibuprofen, aspirin etc)"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "2",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Cough medications"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "3",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Antivirals (Tamiflu, Relenza)"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "4",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Antibiotics"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "5",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Traditional medicine"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "6",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Home remedies"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "7",
+                      "role": "option",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "I don’t know/can’t remember"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": []
+                    },
+                    {
+                      "key": "8",
+                      "role": "input",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Other"
+                            }
+                          ]
+                        }
+                      ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "please specify"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "order": {
+                    "name": "sequential"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "key": "weekly.q09_routine_change",
+        "components": {
+          "role": "root",
+          "order": {
+            "name": "sequential"
+          },
+          "items": [
+            {
+              "role": "title",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Did you change your daily routine because of your illness?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "rg",
+              "role": "responseGroup",
+              "items": [
+                {
+                  "key": "scg",
+                  "role": "singleChoiceGroup",
+                  "items": [
+                    {
+                      "key": "0",
+                      "role": "dateInput",
+                      "content": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Yes, on: "
+                            }
+                          ]
+                        }
+                      ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
                               "str": "Select date"
                             }
                           ]

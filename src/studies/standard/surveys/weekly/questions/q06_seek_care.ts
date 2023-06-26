@@ -1,26 +1,27 @@
 import {
   SingleChoiceQuestionOptions,
   SingleChoiceQuestion,
-  LanguageMap,
   ToOptionDefDict,
+  LanguageMap,
 } from "../../../../../common/types";
+
 import { YesNoResponses } from "../constants";
 
-export class Q01_SymptomsAny extends SingleChoiceQuestion {
+export class Q06_SeekCare extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;
 
   constructor(parentKey: string, strings: LanguageMap) {
-    super(parentKey, Q01_SymptomsAny.key, strings);
+    super(parentKey, Q06_SeekCare.key, strings);
 
     this.options = {
       isRequired: true,
-      responseOptions: ToOptionDefDict(this, Q01_SymptomsAny.Responses, strings),
+      responseOptions: ToOptionDefDict(this, Q06_SeekCare.Responses, strings),
     };
   }
 }
 
-export namespace Q01_SymptomsAny {
-  export const key = "q01_symptoms_any";
+export namespace Q06_SeekCare {
+  export const key = "q06_seek_care";
 
   export const StandardResponses = YesNoResponses;
   export const Responses = StandardResponses;
