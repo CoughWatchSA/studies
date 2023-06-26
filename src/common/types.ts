@@ -270,6 +270,8 @@ export function ToOptionDef(
       },
     };
 
+    // FIXME: these are all single option helpers, they will be used also for
+    // multiple choice options..
     switch (props.role) {
       case "option": {
         def = SingleChoiceOptionTypes.option(props.key, props.content);
@@ -283,7 +285,7 @@ export function ToOptionDef(
       case "dateInput": {
         if (props.inputLabelText === undefined) props.inputLabelText = props.content;
         // TODO: fix placeholderText inside SingleChoiceOptionTypes.dateInput
-        def = {...SingleChoiceOptionTypes.dateInput(props), ...{description: props.placeholderText}};
+        def = { ...SingleChoiceOptionTypes.dateInput(props), ...{ description: props.placeholderText } };
         break;
       }
       case "dateInput_old": {
@@ -321,7 +323,13 @@ export function ToOptionDefDict(
 ): OptionDef[] {
   return ToOptionDef(
     obj,
-    Object.keys(responses).map((key) => ({ ...{ key: _.snakeCase(key) }, ...responses[key] })),
+    // FIXME: this automatic key replacement is getting dangerous since it is
+    // not aligned with the type helper SnakeCase, should we transition back to
+    // explicit keys?
+    Object.keys(responses).map((key) => ({
+      ...{ key: responses[key].key ? responses[key].key : _.snakeCase(key).replace(/_([0-9])/g, "$1") },
+      ...responses[key],
+    })),
     text
   );
 }
