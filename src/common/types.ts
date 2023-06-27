@@ -326,11 +326,8 @@ export function ToOptionDefDict(
 ): OptionDef[] {
   return ToOptionDef(
     obj,
-    // FIXME: this automatic key replacement is getting dangerous since it is
-    // not aligned with the type helper SnakeCase, should we transition back to
-    // explicit keys?
     Object.keys(responses).map((key) => ({
-      ...{ key: responses[key].key ? responses[key].key : _.snakeCase(key).replace(/_([0-9])/g, "$1") },
+      ...{ key: responses[key].key },
       ...responses[key],
     })),
     text
