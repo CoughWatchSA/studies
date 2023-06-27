@@ -21,7 +21,7 @@ const handleIntake = StudyEngine.ifThen(
   StudyEngine.if(
     // if eligible for swab:
     StudyEngine.or(
-      ...Object.values(swabZipCodes).map((zip) =>
+      ...swabZipCodes.map((zip) =>
         StudyEngine.hasResponseKeyWithValue(intake.q03_postal_code.key, textInputResponseKey, zip)
       )
     ),
@@ -66,12 +66,26 @@ const handleWeekly = StudyEngine.ifThen(
   ),
   StudyEngine.if(
     // if is swab eligible:
-    StudyEngine.participantState.hasParticipantFlagKeyAndValue(
-      ParticipantFlags.eligibleForSwab.key,
-      ParticipantFlags.eligibleForSwab.values.yes
+    StudyEngine.and(
+      StudyEngine.participantState.hasParticipantFlagKeyAndValue(
+        ParticipantFlags.eligibleForSwab.key,
+        ParticipantFlags.eligibleForSwab.values.yes
+      ),
+      StudyEngine.not(StudyEngine.participantState.hasParticipantFlagKey(ParticipantFlags.invitedForSwabOn.key))
     ),
     // then:
-    StudyEngine.participantActions.messages.add(messages.inviteSelfSwab, StudyEngine.timestampWithOffset({ days: 0 }))
+    StudyEngine.do(
+      // create a participant message
+      StudyEngine.participantActions.messages.add(
+        messages.inviteSelfSwab,
+        StudyEngine.timestampWithOffset({ days: 0 })
+      ),
+      // save the invitation time
+      StudyEngine.participantActions.updateFlag(
+        ParticipantFlags.invitedForSwabOn.key,
+        StudyEngine.timestampWithOffset({ seconds: 0 })
+      )
+    )
   )
 );
 

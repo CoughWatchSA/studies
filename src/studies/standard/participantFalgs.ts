@@ -12,5 +12,8 @@ export const ParticipantFlags = {
             no: '0',
             yes: '1'
         }
+    },
+    invitedForSwabOn: {
+        key: 'invitedForSwabOn'
     }
 };
