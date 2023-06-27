@@ -180,8 +180,6 @@ class Weekly extends Survey {
 
     this.addConditionalItem(this.q07_3a_influenza_test_date, SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza));
 
-    this.addPageBreak();
-
     this.addConditionalItem(this.q07_1b_covid_test_results, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
 
     this.addConditionalItem(this.q07_2b_covid_test_type, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
@@ -194,11 +192,9 @@ class Weekly extends Survey {
 
     this.addConditionalItem(this.q09_routine_change, hasSymptoms);
 
-    this.addPageBreak();
-
     this.addConditionalItem(this.q09_1_time_off, hasSymptoms);
 
-    const hasTimeOff = SurveyEngine.singleChoice.any(Q09_1_TimeOff.Responses.Yes.value);
+    const hasTimeOff = SurveyEngine.singleChoice.any(this.q09_1_time_off.key, Q09_1_TimeOff.Responses.Yes.value);
 
     this.addConditionalItem(this.q09_2_time_off_days, SurveyEngine.logic.and(hasSymptoms, hasTimeOff));
   }

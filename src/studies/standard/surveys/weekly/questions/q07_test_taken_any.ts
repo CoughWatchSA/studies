@@ -13,7 +13,7 @@ export class Q07_TestTakenAny extends MultipleChoiceQuestion {
     super(parentKey, Q07_TestTakenAny.key, strings);
 
     this.options = {
-      isRequired: true,
+      isRequired: false,
       responseOptions: ToOptionDefDict(this, Q07_TestTakenAny.Responses, strings),
     };
   }
