@@ -65,6 +65,12 @@ export abstract class Survey extends SurveyDefinition {
 
     return item;
   }
+
+  addConditionalItem(item: SurveyItem, condition: Expression) {
+    if (condition) item.condition = condition;
+
+    super.addItem(item);
+  }
 }
 
 export type DateInputProperties = DateInputProps & { key: string; displayCondition?: Expression };

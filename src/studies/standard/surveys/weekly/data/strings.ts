@@ -183,7 +183,7 @@ const questionsStrings: Record<"name" | "description" | "duration", { en: string
     en: "Did you seek any other forms of care or interventions?",
   },
   "q06_3_seek_care_other_which.title": {
-    en: "Which forms of care or interventions did you seek?",
+    en: "Which other forms of care or interventions did you seek?",
   },
   "q06_3_seek_care_other_which.google_search": {
     en: "Google/Internet search",

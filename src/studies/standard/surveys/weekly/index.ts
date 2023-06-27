@@ -32,7 +32,7 @@ class Weekly extends Survey {
   static surveyKey = "weekly";
 
   q01_symptoms_any: SurveySingleItem;
-  q01_symptoms_same_episode: SurveySingleItem;
+  q01_1_symptoms_same_episode: SurveySingleItem;
   q03_symptoms_ended: SurveySingleItem;
   q04_symptoms_start: SurveySingleItem;
   q05_fever_started: SurveySingleItem;
@@ -59,7 +59,7 @@ class Weekly extends Survey {
 
     this.q01_symptoms_any = this.buildQuestion(Q01_SymptomsAny);
 
-    this.q01_symptoms_same_episode = this.buildQuestion(Q01_1_SymptomsSameEpisode);
+    this.q01_1_symptoms_same_episode = this.buildQuestion(Q01_1_SymptomsSameEpisode);
 
     this.q03_symptoms_ended = this.buildQuestion(Q03_SymptomsEnded);
 
@@ -103,54 +103,104 @@ class Weekly extends Survey {
   }
 
   buildSurvey() {
-    this.addItem(this.q01_symptoms_any);
-
-    this.q01_symptoms_same_episode.condition = SurveyEngine.participantFlags.hasKeyAndValue(
+    const isOngoing = SurveyEngine.participantFlags.hasKeyAndValue(
       ParticipantFlags.hasOnGoingSymptoms.key,
       ParticipantFlags.hasOnGoingSymptoms.values.yes
     );
 
-    this.addItem(this.q01_symptoms_same_episode);
+    this.addItem(this.q01_symptoms_any);
 
-    this.addItem(this.q02_symptoms_which);
+    const hasSymptoms = SurveyEngine.singleChoice.any(this.q01_symptoms_any.key, Q01_SymptomsAny.Responses.Yes.value);
 
-    this.addItem(this.q03_symptoms_ended);
+    this.addConditionalItem(this.q01_1_symptoms_same_episode, SurveyEngine.logic.and(hasSymptoms, isOngoing));
 
-    this.addItem(this.q04_symptoms_start);
+    const isSameEpisode = SurveyEngine.singleChoice.any(
+      this.q01_1_symptoms_same_episode.key,
+      Q01_1_SymptomsSameEpisode.Responses.Yes.value
+    );
 
-    this.addItem(this.q05_fever_started);
+    this.addConditionalItem(this.q02_symptoms_which, hasSymptoms);
 
-    this.addItem(this.q05_1_temperature);
+    const hasFever = SurveyEngine.multipleChoice.any(
+      this.q02_symptoms_which.key,
+      Q02_SymptomsWhich.Responses.Fever.value
+    );
 
-    this.addItem(this.q06_seek_care);
+    this.addPageBreak();
 
-    this.addItem(this.q06_1_seek_care_which);
+    this.addConditionalItem(
+      this.q04_symptoms_start,
+      SurveyEngine.logic.and(hasSymptoms, SurveyEngine.logic.not(isSameEpisode))
+    );
 
-    this.addItem(this.q06_2_seek_care_other);
+    this.addConditionalItem(this.q03_symptoms_ended, hasSymptoms);
 
-    this.addItem(this.q06_3_seek_care_other_which);
+    this.addPageBreak();
 
-    this.addItem(this.q07_test_taken_any);
+    this.addConditionalItem(this.q05_fever_started, SurveyEngine.logic.and(hasSymptoms, hasFever));
 
-    this.addItem(this.q07_1a_influenza_test_results);
+    this.addConditionalItem(this.q05_1_temperature, SurveyEngine.logic.and(hasSymptoms, hasFever));
 
-    this.addItem(this.q07_2a_influenza_test_type);
+    this.addPageBreak();
 
-    this.addItem(this.q07_3a_influenza_test_date);
+    this.addConditionalItem(this.q06_seek_care, hasSymptoms);
 
-    this.addItem(this.q07_1b_covid_test_results);
+    const hasSoughtCare = SurveyEngine.singleChoice.any(this.q06_seek_care.key, Q06_SeekCare.Responses.Yes.value);
 
-    this.addItem(this.q07_2b_covid_test_type);
+    this.addConditionalItem(this.q06_1_seek_care_which, SurveyEngine.logic.and(hasSymptoms, hasSoughtCare));
 
-    this.addItem(this.q07_3b_covid_test_date);
+    this.addConditionalItem(this.q06_2_seek_care_other, hasSymptoms);
 
-    this.addItem(this.q08_medication_any);
+    const hasSoughtCareOther = SurveyEngine.singleChoice.any(
+      this.q06_2_seek_care_other.key,
+      Q06_2_SeekCareOther.Responses.Yes.value
+    );
 
-    this.addItem(this.q09_routine_change);
+    this.addConditionalItem(this.q06_3_seek_care_other_which, SurveyEngine.logic.and(hasSymptoms, hasSoughtCareOther));
 
-    this.addItem(this.q09_1_time_off);
+    this.addPageBreak();
 
-    this.addItem(this.q09_2_time_off_days);
+    this.addConditionalItem(this.q07_test_taken_any, hasSymptoms);
+
+    const hasTestedInfluenza = SurveyEngine.multipleChoice.any(
+      this.q07_test_taken_any.key,
+      Q07_TestTakenAny.Responses.Influenza.value
+    );
+    const hasTestedCovid = SurveyEngine.multipleChoice.any(
+      this.q07_test_taken_any.key,
+      Q07_TestTakenAny.Responses.Covid.value
+    );
+
+    this.addConditionalItem(
+      this.q07_1a_influenza_test_results,
+      SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza)
+    );
+
+    this.addConditionalItem(this.q07_2a_influenza_test_type, SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza));
+
+    this.addConditionalItem(this.q07_3a_influenza_test_date, SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza));
+
+    this.addPageBreak();
+
+    this.addConditionalItem(this.q07_1b_covid_test_results, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
+
+    this.addConditionalItem(this.q07_2b_covid_test_type, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
+
+    this.addConditionalItem(this.q07_3b_covid_test_date, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
+
+    this.addPageBreak();
+
+    this.addConditionalItem(this.q08_medication_any, hasSymptoms);
+
+    this.addConditionalItem(this.q09_routine_change, hasSymptoms);
+
+    this.addPageBreak();
+
+    this.addConditionalItem(this.q09_1_time_off, hasSymptoms);
+
+    const hasTimeOff = SurveyEngine.singleChoice.any(Q09_1_TimeOff.Responses.Yes.value);
+
+    this.addConditionalItem(this.q09_2_time_off_days, SurveyEngine.logic.and(hasSymptoms, hasTimeOff));
   }
 }
 
