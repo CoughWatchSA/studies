@@ -50,7 +50,14 @@ const commonStrings = {
   },
   "test_type.unknown": {
     en: "I do not know"
-  }
+  },
+  "ends_before_starting": {
+    en: "End date must be posterior to start date",
+  },
+  "starts_after_ending": {
+    en: "Start date must be anterior to end date",
+  },
+
 };
 
 const questionsStrings: Record<"name" | "description" | "duration", { en: string }> &
@@ -77,7 +84,7 @@ const questionsStrings: Record<"name" | "description" | "duration", { en: string
   TResponsesText<typeof Q09_1_TimeOff> &
   TResponsesText<typeof Q09_2_TimeOffDays> = {
   name: {
-    en: "Weekly Questionnaire",
+    en: "Weekly Symptoms Questionnaire",
   },
   description: {
     en: "",

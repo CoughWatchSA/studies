@@ -37,8 +37,8 @@ export const NoResponse: Record<TNoResponse, TCommonResponseWithKeys<TNoResponse
 
 export type TYesNoResponses = TYesResponse | TNoResponse;
 export const YesNoResponses: Record<TYesNoResponses, TCommonResponseWithKeys<TYesNoResponses>> = {
-  ...YesResponse,
   ...NoResponse,
+  ...YesResponse,
 };
 
 export type TResponsesTestResult = "Positive" | "Negative" | "NotConclusive";
@@ -66,16 +66,16 @@ export const ResponsesTestType: Record<TResponsesTestType, TCommonResponseWithKe
   Pcr: {
     key: "pcr",
     value: "0",
-    textKey: "test_type.pcr"
+    textKey: "test_type.pcr",
   },
   Rapid: {
     key: "rapid",
     value: "1",
-    textKey: "test_type.rapid"
+    textKey: "test_type.rapid",
   },
   Unknown: {
     key: "unknown",
     value: "2",
-    textKey: "test_type.unknown"
+    textKey: "test_type.unknown",
   },
 };

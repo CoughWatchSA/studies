@@ -1,8 +1,12 @@
 import { SurveyEngine } from "case-editor-tools/surveys";
+import { ItemEditor } from "case-editor-tools/surveys/survey-editor/item-editor";
 import { SurveySingleItem } from "survey-engine/data_types";
-import { Survey } from "../../../../common/types";
+import { generateLocStrings, Survey } from "../../../../common/types";
 import { ParticipantFlags } from "../../participantFalgs";
 import { strings } from "./data/strings";
+
+import * as helpers from "../../../../common/helpers"
+
 import {
   Q01_1_SymptomsSameEpisode,
   Q01_SymptomsAny,
@@ -61,6 +65,8 @@ class Weekly extends Survey {
 
     this.q01_1_symptoms_same_episode = this.buildQuestion(Q01_1_SymptomsSameEpisode);
 
+    this.q02_symptoms_which = this.buildQuestion(Q02_SymptomsWhich);
+
     this.q03_symptoms_ended = this.buildQuestion(Q03_SymptomsEnded);
 
     this.q04_symptoms_start = this.buildQuestion(Q04_SymptomsStarted);
@@ -74,8 +80,6 @@ class Weekly extends Survey {
     this.q06_2_seek_care_other = this.buildQuestion(Q06_2_SeekCareOther);
 
     this.q06_3_seek_care_other_which = this.buildQuestion(Q06_3_SeekCareOtherWhich);
-
-    this.q02_symptoms_which = this.buildQuestion(Q02_SymptomsWhich);
 
     this.q05_1_temperature = this.buildQuestion(Q05_1_Temperature);
 
@@ -128,10 +132,43 @@ class Weekly extends Survey {
 
     this.addPageBreak();
 
+    const startsBeforeEnding = SurveyEngine.logic.or(
+      SurveyEngine.logic.not(helpers.responses.getValue(this.q04_symptoms_start)),
+      SurveyEngine.logic.not(helpers.responses.getValue(this.q03_symptoms_ended)),
+      SurveyEngine.compare.lte(
+        helpers.responses.getValue(this.q04_symptoms_start),
+        helpers.responses.getValue(this.q03_symptoms_ended)
+      )
+    );
+
+    new ItemEditor(this.q04_symptoms_start).addValidation({
+      key: "start_before_end",
+      rule: startsBeforeEnding,
+      type: "hard",
+    });
+
+    new ItemEditor(this.q04_symptoms_start).addDisplayComponent({
+      role: "error",
+      content: generateLocStrings(strings["starts_after_ending"]),
+      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "start_before_end")),
+    });
+
     this.addConditionalItem(
       this.q04_symptoms_start,
       SurveyEngine.logic.and(hasSymptoms, SurveyEngine.logic.not(isSameEpisode))
     );
+
+    new ItemEditor(this.q03_symptoms_ended).addValidation({
+      key: "end_after_start",
+      rule: startsBeforeEnding,
+      type: "hard",
+    });
+
+    new ItemEditor(this.q03_symptoms_ended).addDisplayComponent({
+      role: "error",
+      content: generateLocStrings(strings["ends_before_starting"]),
+      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "end_after_start")),
+    });
 
     this.addConditionalItem(this.q03_symptoms_ended, hasSymptoms);
 
@@ -150,6 +187,7 @@ class Weekly extends Survey {
     this.addConditionalItem(this.q06_1_seek_care_which, SurveyEngine.logic.and(hasSymptoms, hasSoughtCare));
 
     this.addConditionalItem(this.q06_2_seek_care_other, hasSymptoms);
+
 
     const hasSoughtCareOther = SurveyEngine.singleChoice.any(
       this.q06_2_seek_care_other.key,
