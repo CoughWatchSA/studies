@@ -694,7 +694,7 @@
         }
       },
       {
-        "key": "weekly.PB_kHkY",
+        "key": "weekly.PB_upKx",
         "type": "pageBreak"
       },
       {
@@ -1824,7 +1824,7 @@
         }
       },
       {
-        "key": "weekly.PB_3yj9",
+        "key": "weekly.PB_L3pP",
         "type": "pageBreak"
       },
       {
@@ -1896,6 +1896,40 @@
                   ]
                 }
               ]
+            },
+            {
+              "role": "error",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Date must be inside symptoms interval"
+                    }
+                  ]
+                }
+              ],
+              "displayCondition": {
+                "name": "not",
+                "data": [
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "getSurveyItemValidation",
+                      "data": [
+                        {
+                          "dtype": "str",
+                          "str": "this"
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "inside_symptoms_span"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
             }
           ]
         },
@@ -1916,6 +1950,643 @@
                 }
               ]
             }
+          },
+          {
+            "key": "inside_symptoms_span",
+            "rule": {
+              "name": "or",
+              "data": [
+                {
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "not",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "parseValueAsNum",
+                          "returnType": "float",
+                          "data": [
+                            {
+                              "dtype": "exp",
+                              "exp": {
+                                "name": "getAttribute",
+                                "data": [
+                                  {
+                                    "dtype": "exp",
+                                    "exp": {
+                                      "name": "getAttribute",
+                                      "data": [
+                                        {
+                                          "dtype": "exp",
+                                          "exp": {
+                                            "name": "getAttribute",
+                                            "data": [
+                                              {
+                                                "dtype": "exp",
+                                                "exp": {
+                                                  "name": "getAttribute",
+                                                  "data": [
+                                                    {
+                                                      "dtype": "exp",
+                                                      "exp": {
+                                                        "name": "getObjByHierarchicalKey",
+                                                        "data": [
+                                                          {
+                                                            "dtype": "exp",
+                                                            "exp": {
+                                                              "name": "getResponses",
+                                                              "data": []
+                                                            }
+                                                          },
+                                                          {
+                                                            "dtype": "str",
+                                                            "str": "weekly.q04_symptoms_started"
+                                                          }
+                                                        ]
+                                                      }
+                                                    },
+                                                    {
+                                                      "dtype": "str",
+                                                      "str": "response"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              {
+                                                "dtype": "str",
+                                                "str": "items"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "dtype": "str",
+                                          "str": "0"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "value"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "not",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "parseValueAsNum",
+                          "returnType": "float",
+                          "data": [
+                            {
+                              "dtype": "exp",
+                              "exp": {
+                                "name": "getAttribute",
+                                "data": [
+                                  {
+                                    "dtype": "exp",
+                                    "exp": {
+                                      "name": "getAttribute",
+                                      "data": [
+                                        {
+                                          "dtype": "exp",
+                                          "exp": {
+                                            "name": "getAttribute",
+                                            "data": [
+                                              {
+                                                "dtype": "exp",
+                                                "exp": {
+                                                  "name": "getAttribute",
+                                                  "data": [
+                                                    {
+                                                      "dtype": "exp",
+                                                      "exp": {
+                                                        "name": "getAttribute",
+                                                        "data": [
+                                                          {
+                                                            "dtype": "exp",
+                                                            "exp": {
+                                                              "name": "getAttribute",
+                                                              "data": [
+                                                                {
+                                                                  "dtype": "exp",
+                                                                  "exp": {
+                                                                    "name": "getObjByHierarchicalKey",
+                                                                    "data": [
+                                                                      {
+                                                                        "dtype": "exp",
+                                                                        "exp": {
+                                                                          "name": "getResponses",
+                                                                          "data": []
+                                                                        }
+                                                                      },
+                                                                      {
+                                                                        "dtype": "str",
+                                                                        "str": "weekly.q03_symptoms_ended"
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                },
+                                                                {
+                                                                  "dtype": "str",
+                                                                  "str": "response"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          {
+                                                            "dtype": "str",
+                                                            "str": "items"
+                                                          }
+                                                        ]
+                                                      }
+                                                    },
+                                                    {
+                                                      "dtype": "str",
+                                                      "str": "0"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              {
+                                                "dtype": "str",
+                                                "str": "items"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "dtype": "str",
+                                          "str": "0"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "value"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "not",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "parseValueAsNum",
+                          "returnType": "float",
+                          "data": [
+                            {
+                              "dtype": "exp",
+                              "exp": {
+                                "name": "getAttribute",
+                                "data": [
+                                  {
+                                    "dtype": "exp",
+                                    "exp": {
+                                      "name": "getAttribute",
+                                      "data": [
+                                        {
+                                          "dtype": "exp",
+                                          "exp": {
+                                            "name": "getAttribute",
+                                            "data": [
+                                              {
+                                                "dtype": "exp",
+                                                "exp": {
+                                                  "name": "getAttribute",
+                                                  "data": [
+                                                    {
+                                                      "dtype": "exp",
+                                                      "exp": {
+                                                        "name": "getObjByHierarchicalKey",
+                                                        "data": [
+                                                          {
+                                                            "dtype": "exp",
+                                                            "exp": {
+                                                              "name": "getResponses",
+                                                              "data": []
+                                                            }
+                                                          },
+                                                          {
+                                                            "dtype": "str",
+                                                            "str": "weekly.q05_fever_started"
+                                                          }
+                                                        ]
+                                                      }
+                                                    },
+                                                    {
+                                                      "dtype": "str",
+                                                      "str": "response"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              {
+                                                "dtype": "str",
+                                                "str": "items"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "dtype": "str",
+                                          "str": "0"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "value"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "and",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "gte",
+                          "data": [
+                            {
+                              "dtype": "exp",
+                              "exp": {
+                                "name": "parseValueAsNum",
+                                "returnType": "float",
+                                "data": [
+                                  {
+                                    "dtype": "exp",
+                                    "exp": {
+                                      "name": "getAttribute",
+                                      "data": [
+                                        {
+                                          "dtype": "exp",
+                                          "exp": {
+                                            "name": "getAttribute",
+                                            "data": [
+                                              {
+                                                "dtype": "exp",
+                                                "exp": {
+                                                  "name": "getAttribute",
+                                                  "data": [
+                                                    {
+                                                      "dtype": "exp",
+                                                      "exp": {
+                                                        "name": "getAttribute",
+                                                        "data": [
+                                                          {
+                                                            "dtype": "exp",
+                                                            "exp": {
+                                                              "name": "getObjByHierarchicalKey",
+                                                              "data": [
+                                                                {
+                                                                  "dtype": "exp",
+                                                                  "exp": {
+                                                                    "name": "getResponses",
+                                                                    "data": []
+                                                                  }
+                                                                },
+                                                                {
+                                                                  "dtype": "str",
+                                                                  "str": "weekly.q05_fever_started"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          {
+                                                            "dtype": "str",
+                                                            "str": "response"
+                                                          }
+                                                        ]
+                                                      }
+                                                    },
+                                                    {
+                                                      "dtype": "str",
+                                                      "str": "items"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              {
+                                                "dtype": "str",
+                                                "str": "0"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "dtype": "str",
+                                          "str": "value"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "dtype": "exp",
+                              "exp": {
+                                "name": "parseValueAsNum",
+                                "returnType": "float",
+                                "data": [
+                                  {
+                                    "dtype": "exp",
+                                    "exp": {
+                                      "name": "getAttribute",
+                                      "data": [
+                                        {
+                                          "dtype": "exp",
+                                          "exp": {
+                                            "name": "getAttribute",
+                                            "data": [
+                                              {
+                                                "dtype": "exp",
+                                                "exp": {
+                                                  "name": "getAttribute",
+                                                  "data": [
+                                                    {
+                                                      "dtype": "exp",
+                                                      "exp": {
+                                                        "name": "getAttribute",
+                                                        "data": [
+                                                          {
+                                                            "dtype": "exp",
+                                                            "exp": {
+                                                              "name": "getObjByHierarchicalKey",
+                                                              "data": [
+                                                                {
+                                                                  "dtype": "exp",
+                                                                  "exp": {
+                                                                    "name": "getResponses",
+                                                                    "data": []
+                                                                  }
+                                                                },
+                                                                {
+                                                                  "dtype": "str",
+                                                                  "str": "weekly.q04_symptoms_started"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          {
+                                                            "dtype": "str",
+                                                            "str": "response"
+                                                          }
+                                                        ]
+                                                      }
+                                                    },
+                                                    {
+                                                      "dtype": "str",
+                                                      "str": "items"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              {
+                                                "dtype": "str",
+                                                "str": "0"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "dtype": "str",
+                                          "str": "value"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "lte",
+                          "data": [
+                            {
+                              "dtype": "exp",
+                              "exp": {
+                                "name": "parseValueAsNum",
+                                "returnType": "float",
+                                "data": [
+                                  {
+                                    "dtype": "exp",
+                                    "exp": {
+                                      "name": "getAttribute",
+                                      "data": [
+                                        {
+                                          "dtype": "exp",
+                                          "exp": {
+                                            "name": "getAttribute",
+                                            "data": [
+                                              {
+                                                "dtype": "exp",
+                                                "exp": {
+                                                  "name": "getAttribute",
+                                                  "data": [
+                                                    {
+                                                      "dtype": "exp",
+                                                      "exp": {
+                                                        "name": "getAttribute",
+                                                        "data": [
+                                                          {
+                                                            "dtype": "exp",
+                                                            "exp": {
+                                                              "name": "getObjByHierarchicalKey",
+                                                              "data": [
+                                                                {
+                                                                  "dtype": "exp",
+                                                                  "exp": {
+                                                                    "name": "getResponses",
+                                                                    "data": []
+                                                                  }
+                                                                },
+                                                                {
+                                                                  "dtype": "str",
+                                                                  "str": "weekly.q05_fever_started"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          {
+                                                            "dtype": "str",
+                                                            "str": "response"
+                                                          }
+                                                        ]
+                                                      }
+                                                    },
+                                                    {
+                                                      "dtype": "str",
+                                                      "str": "items"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              {
+                                                "dtype": "str",
+                                                "str": "0"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "dtype": "str",
+                                          "str": "value"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "dtype": "exp",
+                              "exp": {
+                                "name": "parseValueAsNum",
+                                "returnType": "float",
+                                "data": [
+                                  {
+                                    "dtype": "exp",
+                                    "exp": {
+                                      "name": "getAttribute",
+                                      "data": [
+                                        {
+                                          "dtype": "exp",
+                                          "exp": {
+                                            "name": "getAttribute",
+                                            "data": [
+                                              {
+                                                "dtype": "exp",
+                                                "exp": {
+                                                  "name": "getAttribute",
+                                                  "data": [
+                                                    {
+                                                      "dtype": "exp",
+                                                      "exp": {
+                                                        "name": "getAttribute",
+                                                        "data": [
+                                                          {
+                                                            "dtype": "exp",
+                                                            "exp": {
+                                                              "name": "getAttribute",
+                                                              "data": [
+                                                                {
+                                                                  "dtype": "exp",
+                                                                  "exp": {
+                                                                    "name": "getAttribute",
+                                                                    "data": [
+                                                                      {
+                                                                        "dtype": "exp",
+                                                                        "exp": {
+                                                                          "name": "getObjByHierarchicalKey",
+                                                                          "data": [
+                                                                            {
+                                                                              "dtype": "exp",
+                                                                              "exp": {
+                                                                                "name": "getResponses",
+                                                                                "data": []
+                                                                              }
+                                                                            },
+                                                                            {
+                                                                              "dtype": "str",
+                                                                              "str": "weekly.q03_symptoms_ended"
+                                                                            }
+                                                                          ]
+                                                                        }
+                                                                      },
+                                                                      {
+                                                                        "dtype": "str",
+                                                                        "str": "response"
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                },
+                                                                {
+                                                                  "dtype": "str",
+                                                                  "str": "items"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          {
+                                                            "dtype": "str",
+                                                            "str": "0"
+                                                          }
+                                                        ]
+                                                      }
+                                                    },
+                                                    {
+                                                      "dtype": "str",
+                                                      "str": "items"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              {
+                                                "dtype": "str",
+                                                "str": "0"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "dtype": "str",
+                                          "str": "value"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "type": "hard"
           }
         ],
         "condition": {
@@ -2122,6 +2793,25 @@
             }
           ]
         },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q05_1_temperature"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
         "condition": {
           "name": "and",
           "data": [
@@ -2169,7 +2859,7 @@
         }
       },
       {
-        "key": "weekly.PB_QK2b",
+        "key": "weekly.PB_3MYM",
         "type": "pageBreak"
       },
       {
@@ -2390,6 +3080,25 @@
             }
           ]
         },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q06_1_seek_care_which"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
         "condition": {
           "name": "and",
           "data": [
@@ -2648,6 +3357,25 @@
             }
           ]
         },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q06_3_seek_care_other_which"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
         "condition": {
           "name": "and",
           "data": [
@@ -2695,7 +3423,7 @@
         }
       },
       {
-        "key": "weekly.PB_5kLy",
+        "key": "weekly.PB_rGLe",
         "type": "pageBreak"
       },
       {
@@ -3152,25 +3880,6 @@
             }
           ]
         },
-        "validations": [
-          {
-            "key": "r1",
-            "type": "hard",
-            "rule": {
-              "name": "hasResponse",
-              "data": [
-                {
-                  "dtype": "str",
-                  "str": "weekly.q07_3a_influenza_test_date"
-                },
-                {
-                  "dtype": "str",
-                  "str": "rg"
-                }
-              ]
-            }
-          }
-        ],
         "condition": {
           "name": "and",
           "data": [
@@ -3585,25 +4294,6 @@
             }
           ]
         },
-        "validations": [
-          {
-            "key": "r1",
-            "type": "hard",
-            "rule": {
-              "name": "hasResponse",
-              "data": [
-                {
-                  "dtype": "str",
-                  "str": "weekly.q07_3b_covid_test_date"
-                },
-                {
-                  "dtype": "str",
-                  "str": "rg"
-                }
-              ]
-            }
-          }
-        ],
         "condition": {
           "name": "and",
           "data": [
@@ -3651,7 +4341,7 @@
         }
       },
       {
-        "key": "weekly.PB_Dbj9",
+        "key": "weekly.PB_mly7",
         "type": "pageBreak"
       },
       {
@@ -3836,6 +4526,25 @@
             }
           ]
         },
+        "validations": [
+          {
+            "key": "r1",
+            "type": "hard",
+            "rule": {
+              "name": "hasResponse",
+              "data": [
+                {
+                  "dtype": "str",
+                  "str": "weekly.q08_medication_any"
+                },
+                {
+                  "dtype": "str",
+                  "str": "rg"
+                }
+              ]
+            }
+          }
+        ],
         "condition": {
           "name": "responseHasKeysAny",
           "data": [
