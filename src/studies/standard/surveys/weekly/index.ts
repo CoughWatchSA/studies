@@ -73,6 +73,8 @@ class Weekly extends Survey {
 
     this.q05_fever_started = this.buildQuestion(Q05_FeverStarted);
 
+    this.q05_1_temperature = this.buildQuestion(Q05_1_Temperature);
+
     this.q06_seek_care = this.buildQuestion(Q06_SeekCare);
 
     this.q06_1_seek_care_which = this.buildQuestion(Q06_1_SeekCareWhich);
@@ -80,8 +82,6 @@ class Weekly extends Survey {
     this.q06_2_seek_care_other = this.buildQuestion(Q06_2_SeekCareOther);
 
     this.q06_3_seek_care_other_which = this.buildQuestion(Q06_3_SeekCareOtherWhich);
-
-    this.q05_1_temperature = this.buildQuestion(Q05_1_Temperature);
 
     this.q07_test_taken_any = this.buildQuestion(Q07_TestTakenAny);
 
@@ -174,7 +174,36 @@ class Weekly extends Survey {
 
     this.addPageBreak();
 
+    const insideSymptomsSpan = SurveyEngine.logic.or(
+      SurveyEngine.logic.not(helpers.responses.getValue(this.q04_symptoms_start)),
+      SurveyEngine.logic.not(helpers.responses.getValue(this.q03_symptoms_ended)),
+      SurveyEngine.logic.not(helpers.responses.getValue(this.q05_fever_started)),
+      SurveyEngine.logic.and(
+        SurveyEngine.compare.gte(
+          helpers.responses.getValue(this.q05_fever_started),
+          helpers.responses.getValue(this.q04_symptoms_start)
+        ),
+        SurveyEngine.compare.lte(
+          helpers.responses.getValue(this.q05_fever_started),
+          helpers.responses.getValue(this.q03_symptoms_ended)
+        )
+      )
+    );
+
     this.addConditionalItem(this.q05_fever_started, SurveyEngine.logic.and(hasSymptoms, hasFever));
+
+    new ItemEditor(this.q05_fever_started).addValidation({
+      key: "inside_symptoms_span",
+      rule: insideSymptomsSpan,
+      type: "hard",
+    });
+
+    new ItemEditor(this.q05_fever_started).addDisplayComponent({
+      role: "error",
+      content: generateLocStrings(strings["outside_symptoms_span"]),
+      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "inside_symptoms_span")),
+    });
+
 
     this.addConditionalItem(this.q05_1_temperature, SurveyEngine.logic.and(hasSymptoms, hasFever));
 

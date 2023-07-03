@@ -13,7 +13,7 @@ export class Q06_1_SeekCareWhich extends MultipleChoiceQuestion {
     super(parentKey, Q06_1_SeekCareWhich.key, strings);
 
     this.options = {
-      isRequired: false,
+      isRequired: true,
       responseOptions: ToOptionDefDict(this, Q06_1_SeekCareWhich.Responses, strings),
     };
   }

@@ -8,7 +8,7 @@ export class Q07_3b_CovidTestDate extends DateInputQuestion {
     super(parentKey, Q07_3b_CovidTestDate.key, strings);
 
     this.options = {
-      isRequired: true,
+      isRequired: false,
     ...illnessTestDateOptions
     };
   }

@@ -14,7 +14,7 @@ export class Q08_MedicationAny extends MultipleChoiceQuestion {
     super(parentKey, Q08_MedicationAny.key, strings);
 
     this.options = {
-      isRequired: false,
+      isRequired: true,
       responseOptions: ToOptionDefDict(this, Q08_MedicationAny.Responses, strings),
     };
   }

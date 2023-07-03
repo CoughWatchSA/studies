@@ -14,7 +14,7 @@ export class Q02_SymptomsWhich extends MultipleChoiceQuestion {
     super(parentKey, Q02_SymptomsWhich.key, strings);
 
     this.options = {
-      isRequired: false,
+      isRequired: true,
       responseOptions: ToOptionDefDict(this, Q02_SymptomsWhich.Responses, strings),
     };
   }

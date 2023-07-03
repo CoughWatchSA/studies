@@ -57,6 +57,9 @@ const commonStrings = {
   "starts_after_ending": {
     en: "Start date must be anterior to end date",
   },
+  "outside_symptoms_span": {
+    en: "Date must be inside symptoms interval",
+  },
 
 };
 

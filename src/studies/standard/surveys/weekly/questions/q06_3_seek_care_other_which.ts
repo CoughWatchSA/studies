@@ -14,7 +14,7 @@ export class Q06_3_SeekCareOtherWhich extends MultipleChoiceQuestion {
     super(parentKey, Q06_3_SeekCareOtherWhich.key, strings);
 
     this.options = {
-      isRequired: false,
+      isRequired: true,
       responseOptions: ToOptionDefDict(this, Q06_3_SeekCareOtherWhich.Responses, strings),
     };
   }

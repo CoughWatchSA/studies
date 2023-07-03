@@ -13,7 +13,7 @@ export class Q05_1_Temperature extends MultipleChoiceQuestion {
     super(parentKey, Q05_1_Temperature.key, strings);
 
     this.options = {
-      isRequired: false,
+      isRequired: true,
       responseOptions: ToOptionDefDict(this, Q05_1_Temperature.Responses, strings),
     };
   }
