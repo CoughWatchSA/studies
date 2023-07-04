@@ -172,12 +172,13 @@
           {
             "key": "minAge",
             "rule": {
-              "name": "or",
+              "name": "gte",
               "data": [
                 {
                   "dtype": "exp",
                   "exp": {
-                    "name": "checkResponseValueWithRegex",
+                    "name": "getResponseValueAsNum",
+                    "returnType": "float",
                     "data": [
                       {
                         "dtype": "str",
@@ -186,42 +187,13 @@
                       {
                         "dtype": "str",
                         "str": "rg.num"
-                      },
-                      {
-                        "dtype": "str",
-                        "str": "^$"
                       }
                     ]
                   }
                 },
                 {
-                  "dtype": "exp",
-                  "exp": {
-                    "name": "gte",
-                    "data": [
-                      {
-                        "dtype": "exp",
-                        "exp": {
-                          "name": "getResponseValueAsNum",
-                          "returnType": "float",
-                          "data": [
-                            {
-                              "dtype": "str",
-                              "str": "intake.q01_age"
-                            },
-                            {
-                              "dtype": "str",
-                              "str": "rg.num"
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "dtype": "num",
-                        "num": 0
-                      }
-                    ]
-                  }
+                  "dtype": "num",
+                  "num": 0
                 }
               ]
             },
@@ -230,12 +202,13 @@
           {
             "key": "maxAge",
             "rule": {
-              "name": "or",
+              "name": "lte",
               "data": [
                 {
                   "dtype": "exp",
                   "exp": {
-                    "name": "checkResponseValueWithRegex",
+                    "name": "getResponseValueAsNum",
+                    "returnType": "float",
                     "data": [
                       {
                         "dtype": "str",
@@ -244,42 +217,13 @@
                       {
                         "dtype": "str",
                         "str": "rg.num"
-                      },
-                      {
-                        "dtype": "str",
-                        "str": "^$"
                       }
                     ]
                   }
                 },
                 {
-                  "dtype": "exp",
-                  "exp": {
-                    "name": "lte",
-                    "data": [
-                      {
-                        "dtype": "exp",
-                        "exp": {
-                          "name": "getResponseValueAsNum",
-                          "returnType": "float",
-                          "data": [
-                            {
-                              "dtype": "str",
-                              "str": "intake.q01_age"
-                            },
-                            {
-                              "dtype": "str",
-                              "str": "rg.num"
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "dtype": "num",
-                        "num": 120
-                      }
-                    ]
-                  }
+                  "dtype": "num",
+                  "num": 120
                 }
               ]
             },
@@ -508,51 +452,19 @@
           {
             "key": "postal_code",
             "rule": {
-              "name": "or",
+              "name": "checkResponseValueWithRegex",
               "data": [
                 {
-                  "dtype": "exp",
-                  "exp": {
-                    "name": "not",
-                    "data": [
-                      {
-                        "dtype": "exp",
-                        "exp": {
-                          "name": "hasResponse",
-                          "data": [
-                            {
-                              "dtype": "str",
-                              "str": "intake.q03_postal_code"
-                            },
-                            {
-                              "dtype": "str",
-                              "str": "rg.ic"
-                            }
-                          ]
-                        }
-                      }
-                    ]
-                  }
+                  "dtype": "str",
+                  "str": "intake.q03_postal_code"
                 },
                 {
-                  "dtype": "exp",
-                  "exp": {
-                    "name": "checkResponseValueWithRegex",
-                    "data": [
-                      {
-                        "dtype": "str",
-                        "str": "intake.q03_postal_code"
-                      },
-                      {
-                        "dtype": "str",
-                        "str": "rg.ic"
-                      },
-                      {
-                        "dtype": "str",
-                        "str": "^\\d{4}$"
-                      }
-                    ]
-                  }
+                  "dtype": "str",
+                  "str": "rg.ic"
+                },
+                {
+                  "dtype": "str",
+                  "str": "^\\d{4}$"
                 }
               ]
             },
@@ -754,7 +666,7 @@
         ]
       },
       {
-        "key": "intake.PB_pgZT",
+        "key": "intake.PB_tHC8",
         "type": "pageBreak"
       },
       {
@@ -1218,7 +1130,7 @@
         }
       },
       {
-        "key": "intake.PB_4Yc5",
+        "key": "intake.PB_u7KO",
         "type": "pageBreak"
       },
       {
@@ -2182,7 +2094,7 @@
         }
       },
       {
-        "key": "intake.PB_H8KG",
+        "key": "intake.PB_kYQ7",
         "type": "pageBreak"
       },
       {

@@ -6,21 +6,21 @@ import {
   LanguageMap,
 } from "../../../../../common/types";
 
-export class Q04_CovidVaccine extends SingleChoiceQuestion {
+export class Q02_CovidVaccine extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;
 
   constructor(parentKey: string, strings: LanguageMap) {
-    super(parentKey, Q04_CovidVaccine.key, strings);
+    super(parentKey, Q02_CovidVaccine.key, strings);
 
     this.options = {
       isRequired: true,
-      responseOptions: ToOptionDef(this, [Q04_CovidVaccine.Responses.Yes, Q04_CovidVaccine.Responses.No], strings),
+      responseOptions: ToOptionDef(this, [Q02_CovidVaccine.Responses.Yes, Q02_CovidVaccine.Responses.No], strings),
     };
   }
 }
 
-export namespace Q04_CovidVaccine {
-  export const key = "q04_covid_vaccine";
+export namespace Q02_CovidVaccine {
+  export const key = "q02_covid_vaccine";
 
   type TResponses = "Yes" | "No";
 

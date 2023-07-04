@@ -2,15 +2,15 @@ import { SurveyEngine } from "case-editor-tools/surveys";
 import { Survey } from "../../../../common/types";
 import { strings } from "./data/strings";
 import { Q01_FluVaccine } from "./questions/q01_flu_vaccine";
-import { Q02_FluVaccineWhen } from "./questions/q02_flu_vaccine_when";
-import { Q03_FluVaccinePreviousSeason } from "./questions/q03_flu_vaccine_previous_season";
-import { Q04_CovidVaccine } from "./questions/q04_covid_vaccine";
-import { Q05_CovidVaccineDoses } from "./questions/q05_covid_vaccine_doses";
-import { Q06_CovidVaccine_First_Dose } from "./questions/q06_covid_vaccine_first_dose";
-import { Q07_CovidVaccine_Second_Dose } from "./questions/q07_covid_vaccine_second_dose";
-import { Q08_CovidVaccine_Third_Dose } from "./questions/q08_covid_vaccine_third_dose";
-import { Q09_CovidVaccine_Fourth_Dose } from "./questions/q09_covid_vaccine_fourth_dose";
-import { Q10_CovidVaccine_Fifth_Dose } from "./questions/q10_covid_vaccine_fifth_dose";
+import { Q01_1_FluVaccineWhen } from "./questions/q01_1_flu_vaccine_when";
+import { Q01_2_FluVaccinePreviousSeason } from "./questions/q01_2_flu_vaccine_previous_season";
+import { Q02_CovidVaccine } from "./questions/q02_covid_vaccine";
+import { Q02_1_CovidVaccineDoses } from "./questions/q02_1_covid_vaccine_doses";
+import { Q02_2a_CovidVaccine_First_Dose } from "./questions/q02_2a_covid_vaccine_first_dose";
+import { Q02_2b_CovidVaccine_Second_Dose } from "./questions/q02_2b_covid_vaccine_second_dose";
+import { Q02_2c_CovidVaccine_Third_Dose } from "./questions/q02_2c_covid_vaccine_third_dose";
+import { Q02_2d_CovidVaccine_Fourth_Dose } from "./questions/q02_2d_covid_vaccine_fourth_dose";
+import { Q02_2e_CovidVaccine_Fifth_Dose } from "./questions/q02_2e_covid_vaccine_fifth_dose";
 
 class Vaccination extends Survey {
   static surveyKey = "vaccination";
@@ -23,66 +23,66 @@ class Vaccination extends Survey {
     const q01_flu_vaccine = this.addQuestion(Q01_FluVaccine);
 
     this.addQuestion(
-      Q02_FluVaccineWhen,
+      Q01_1_FluVaccineWhen,
       SurveyEngine.singleChoice.any(q01_flu_vaccine.key, Q01_FluVaccine.Responses.Yes.value)
     );
 
-    this.addQuestion(Q03_FluVaccinePreviousSeason);
+    this.addQuestion(Q01_2_FluVaccinePreviousSeason);
 
     this.addPageBreak();
 
-    const q04_covid_vaccine = this.addQuestion(Q04_CovidVaccine);
+    const q02_covid_vaccine = this.addQuestion(Q02_CovidVaccine);
 
-    const q05_covid_vaccine_doses = this.addQuestion(
-      Q05_CovidVaccineDoses,
-      SurveyEngine.singleChoice.any(q04_covid_vaccine.key, Q04_CovidVaccine.Responses.Yes.value)
+    const q02_1_covid_vaccine_doses = this.addQuestion(
+      Q02_1_CovidVaccineDoses,
+      SurveyEngine.singleChoice.any(q02_covid_vaccine.key, Q02_CovidVaccine.Responses.Yes.value)
     );
 
     this.addQuestion(
-      Q06_CovidVaccine_First_Dose,
+      Q02_2a_CovidVaccine_First_Dose,
       SurveyEngine.singleChoice.any(
-        q05_covid_vaccine_doses.key,
-        Q05_CovidVaccineDoses.Responses.OneDose.value,
-        Q05_CovidVaccineDoses.Responses.TwoDoses.value,
-        Q05_CovidVaccineDoses.Responses.ThreeDoses.value,
-        Q05_CovidVaccineDoses.Responses.FourDoses.value,
-        Q05_CovidVaccineDoses.Responses.FiveDoses.value
+        q02_1_covid_vaccine_doses.key,
+        Q02_1_CovidVaccineDoses.Responses.OneDose.value,
+        Q02_1_CovidVaccineDoses.Responses.TwoDoses.value,
+        Q02_1_CovidVaccineDoses.Responses.ThreeDoses.value,
+        Q02_1_CovidVaccineDoses.Responses.FourDoses.value,
+        Q02_1_CovidVaccineDoses.Responses.FiveDoses.value
       )
     );
 
     this.addQuestion(
-      Q07_CovidVaccine_Second_Dose,
+      Q02_2b_CovidVaccine_Second_Dose,
       SurveyEngine.singleChoice.any(
-        q05_covid_vaccine_doses.key,
-        Q05_CovidVaccineDoses.Responses.TwoDoses.value,
-        Q05_CovidVaccineDoses.Responses.ThreeDoses.value,
-        Q05_CovidVaccineDoses.Responses.FourDoses.value,
-        Q05_CovidVaccineDoses.Responses.FiveDoses.value
+        q02_1_covid_vaccine_doses.key,
+        Q02_1_CovidVaccineDoses.Responses.TwoDoses.value,
+        Q02_1_CovidVaccineDoses.Responses.ThreeDoses.value,
+        Q02_1_CovidVaccineDoses.Responses.FourDoses.value,
+        Q02_1_CovidVaccineDoses.Responses.FiveDoses.value
       )
     );
 
     this.addQuestion(
-      Q08_CovidVaccine_Third_Dose,
+      Q02_2c_CovidVaccine_Third_Dose,
       SurveyEngine.singleChoice.any(
-        q05_covid_vaccine_doses.key,
-        Q05_CovidVaccineDoses.Responses.ThreeDoses.value,
-        Q05_CovidVaccineDoses.Responses.FourDoses.value,
-        Q05_CovidVaccineDoses.Responses.FiveDoses.value
+        q02_1_covid_vaccine_doses.key,
+        Q02_1_CovidVaccineDoses.Responses.ThreeDoses.value,
+        Q02_1_CovidVaccineDoses.Responses.FourDoses.value,
+        Q02_1_CovidVaccineDoses.Responses.FiveDoses.value
       )
     );
 
     this.addQuestion(
-      Q09_CovidVaccine_Fourth_Dose,
+      Q02_2d_CovidVaccine_Fourth_Dose,
       SurveyEngine.singleChoice.any(
-        q05_covid_vaccine_doses.key,
-        Q05_CovidVaccineDoses.Responses.FourDoses.value,
-        Q05_CovidVaccineDoses.Responses.FiveDoses.value
+        q02_1_covid_vaccine_doses.key,
+        Q02_1_CovidVaccineDoses.Responses.FourDoses.value,
+        Q02_1_CovidVaccineDoses.Responses.FiveDoses.value
       )
     );
 
     this.addQuestion(
-      Q10_CovidVaccine_Fifth_Dose,
-      SurveyEngine.singleChoice.any(q05_covid_vaccine_doses.key, Q05_CovidVaccineDoses.Responses.FiveDoses.value)
+      Q02_2e_CovidVaccine_Fifth_Dose,
+      SurveyEngine.singleChoice.any(q02_1_covid_vaccine_doses.key, Q02_1_CovidVaccineDoses.Responses.FiveDoses.value)
     );
   }
 }

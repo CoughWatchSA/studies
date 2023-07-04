@@ -6,28 +6,25 @@ import {
   LanguageMap,
 } from "../../../../../common/types";
 
-export class Q03_FluVaccinePreviousSeason extends SingleChoiceQuestion {
+export class Q01_2_FluVaccinePreviousSeason extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;
 
   constructor(parentKey: string, strings: LanguageMap) {
-    super(parentKey, Q03_FluVaccinePreviousSeason.key, strings);
+    super(parentKey, Q01_2_FluVaccinePreviousSeason.key, strings);
 
     this.options = {
       isRequired: true,
       responseOptions: ToOptionDef(
         this,
-        [
-          Q03_FluVaccinePreviousSeason.Responses.Yes,
-          Q03_FluVaccinePreviousSeason.Responses.No,
-        ],
+        [Q01_2_FluVaccinePreviousSeason.Responses.Yes, Q01_2_FluVaccinePreviousSeason.Responses.No],
         strings
       ),
     };
   }
 }
 
-export namespace Q03_FluVaccinePreviousSeason {
-  export const key = "q03_flu_vaccine_previous_season";
+export namespace Q01_2_FluVaccinePreviousSeason {
+  export const key = "q01_2_flu_vaccine_previous_season";
 
   type TResponses = "Yes" | "No";
 

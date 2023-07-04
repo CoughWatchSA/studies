@@ -6,22 +6,22 @@ import {
   LanguageMap,
 } from "../../../../../common/types";
 
-export class Q05_CovidVaccineDoses extends SingleChoiceQuestion {
+export class Q02_1_CovidVaccineDoses extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;
 
   constructor(parentKey: string, strings: LanguageMap) {
-    super(parentKey, Q05_CovidVaccineDoses.key, strings);
+    super(parentKey, Q02_1_CovidVaccineDoses.key, strings);
 
     this.options = {
       isRequired: true,
       responseOptions: ToOptionDef(
         this,
         [
-          Q05_CovidVaccineDoses.Responses.OneDose,
-          Q05_CovidVaccineDoses.Responses.TwoDoses,
-          Q05_CovidVaccineDoses.Responses.ThreeDoses,
-          Q05_CovidVaccineDoses.Responses.FourDoses,
-          Q05_CovidVaccineDoses.Responses.FiveDoses,
+          Q02_1_CovidVaccineDoses.Responses.OneDose,
+          Q02_1_CovidVaccineDoses.Responses.TwoDoses,
+          Q02_1_CovidVaccineDoses.Responses.ThreeDoses,
+          Q02_1_CovidVaccineDoses.Responses.FourDoses,
+          Q02_1_CovidVaccineDoses.Responses.FiveDoses,
         ],
         strings
       ),
@@ -29,8 +29,8 @@ export class Q05_CovidVaccineDoses extends SingleChoiceQuestion {
   }
 }
 
-export namespace Q05_CovidVaccineDoses {
-  export const key = "q05_covid_vaccine_doses";
+export namespace Q02_1_CovidVaccineDoses {
+  export const key = "q02_1_covid_vaccine_doses";
 
   type TResponses = "OneDose" | "TwoDoses" | "ThreeDoses" | "FourDoses" | "FiveDoses";
 

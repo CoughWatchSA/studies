@@ -7,25 +7,25 @@ import {
 } from "../../../../../common/types";
 import { covidVaccineDateInputProps } from "../constants";
 
-export class Q06_CovidVaccine_First_Dose extends SingleChoiceQuestion {
+export class Q02_2e_CovidVaccine_Fifth_Dose extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;
 
   constructor(parentKey: string, strings: LanguageMap) {
-    super(parentKey, Q06_CovidVaccine_First_Dose.key, strings);
+    super(parentKey, Q02_2e_CovidVaccine_Fifth_Dose.key, strings);
 
     this.options = {
       isRequired: true,
       responseOptions: ToOptionDef(
         this,
-        [Q06_CovidVaccine_First_Dose.Responses.Pfizer, Q06_CovidVaccine_First_Dose.Responses.JohnsonJohnson],
+        [Q02_2e_CovidVaccine_Fifth_Dose.Responses.Pfizer, Q02_2e_CovidVaccine_Fifth_Dose.Responses.JohnsonJohnson],
         strings
       ),
     };
   }
 }
 
-export namespace Q06_CovidVaccine_First_Dose {
-  export const key = "q06_covid_vaccine_first_dose";
+export namespace Q02_2e_CovidVaccine_Fifth_Dose {
+  export const key = "q02_2e_covid_vaccine_fifth_dose";
 
   type TResponses = "Pfizer" | "JohnsonJohnson";
 
