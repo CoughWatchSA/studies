@@ -321,7 +321,7 @@
         ]
       },
       {
-        "key": "vaccination.PB_rxOZ",
+        "key": "vaccination.PB_KTPA",
         "type": "pageBreak"
       },
       {
@@ -604,6 +604,16 @@
                           ]
                         }
                       ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Year"
+                            }
+                          ]
+                        }
+                      ],
                       "properties": {
                         "dateInputMode": {
                           "str": "YM"
@@ -643,6 +653,16 @@
                           "parts": [
                             {
                               "str": "Johnson & Johnson - Date: "
+                            }
+                          ]
+                        }
+                      ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Year"
                             }
                           ]
                         }
@@ -781,6 +801,16 @@
                           ]
                         }
                       ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Year"
+                            }
+                          ]
+                        }
+                      ],
                       "properties": {
                         "dateInputMode": {
                           "str": "YM"
@@ -820,6 +850,16 @@
                           "parts": [
                             {
                               "str": "Johnson & Johnson - Date: "
+                            }
+                          ]
+                        }
+                      ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Year"
                             }
                           ]
                         }
@@ -954,6 +994,16 @@
                           ]
                         }
                       ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Year"
+                            }
+                          ]
+                        }
+                      ],
                       "properties": {
                         "dateInputMode": {
                           "str": "YM"
@@ -993,6 +1043,16 @@
                           "parts": [
                             {
                               "str": "Johnson & Johnson - Date: "
+                            }
+                          ]
+                        }
+                      ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Year"
                             }
                           ]
                         }
@@ -1123,6 +1183,16 @@
                           ]
                         }
                       ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Year"
+                            }
+                          ]
+                        }
+                      ],
                       "properties": {
                         "dateInputMode": {
                           "str": "YM"
@@ -1162,6 +1232,16 @@
                           "parts": [
                             {
                               "str": "Johnson & Johnson - Date: "
+                            }
+                          ]
+                        }
+                      ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Year"
                             }
                           ]
                         }
@@ -1288,6 +1368,16 @@
                           ]
                         }
                       ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Year"
+                            }
+                          ]
+                        }
+                      ],
                       "properties": {
                         "dateInputMode": {
                           "str": "YM"
@@ -1327,6 +1417,16 @@
                           "parts": [
                             {
                               "str": "Johnson & Johnson - Date: "
+                            }
+                          ]
+                        }
+                      ],
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "Year"
                             }
                           ]
                         }

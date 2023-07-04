@@ -99,17 +99,7 @@ export type TChoiceDateInputResponse = {
 } & TChoiceBaseResponse &
   DateInputProps;
 
-// FIXME: for backward compatibility, to be dropped
-export type TChoiceDateInputResponseOld = {
-  role: "dateInput_old";
-  dateInputProperties: DateInputProps;
-} & TChoiceBaseResponse;
-
-export type TChoiceResponse =
-  | TChoiceOptionResponse
-  | TChoiceTextInputResponse
-  | TChoiceDateInputResponse
-  | TChoiceDateInputResponseOld;
+export type TChoiceResponse = TChoiceOptionResponse | TChoiceTextInputResponse | TChoiceDateInputResponse;
 
 export type TResponsesKeys<T extends string> = keyof { [K in keyof Record<T, object> as `${SnakeCase<K>}`]: string };
 export type TResponseWithKeys<T extends string> = TChoiceResponse & { key: TResponsesKeys<T> };
@@ -300,17 +290,6 @@ export function ToOptionDef(
         if (props.inputLabelText === undefined) props.inputLabelText = props.content;
         // TODO: fix placeholderText inside SingleChoiceOptionTypes.dateInput
         def = { ...SingleChoiceOptionTypes.dateInput(props), ...{ description: props.placeholderText } };
-        break;
-      }
-      case "dateInput_old": {
-        const props_ = { ...props.dateInputProperties, ...props };
-        if (props_.inputLabelText === undefined) props_.inputLabelText = props_.content;
-
-        def = {
-          ...SingleChoiceOptionTypes.dateInput(props_),
-          // TODO: fix placeholderText inside SingleChoiceOptionTypes.dateInput
-          ...{ role: "dateInput", description: props_.placeholderText },
-        };
         break;
       }
       default: {

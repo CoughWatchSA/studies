@@ -8,6 +8,9 @@ const s = {
   duration: {
     en: "Duration 5-10 minutes",
   },
+  dateInput_year: {
+    en: "Year",
+  },
   "q01_flu_vaccine.title": {
     en: "Have you received a flu vaccine for this year (2023)?",
   },
