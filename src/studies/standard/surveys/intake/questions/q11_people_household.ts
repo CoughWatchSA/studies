@@ -6,27 +6,27 @@ import {
   LanguageMap,
 } from "../../../../../common/types";
 
-export class Q13_PeopleHousehold extends SingleChoiceQuestion {
+export class Q11_PeopleHousehold extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;
 
   constructor(parentKey: string, strings: LanguageMap) {
-    super(parentKey, Q13_PeopleHousehold.key, strings);
+    super(parentKey, Q11_PeopleHousehold.key, strings);
 
     this.options = {
       isRequired: true,
       responseOptions: ToOptionDef(
         this,
         [
-          Q13_PeopleHousehold.Responses.Live_Alone,
-          Q13_PeopleHousehold.Responses.Two_People,
-          Q13_PeopleHousehold.Responses.Three_People,
-          Q13_PeopleHousehold.Responses.Four_People,
-          Q13_PeopleHousehold.Responses.Five_People,
-          Q13_PeopleHousehold.Responses.Six_People,
-          Q13_PeopleHousehold.Responses.Seven_People,
-          Q13_PeopleHousehold.Responses.Eight_People,
-          Q13_PeopleHousehold.Responses.Nine_People,
-          Q13_PeopleHousehold.Responses.Ten_Or_More_People,
+          Q11_PeopleHousehold.Responses.Live_Alone,
+          Q11_PeopleHousehold.Responses.Two_People,
+          Q11_PeopleHousehold.Responses.Three_People,
+          Q11_PeopleHousehold.Responses.Four_People,
+          Q11_PeopleHousehold.Responses.Five_People,
+          Q11_PeopleHousehold.Responses.Six_People,
+          Q11_PeopleHousehold.Responses.Seven_People,
+          Q11_PeopleHousehold.Responses.Eight_People,
+          Q11_PeopleHousehold.Responses.Nine_People,
+          Q11_PeopleHousehold.Responses.Ten_Or_More_People,
         ],
         strings
       ),
@@ -34,8 +34,8 @@ export class Q13_PeopleHousehold extends SingleChoiceQuestion {
   }
 }
 
-export namespace Q13_PeopleHousehold {
-  export const key = "q13_people_household";
+export namespace Q11_PeopleHousehold {
+  export const key = "q11_people_household";
 
   type TResponses =
     | "Live_Alone"

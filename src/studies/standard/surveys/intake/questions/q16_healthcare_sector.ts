@@ -6,20 +6,20 @@ import {
   LanguageMap,
 } from "../../../../../common/types";
 
-export class Q18_HealthcareSector extends SingleChoiceQuestion {
+export class Q16_HealthcareSector extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;
 
   constructor(parentKey: string, strings: LanguageMap) {
-    super(parentKey, Q18_HealthcareSector.key, strings);
+    super(parentKey, Q16_HealthcareSector.key, strings);
 
     this.options = {
       isRequired: true,
       responseOptions: ToOptionDef(
         this,
         [
-          Q18_HealthcareSector.Responses.Private,
-          Q18_HealthcareSector.Responses.Public,
-          Q18_HealthcareSector.Responses.Both,
+          Q16_HealthcareSector.Responses.Private,
+          Q16_HealthcareSector.Responses.Public,
+          Q16_HealthcareSector.Responses.Both,
         ],
         strings
       ),
@@ -27,8 +27,8 @@ export class Q18_HealthcareSector extends SingleChoiceQuestion {
   }
 }
 
-export namespace Q18_HealthcareSector {
-  export const key = "q18_healthcare_sector";
+export namespace Q16_HealthcareSector {
+  export const key = "q16_healthcare_sector";
 
   type TResponses = "Private" | "Public" | "Both";
 

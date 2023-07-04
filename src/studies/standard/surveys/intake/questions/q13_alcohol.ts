@@ -6,25 +6,21 @@ import {
   LanguageMap,
 } from "../../../../../common/types";
 
-export class Q15_Alcohol extends SingleChoiceQuestion {
+export class Q13_Alcohol extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;
 
   constructor(parentKey: string, strings: LanguageMap) {
-    super(parentKey, Q15_Alcohol.key, strings);
+    super(parentKey, Q13_Alcohol.key, strings);
 
     this.options = {
       isRequired: true,
-      responseOptions: ToOptionDef(
-        this,
-        [Q15_Alcohol.Responses.Yes, Q15_Alcohol.Responses.No],
-        strings
-      ),
+      responseOptions: ToOptionDef(this, [Q13_Alcohol.Responses.Yes, Q13_Alcohol.Responses.No], strings),
     };
   }
 }
 
-export namespace Q15_Alcohol {
-  export const key = "q15_alcohol";
+export namespace Q13_Alcohol {
+  export const key = "q13_alcohol";
 
   type TResponses = "Yes" | "No";
 

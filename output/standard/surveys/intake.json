@@ -172,13 +172,12 @@
           {
             "key": "minAge",
             "rule": {
-              "name": "gte",
+              "name": "or",
               "data": [
                 {
                   "dtype": "exp",
                   "exp": {
-                    "name": "getResponseValueAsNum",
-                    "returnType": "float",
+                    "name": "checkResponseValueWithRegex",
                     "data": [
                       {
                         "dtype": "str",
@@ -187,13 +186,42 @@
                       {
                         "dtype": "str",
                         "str": "rg.num"
+                      },
+                      {
+                        "dtype": "str",
+                        "str": "^$"
                       }
                     ]
                   }
                 },
                 {
-                  "dtype": "num",
-                  "num": 0
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "gte",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "getResponseValueAsNum",
+                          "returnType": "float",
+                          "data": [
+                            {
+                              "dtype": "str",
+                              "str": "intake.q01_age"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "rg.num"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "dtype": "num",
+                        "num": 0
+                      }
+                    ]
+                  }
                 }
               ]
             },
@@ -202,13 +230,12 @@
           {
             "key": "maxAge",
             "rule": {
-              "name": "lte",
+              "name": "or",
               "data": [
                 {
                   "dtype": "exp",
                   "exp": {
-                    "name": "getResponseValueAsNum",
-                    "returnType": "float",
+                    "name": "checkResponseValueWithRegex",
                     "data": [
                       {
                         "dtype": "str",
@@ -217,13 +244,42 @@
                       {
                         "dtype": "str",
                         "str": "rg.num"
+                      },
+                      {
+                        "dtype": "str",
+                        "str": "^$"
                       }
                     ]
                   }
                 },
                 {
-                  "dtype": "num",
-                  "num": 120
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "lte",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "getResponseValueAsNum",
+                          "returnType": "float",
+                          "data": [
+                            {
+                              "dtype": "str",
+                              "str": "intake.q01_age"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "rg.num"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "dtype": "num",
+                        "num": 120
+                      }
+                    ]
+                  }
                 }
               ]
             },
@@ -452,19 +508,51 @@
           {
             "key": "postal_code",
             "rule": {
-              "name": "checkResponseValueWithRegex",
+              "name": "or",
               "data": [
                 {
-                  "dtype": "str",
-                  "str": "intake.q03_postal_code"
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "not",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "hasResponse",
+                          "data": [
+                            {
+                              "dtype": "str",
+                              "str": "intake.q03_postal_code"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "rg.ic"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
                 },
                 {
-                  "dtype": "str",
-                  "str": "rg.ic"
-                },
-                {
-                  "dtype": "str",
-                  "str": "^\\d{4}$"
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "checkResponseValueWithRegex",
+                    "data": [
+                      {
+                        "dtype": "str",
+                        "str": "intake.q03_postal_code"
+                      },
+                      {
+                        "dtype": "str",
+                        "str": "rg.ic"
+                      },
+                      {
+                        "dtype": "str",
+                        "str": "^\\d{4}$"
+                      }
+                    ]
+                  }
                 }
               ]
             },
@@ -666,7 +754,7 @@
         ]
       },
       {
-        "key": "intake.PB_dsGw",
+        "key": "intake.PB_pgZT",
         "type": "pageBreak"
       },
       {
@@ -1130,7 +1218,7 @@
         }
       },
       {
-        "key": "intake.PB_aMM3",
+        "key": "intake.PB_4Yc5",
         "type": "pageBreak"
       },
       {
@@ -1340,7 +1428,7 @@
         ]
       },
       {
-        "key": "intake.q11_public_transport_morning",
+        "key": "intake.q10_1a_public_transport_morning",
         "components": {
           "role": "root",
           "order": {
@@ -1425,7 +1513,7 @@
         }
       },
       {
-        "key": "intake.q12_public_transport_afternoon",
+        "key": "intake.q10_1b_public_transport_afternoon",
         "components": {
           "role": "root",
           "order": {
@@ -1510,7 +1598,7 @@
         }
       },
       {
-        "key": "intake.q13_people_household",
+        "key": "intake.q11_people_household",
         "components": {
           "role": "root",
           "order": {
@@ -1706,7 +1794,7 @@
               "data": [
                 {
                   "dtype": "str",
-                  "str": "intake.q13_people_household"
+                  "str": "intake.q11_people_household"
                 },
                 {
                   "dtype": "str",
@@ -1718,7 +1806,7 @@
         ]
       },
       {
-        "key": "intake.q14_rooms_sleeping",
+        "key": "intake.q12_rooms_sleeping",
         "components": {
           "role": "root",
           "order": {
@@ -1854,7 +1942,7 @@
               "data": [
                 {
                   "dtype": "str",
-                  "str": "intake.q14_rooms_sleeping"
+                  "str": "intake.q12_rooms_sleeping"
                 },
                 {
                   "dtype": "str",
@@ -1866,7 +1954,7 @@
         ]
       },
       {
-        "key": "intake.q15_alcohol",
+        "key": "intake.q13_alcohol",
         "components": {
           "role": "root",
           "order": {
@@ -1942,7 +2030,7 @@
               "data": [
                 {
                   "dtype": "str",
-                  "str": "intake.q15_alcohol"
+                  "str": "intake.q13_alcohol"
                 },
                 {
                   "dtype": "str",
@@ -1980,7 +2068,7 @@
         }
       },
       {
-        "key": "intake.q16_tobacco",
+        "key": "intake.q14_tobacco",
         "components": {
           "role": "root",
           "order": {
@@ -2056,7 +2144,7 @@
               "data": [
                 {
                   "dtype": "str",
-                  "str": "intake.q16_tobacco"
+                  "str": "intake.q14_tobacco"
                 },
                 {
                   "dtype": "str",
@@ -2094,11 +2182,11 @@
         }
       },
       {
-        "key": "intake.PB_74ys",
+        "key": "intake.PB_H8KG",
         "type": "pageBreak"
       },
       {
-        "key": "intake.q17_comorbidities",
+        "key": "intake.q15_comorbidities",
         "components": {
           "role": "root",
           "order": {
@@ -2391,7 +2479,7 @@
         }
       },
       {
-        "key": "intake.q18_healthcare_sector",
+        "key": "intake.q16_healthcare_sector",
         "components": {
           "role": "root",
           "order": {
@@ -2482,7 +2570,7 @@
               "data": [
                 {
                   "dtype": "str",
-                  "str": "intake.q18_healthcare_sector"
+                  "str": "intake.q16_healthcare_sector"
                 },
                 {
                   "dtype": "str",

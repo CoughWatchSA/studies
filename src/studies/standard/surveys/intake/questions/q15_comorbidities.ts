@@ -6,34 +6,34 @@ import {
   MultipleChoiceQuestionOptions,
 } from "../../../../../common/types";
 
-export class Q17_Comorbidities extends MultipleChoiceQuestion {
+export class Q15_Comorbidities extends MultipleChoiceQuestion {
   options: MultipleChoiceQuestionOptions;
 
   constructor(parentKey: string, strings: LanguageMap) {
-    super(parentKey, Q17_Comorbidities.key, strings);
+    super(parentKey, Q15_Comorbidities.key, strings);
 
     this.options = {
       isRequired: false,
       responseOptions: ToOptionDef(
         this,
         [
-          Q17_Comorbidities.Responses.Chronic_Cardiac_Diseases,
-          Q17_Comorbidities.Responses.Hypertension,
-          Q17_Comorbidities.Responses.Chronic_Pulmonary_Disease,
-          Q17_Comorbidities.Responses.Ashtma,
-          Q17_Comorbidities.Responses.Tuberculosis_Pulmonary,
-          Q17_Comorbidities.Responses.Tuberculosis_Extra_Pulmonary,
-          Q17_Comorbidities.Responses.Chronic_Kidney_Disease,
-          Q17_Comorbidities.Responses.Liver_Disease,
-          Q17_Comorbidities.Responses.Chronic_Neurological_Disorder,
-          Q17_Comorbidities.Responses.Malignant_Neoplasm,
-          Q17_Comorbidities.Responses.Chronic_Hematologic_Disease,
-          Q17_Comorbidities.Responses.Obesity,
-          Q17_Comorbidities.Responses.Diabetes,
-          Q17_Comorbidities.Responses.Rheumatologic_Disorder,
-          Q17_Comorbidities.Responses.Dementia,
-          Q17_Comorbidities.Responses.Immunosuppressive_Therapy,
-          Q17_Comorbidities.Responses.Other,
+          Q15_Comorbidities.Responses.Chronic_Cardiac_Diseases,
+          Q15_Comorbidities.Responses.Hypertension,
+          Q15_Comorbidities.Responses.Chronic_Pulmonary_Disease,
+          Q15_Comorbidities.Responses.Ashtma,
+          Q15_Comorbidities.Responses.Tuberculosis_Pulmonary,
+          Q15_Comorbidities.Responses.Tuberculosis_Extra_Pulmonary,
+          Q15_Comorbidities.Responses.Chronic_Kidney_Disease,
+          Q15_Comorbidities.Responses.Liver_Disease,
+          Q15_Comorbidities.Responses.Chronic_Neurological_Disorder,
+          Q15_Comorbidities.Responses.Malignant_Neoplasm,
+          Q15_Comorbidities.Responses.Chronic_Hematologic_Disease,
+          Q15_Comorbidities.Responses.Obesity,
+          Q15_Comorbidities.Responses.Diabetes,
+          Q15_Comorbidities.Responses.Rheumatologic_Disorder,
+          Q15_Comorbidities.Responses.Dementia,
+          Q15_Comorbidities.Responses.Immunosuppressive_Therapy,
+          Q15_Comorbidities.Responses.Other,
         ],
         strings
       ),
@@ -41,8 +41,8 @@ export class Q17_Comorbidities extends MultipleChoiceQuestion {
   }
 }
 
-export namespace Q17_Comorbidities {
-  export const key = "q17_comorbidities";
+export namespace Q15_Comorbidities {
+  export const key = "q15_comorbidities";
 
   type TResponses =
     | "Chronic_Cardiac_Diseases"

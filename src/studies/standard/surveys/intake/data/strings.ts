@@ -137,160 +137,160 @@ const s = {
   "q10_public_transport.no": {
     en: "No",
   },
-  "q11_public_transport_morning.title": {
+  "q10_1a_public_transport_morning.title": {
     en: "Please indicate on average how many hours do you spend on public transport in the morning",
   },
-  "q11_public_transport_morning.sliderLabel": {
+  "q10_1a_public_transport_morning.sliderLabel": {
     en: "Morning: ",
   },
-  "q11_public_transport_morning.noResponseLabel": {
+  "q10_1a_public_transport_morning.noResponseLabel": {
     en: "Slide the blue circle to the appropriate time frame. Extreme left is 0 hours and extreme right is 6 hours",
   },
-  "q12_public_transport_afternoon.title": {
+  "q10_1b_public_transport_afternoon.title": {
     en: "Please indicate on average how many hours do you spend on public transport in the afternoon",
   },
-  "q12_public_transport_afternoon.sliderLabel": {
+  "q10_1b_public_transport_afternoon.sliderLabel": {
     en: "Afternoon: ",
   },
-  "q12_public_transport_afternoon.noResponseLabel": {
+  "q10_1b_public_transport_afternoon.noResponseLabel": {
     en: "Slide the blue circle to the appropriate time frame. Extreme left is 0 hours and extreme right is 6 hours",
   },
-  "q13_people_household.title": {
+  "q11_people_household.title": {
     en: "How many people live in your household?",
   },
-  "q13_people_household.live_alone": {
+  "q11_people_household.live_alone": {
     en: "Live alone",
   },
-  "q13_people_household.two_people": {
+  "q11_people_household.two_people": {
     en: "2 people",
   },
-  "q13_people_household.three_people": {
+  "q11_people_household.three_people": {
     en: "3 people",
   },
-  "q13_people_household.four_people": {
+  "q11_people_household.four_people": {
     en: "4 people",
   },
-  "q13_people_household.five_people": {
+  "q11_people_household.five_people": {
     en: "5 people",
   },
-  "q13_people_household.six_people": {
+  "q11_people_household.six_people": {
     en: "6 people",
   },
-  "q13_people_household.seven_people": {
+  "q11_people_household.seven_people": {
     en: "7 people",
   },
-  "q13_people_household.eight_people": {
+  "q11_people_household.eight_people": {
     en: "8 people",
   },
-  "q13_people_household.nine_people": {
+  "q11_people_household.nine_people": {
     en: "9 people",
   },
-  "q13_people_household.ten_or_more_people": {
+  "q11_people_household.ten_or_more_people": {
     en: "10 or more people",
   },
-  "q14_rooms_sleeping.title": {
+  "q12_rooms_sleeping.title": {
     en: "How many rooms are used for sleeping?",
   },
-  "q14_rooms_sleeping.one_bedroom": {
+  "q12_rooms_sleeping.one_bedroom": {
     en: "1 bedroom",
   },
-  "q14_rooms_sleeping.two_bedrooms": {
+  "q12_rooms_sleeping.two_bedrooms": {
     en: "2 bedrooms",
   },
-  "q14_rooms_sleeping.three_bedrooms": {
+  "q12_rooms_sleeping.three_bedrooms": {
     en: "3 bedrooms",
   },
-  "q14_rooms_sleeping.four_bedrooms": {
+  "q12_rooms_sleeping.four_bedrooms": {
     en: "4 bedrooms",
   },
-  "q14_rooms_sleeping.five_bedrooms": {
+  "q12_rooms_sleeping.five_bedrooms": {
     en: "5 bedrooms",
   },
-  "q14_rooms_sleeping.six_or_more_bedrooms": {
+  "q12_rooms_sleeping.six_or_more_bedrooms": {
     en: "6 or more bedrooms",
   },
-  "q15_alcohol.title": {
+  "q13_alcohol.title": {
     en: "Do you consume alcohol?",
   },
-  "q15_alcohol.yes": {
+  "q13_alcohol.yes": {
     en: "Yes",
   },
-  "q15_alcohol.no": {
+  "q13_alcohol.no": {
     en: "No",
   },
-  "q16_tobacco.title": {
+  "q14_tobacco.title": {
     en: "Do you smoke any tobacco products?",
   },
-  "q16_tobacco.yes": {
+  "q14_tobacco.yes": {
     en: "Yes",
   },
-  "q16_tobacco.no": {
+  "q14_tobacco.no": {
     en: "No",
   },
-  "q17_comorbidities.title": {
+  "q15_comorbidities.title": {
     en: "Do you have any of the following comorbidities (underlying medical illness)?",
   },
-  "q17_comorbidities.chronic_cardiac_diseases": {
+  "q15_comorbidities.chronic_cardiac_diseases": {
     en: "Chronic cardiac diseases",
   },
-  "q17_comorbidities.hypertension": {
+  "q15_comorbidities.hypertension": {
     en: "Hypertension",
   },
-  "q17_comorbidities.chronic_pulmonary_disease": {
+  "q15_comorbidities.chronic_pulmonary_disease": {
     en: "Chronic pulmonary disease (not ashtma)",
   },
-  "q17_comorbidities.ashtma": {
+  "q15_comorbidities.ashtma": {
     en: "Ashtma (physician diagnosed)",
   },
-  "q17_comorbidities.tuberculosis_pulmonary": {
+  "q15_comorbidities.tuberculosis_pulmonary": {
     en: "Tuberculosis (pulmonary)",
   },
-  "q17_comorbidities.tuberculosis_extra_pulmonary": {
+  "q15_comorbidities.tuberculosis_extra_pulmonary": {
     en: "Tuberculosis (extra pulmonary)",
   },
-  "q17_comorbidities.chronic_kidney_disease": {
+  "q15_comorbidities.chronic_kidney_disease": {
     en: "Chronic kidney disease",
   },
-  "q17_comorbidities.liver_disease": {
+  "q15_comorbidities.liver_disease": {
     en: "Liver disease",
   },
-  "q17_comorbidities.chronic_neurological_disorder": {
+  "q15_comorbidities.chronic_neurological_disorder": {
     en: "Chronic neurological disorder",
   },
-  "q17_comorbidities.malignant_neoplasm": {
+  "q15_comorbidities.malignant_neoplasm": {
     en: "Malignant neoplasm (cancer)",
   },
-  "q17_comorbidities.chronic_hematologic_disease": {
+  "q15_comorbidities.chronic_hematologic_disease": {
     en: "Chronic hematologic disease",
   },
-  "q17_comorbidities.obesity": {
+  "q15_comorbidities.obesity": {
     en: "Obesity (BMI > 30)",
   },
-  "q17_comorbidities.diabetes": {
+  "q15_comorbidities.diabetes": {
     en: "Diabetes",
   },
-  "q17_comorbidities.rheumatologic_disorder": {
+  "q15_comorbidities.rheumatologic_disorder": {
     en: "Rheumatologic disorder",
   },
-  "q17_comorbidities.dementia": {
+  "q15_comorbidities.dementia": {
     en: "Dementia",
   },
-  "q17_comorbidities.immunosuppressive_therapy": {
+  "q15_comorbidities.immunosuppressive_therapy": {
     en: "Immunosuppressive therapy",
   },
-  "q17_comorbidities.other": {
+  "q15_comorbidities.other": {
     en: "Other: ",
   },
-  "q18_healthcare_sector.title": {
+  "q16_healthcare_sector.title": {
     en: "In what sector do you usually obtain healthcare?",
   },
-  "q18_healthcare_sector.private": {
+  "q16_healthcare_sector.private": {
     en: "Private",
   },
-  "q18_healthcare_sector.public": {
+  "q16_healthcare_sector.public": {
     en: "Public",
   },
-  "q18_healthcare_sector.both": {
+  "q16_healthcare_sector.both": {
     en: "Both",
   },
 };

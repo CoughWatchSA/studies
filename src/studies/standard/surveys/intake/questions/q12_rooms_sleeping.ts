@@ -6,23 +6,23 @@ import {
   LanguageMap,
 } from "../../../../../common/types";
 
-export class Q14_RoomsSleeping extends SingleChoiceQuestion {
+export class Q12_RoomsSleeping extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;
 
   constructor(parentKey: string, strings: LanguageMap) {
-    super(parentKey, Q14_RoomsSleeping.key, strings);
+    super(parentKey, Q12_RoomsSleeping.key, strings);
 
     this.options = {
       isRequired: true,
       responseOptions: ToOptionDef(
         this,
         [
-          Q14_RoomsSleeping.Responses.One_Bedroom,
-          Q14_RoomsSleeping.Responses.Two_Bedrooms,
-          Q14_RoomsSleeping.Responses.Three_Bedrooms,
-          Q14_RoomsSleeping.Responses.Four_Bedrooms,
-          Q14_RoomsSleeping.Responses.Five_Bedrooms,
-          Q14_RoomsSleeping.Responses.Six_Or_More_Bedrooms,
+          Q12_RoomsSleeping.Responses.One_Bedroom,
+          Q12_RoomsSleeping.Responses.Two_Bedrooms,
+          Q12_RoomsSleeping.Responses.Three_Bedrooms,
+          Q12_RoomsSleeping.Responses.Four_Bedrooms,
+          Q12_RoomsSleeping.Responses.Five_Bedrooms,
+          Q12_RoomsSleeping.Responses.Six_Or_More_Bedrooms,
         ],
         strings
       ),
@@ -30,8 +30,8 @@ export class Q14_RoomsSleeping extends SingleChoiceQuestion {
   }
 }
 
-export namespace Q14_RoomsSleeping {
-  export const key = "q14_rooms_sleeping";
+export namespace Q12_RoomsSleeping {
+  export const key = "q12_rooms_sleeping";
 
   type TResponses =
     | "One_Bedroom"

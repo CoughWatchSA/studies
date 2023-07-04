@@ -11,14 +11,14 @@ import { Q07_HealthCareWorker } from "./questions/q07_health_care_worker";
 import { Q08_Educator } from "./questions/q08_educator";
 import { Q09_WeeklyContacts } from "./questions/q09_weekly_contacts";
 import { Q10_PublicTransport } from "./questions/q10_public_transport";
-import { Q11_PublicTransportMorning } from "./questions/q11_public_transport_morning";
-import { Q12_PublicTransportAfternoon } from "./questions/q12_public_transport_afternoon";
-import { Q13_PeopleHousehold } from "./questions/q13_people_household";
-import { Q14_RoomsSleeping } from "./questions/q14_rooms_sleeping";
-import { Q15_Alcohol } from "./questions/q15_alcohol";
-import { Q16_Tobacco } from "./questions/q16_tobacco";
-import { Q17_Comorbidities } from "./questions/q17_comorbidities";
-import { Q18_HealthcareSector } from "./questions/q18_healthcare_sector";
+import { Q10_1a_PublicTransportMorning } from "./questions/q10_1a_public_transport_morning";
+import { Q10_1b_PublicTransportAfternoon } from "./questions/q10_1b_public_transport_afternoon";
+import { Q11_PeopleHousehold } from "./questions/q11_people_household";
+import { Q12_RoomsSleeping } from "./questions/q12_rooms_sleeping";
+import { Q13_Alcohol } from "./questions/q13_alcohol";
+import { Q14_Tobacco } from "./questions/q14_tobacco";
+import { Q15_Comorbidities } from "./questions/q15_comorbidities";
+import { Q16_HealthcareSector } from "./questions/q16_healthcare_sector";
 import { fullAge, numericInputResponseKey } from "../../../../common/constants";
 import { SurveyItem } from "survey-engine/data_types";
 
@@ -68,34 +68,34 @@ class Intake extends Survey {
     const q10_public_transport = this.addQuestion(Q10_PublicTransport);
 
     this.addQuestion(
-      Q11_PublicTransportMorning,
+      Q10_1a_PublicTransportMorning,
       SurveyEngine.singleChoice.any(q10_public_transport.key, Q10_PublicTransport.Responses.Yes.value)
     );
 
     this.addQuestion(
-      Q12_PublicTransportAfternoon,
+      Q10_1b_PublicTransportAfternoon,
       SurveyEngine.singleChoice.any(q10_public_transport.key, Q10_PublicTransport.Responses.Yes.value)
     );
 
-    this.addQuestion(Q13_PeopleHousehold);
+    this.addQuestion(Q11_PeopleHousehold);
 
-    this.addQuestion(Q14_RoomsSleeping);
+    this.addQuestion(Q12_RoomsSleeping);
 
     this.addQuestion(
-      Q15_Alcohol,
+      Q13_Alcohol,
       SurveyEngine.compare.gte(SurveyEngine.getResponseValueAsNum(q01_age.key, numericInputResponseKey), fullAge)
     );
 
     this.addQuestion(
-      Q16_Tobacco,
+      Q14_Tobacco,
       SurveyEngine.compare.gte(SurveyEngine.getResponseValueAsNum(q01_age.key, numericInputResponseKey), fullAge)
     );
 
     this.addPageBreak();
 
-    this.addQuestion(Q17_Comorbidities);
+    this.addQuestion(Q15_Comorbidities);
 
-    this.addQuestion(Q18_HealthcareSector);
+    this.addQuestion(Q16_HealthcareSector);
   }
 }
 

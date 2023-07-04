@@ -321,7 +321,7 @@
         ]
       },
       {
-        "key": "vaccination.PB_eM6j",
+        "key": "vaccination.PB_9vik",
         "type": "pageBreak"
       },
       {
@@ -703,6 +703,239 @@
                 }
               ]
             }
+          },
+          {
+            "key": "covid_vaccine_first_dose_date",
+            "rule": {
+              "name": "or",
+              "data": [
+                {
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "not",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "responseHasKeysAny",
+                          "data": [
+                            {
+                              "dtype": "str",
+                              "str": "vaccination.q06_covid_vaccine_first_dose"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "rg.scg"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "0"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "1"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "and",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "not",
+                          "data": [
+                            {
+                              "dtype": "exp",
+                              "exp": {
+                                "name": "hasResponse",
+                                "data": [
+                                  {
+                                    "dtype": "str",
+                                    "str": "vaccination.q06_covid_vaccine_first_dose"
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "rg.scg.0"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "not",
+                          "data": [
+                            {
+                              "dtype": "exp",
+                              "exp": {
+                                "name": "hasResponse",
+                                "data": [
+                                  {
+                                    "dtype": "str",
+                                    "str": "vaccination.q06_covid_vaccine_first_dose"
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "rg.scg.1"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "and",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "not",
+                          "data": [
+                            {
+                              "dtype": "exp",
+                              "exp": {
+                                "name": "responseHasKeysAny",
+                                "data": [
+                                  {
+                                    "dtype": "str",
+                                    "str": "vaccination.q07_covid_vaccine_second_dose"
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "rg.scg"
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "0"
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "1"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "not",
+                          "data": [
+                            {
+                              "dtype": "exp",
+                              "exp": {
+                                "name": "responseHasKeysAny",
+                                "data": [
+                                  {
+                                    "dtype": "str",
+                                    "str": "vaccination.q08_covid_vaccine_third_dose"
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "rg.scg"
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "0"
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "1"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "not",
+                          "data": [
+                            {
+                              "dtype": "exp",
+                              "exp": {
+                                "name": "responseHasKeysAny",
+                                "data": [
+                                  {
+                                    "dtype": "str",
+                                    "str": "vaccination.q09_covid_vaccine_fourth_dose"
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "rg.scg"
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "0"
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "1"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "not",
+                          "data": [
+                            {
+                              "dtype": "exp",
+                              "exp": {
+                                "name": "responseHasKeysAny",
+                                "data": [
+                                  {
+                                    "dtype": "str",
+                                    "str": "vaccination.q10_covid_vaccine_fifth_dose"
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "rg.scg"
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "0"
+                                  },
+                                  {
+                                    "dtype": "str",
+                                    "str": "1"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "type": "hard"
           }
         ],
         "condition": {
