@@ -32,6 +32,9 @@ const s = {
   "q02_gender.prefer_to_self_describe": {
     en: "Prefer to self-describe: ",
   },
+  "q02_gender.validation.gender_input": {
+    en: "Please self-describe your gender",
+  },
   "q03_postal_code.title": {
     en: "What is your residential postal code?",
   },

@@ -5,7 +5,7 @@ import {
   NumericInputQuestionOptions,
   generateLocStrings,
 } from "../../../../../common/types";
-import { numericInputResponseKey } from "../../../../../common/constants";
+import { numericInputResponseKey, textInputResponseKey } from "../../../../../common/constants";
 export class Q01_Age extends NumericInputQuestion {
   options: NumericInputQuestionOptions;
 
@@ -18,12 +18,18 @@ export class Q01_Age extends NumericInputQuestion {
       customValidations: [
         {
           key: "minAge",
-          rule: SurveyEngine.compare.gte(SurveyEngine.getResponseValueAsNum(this.key, numericInputResponseKey), 0),
+          rule: SurveyEngine.logic.or(
+            SurveyEngine.logic.not(SurveyEngine.hasResponse(this.key, numericInputResponseKey)),
+            SurveyEngine.compare.gte(SurveyEngine.getResponseValueAsNum(this.key, numericInputResponseKey), 0)
+          ),
           type: "hard",
         },
         {
           key: "maxAge",
-          rule: SurveyEngine.compare.lte(SurveyEngine.getResponseValueAsNum(this.key, numericInputResponseKey), 120),
+          rule: SurveyEngine.logic.or(
+            SurveyEngine.logic.not(SurveyEngine.hasResponse(this.key, numericInputResponseKey)),
+            SurveyEngine.compare.lte(SurveyEngine.getResponseValueAsNum(this.key, numericInputResponseKey), 120)
+          ),
           type: "hard",
         },
       ],

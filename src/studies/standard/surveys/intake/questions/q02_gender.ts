@@ -1,10 +1,13 @@
+import { SurveyEngine } from "case-editor-tools/surveys";
 import {
   SingleChoiceQuestionOptions,
   SingleChoiceQuestion,
   TResponse,
   ToOptionDef,
   LanguageMap,
+  generateLocStrings,
 } from "../../../../../common/types";
+import { textInputResponseKey } from "../../../../../common/constants";
 
 export class Q02_Gender extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;
@@ -24,6 +27,29 @@ export class Q02_Gender extends SingleChoiceQuestion {
         ],
         strings
       ),
+      customValidations: [
+        {
+          key: "gender_input",
+          rule: SurveyEngine.logic.or(
+            SurveyEngine.logic.not(
+              SurveyEngine.responseHasKeysAny(this.key, "rg.scg", Q02_Gender.Responses.Prefer_to_self_describe.value)
+            ),
+            SurveyEngine.checkResponseValueWithRegex(
+              this.key,
+              `rg.scg.${Q02_Gender.Responses.Prefer_to_self_describe.value}`,
+              "[\\s\\S]+"
+            )
+          ),
+          type: "hard",
+        },
+      ],
+      bottomDisplayCompoments: [
+        {
+          role: "error",
+          content: generateLocStrings(strings[`${this.itemKey}.validation.gender_input`]),
+          displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "gender_input")),
+        },
+      ],
     };
   }
 }
@@ -31,11 +57,7 @@ export class Q02_Gender extends SingleChoiceQuestion {
 export namespace Q02_Gender {
   export const key = "q02_gender";
 
-  type TResponses =
-    | "Man"
-    | "Woman"
-    | "Prefer_not_to_say"
-    | "Prefer_to_self_describe";
+  type TResponses = "Man" | "Woman" | "Prefer_not_to_say" | "Prefer_to_self_describe";
 
   export const Responses: Record<TResponses, TResponse> = {
     Man: {

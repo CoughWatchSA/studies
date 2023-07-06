@@ -172,28 +172,60 @@
           {
             "key": "minAge",
             "rule": {
-              "name": "gte",
+              "name": "or",
               "data": [
                 {
                   "dtype": "exp",
                   "exp": {
-                    "name": "getResponseValueAsNum",
-                    "returnType": "float",
+                    "name": "not",
                     "data": [
                       {
-                        "dtype": "str",
-                        "str": "intake.q01_age"
-                      },
-                      {
-                        "dtype": "str",
-                        "str": "rg.num"
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "hasResponse",
+                          "data": [
+                            {
+                              "dtype": "str",
+                              "str": "intake.q01_age"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "rg.num"
+                            }
+                          ]
+                        }
                       }
                     ]
                   }
                 },
                 {
-                  "dtype": "num",
-                  "num": 0
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "gte",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "getResponseValueAsNum",
+                          "returnType": "float",
+                          "data": [
+                            {
+                              "dtype": "str",
+                              "str": "intake.q01_age"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "rg.num"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "dtype": "num",
+                        "num": 0
+                      }
+                    ]
+                  }
                 }
               ]
             },
@@ -202,28 +234,60 @@
           {
             "key": "maxAge",
             "rule": {
-              "name": "lte",
+              "name": "or",
               "data": [
                 {
                   "dtype": "exp",
                   "exp": {
-                    "name": "getResponseValueAsNum",
-                    "returnType": "float",
+                    "name": "not",
                     "data": [
                       {
-                        "dtype": "str",
-                        "str": "intake.q01_age"
-                      },
-                      {
-                        "dtype": "str",
-                        "str": "rg.num"
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "hasResponse",
+                          "data": [
+                            {
+                              "dtype": "str",
+                              "str": "intake.q01_age"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "rg.num"
+                            }
+                          ]
+                        }
                       }
                     ]
                   }
                 },
                 {
-                  "dtype": "num",
-                  "num": 120
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "lte",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "getResponseValueAsNum",
+                          "returnType": "float",
+                          "data": [
+                            {
+                              "dtype": "str",
+                              "str": "intake.q01_age"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "rg.num"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "dtype": "num",
+                        "num": 120
+                      }
+                    ]
+                  }
                 }
               ]
             },
@@ -325,6 +389,40 @@
                   }
                 }
               ]
+            },
+            {
+              "role": "error",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Please self-describe your gender"
+                    }
+                  ]
+                }
+              ],
+              "displayCondition": {
+                "name": "not",
+                "data": [
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "getSurveyItemValidation",
+                      "data": [
+                        {
+                          "dtype": "str",
+                          "str": "this"
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "gender_input"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
             }
           ]
         },
@@ -345,6 +443,63 @@
                 }
               ]
             }
+          },
+          {
+            "key": "gender_input",
+            "rule": {
+              "name": "or",
+              "data": [
+                {
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "not",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "responseHasKeysAny",
+                          "data": [
+                            {
+                              "dtype": "str",
+                              "str": "intake.q02_gender"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "rg.scg"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "3"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "checkResponseValueWithRegex",
+                    "data": [
+                      {
+                        "dtype": "str",
+                        "str": "intake.q02_gender"
+                      },
+                      {
+                        "dtype": "str",
+                        "str": "rg.scg.3"
+                      },
+                      {
+                        "dtype": "str",
+                        "str": "[\\s\\S]+"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "type": "hard"
           }
         ]
       },
@@ -452,19 +607,51 @@
           {
             "key": "postal_code",
             "rule": {
-              "name": "checkResponseValueWithRegex",
+              "name": "or",
               "data": [
                 {
-                  "dtype": "str",
-                  "str": "intake.q03_postal_code"
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "not",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "hasResponse",
+                          "data": [
+                            {
+                              "dtype": "str",
+                              "str": "intake.q03_postal_code"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "rg.ic"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
                 },
                 {
-                  "dtype": "str",
-                  "str": "rg.ic"
-                },
-                {
-                  "dtype": "str",
-                  "str": "^\\d{4}$"
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "checkResponseValueWithRegex",
+                    "data": [
+                      {
+                        "dtype": "str",
+                        "str": "intake.q03_postal_code"
+                      },
+                      {
+                        "dtype": "str",
+                        "str": "rg.ic"
+                      },
+                      {
+                        "dtype": "str",
+                        "str": "^\\d{4}$"
+                      }
+                    ]
+                  }
                 }
               ]
             },
@@ -666,7 +853,7 @@
         ]
       },
       {
-        "key": "intake.PB_3zXl",
+        "key": "intake.PB_mUVB",
         "type": "pageBreak"
       },
       {
@@ -1130,7 +1317,7 @@
         }
       },
       {
-        "key": "intake.PB_qUsY",
+        "key": "intake.PB_QbhB",
         "type": "pageBreak"
       },
       {
@@ -2094,7 +2281,7 @@
         }
       },
       {
-        "key": "intake.PB_aSQ9",
+        "key": "intake.PB_Ohz9",
         "type": "pageBreak"
       },
       {

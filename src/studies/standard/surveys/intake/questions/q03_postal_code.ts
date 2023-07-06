@@ -19,7 +19,10 @@ export class Q03_Postal_Code extends TextInputQuestion {
       customValidations: [
         {
           key: "postal_code",
-          rule: SurveyEngine.checkResponseValueWithRegex(this.key, textInputResponseKey, "^\\d{4}$"),
+          rule: SurveyEngine.logic.or(
+            SurveyEngine.logic.not(SurveyEngine.hasResponse(this.key, textInputResponseKey)),
+            SurveyEngine.checkResponseValueWithRegex(this.key, textInputResponseKey, "^\\d{4}$")
+          ),
           type: "hard",
         },
       ],
