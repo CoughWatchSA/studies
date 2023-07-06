@@ -254,12 +254,14 @@ export function ToOptionDef(
   return responses.map((response) => {
     let def;
 
+    const content = text[`${obj.itemKey}.${response.key}`];
+
     // FIXME: maybe change key -> id and value -> key in TBaseResponse
     const props = {
       ...response,
       ...{
         key: response.value,
-        content: response.textKey ? text[response.textKey] : text[`${obj.itemKey}.${response.key}`],
+        content:  content ? content : response.textKey ? text[response.textKey] : new Map([["en", "TODO"]]),
       },
       ...{
         disabled:
@@ -276,9 +278,10 @@ export function ToOptionDef(
 
     // FIXME: these are all single option helpers, they will be used also for
     // multiple choice options..
+    // FIXME: manage extraProps correctly when calling options()
     switch (props.role) {
       case "option": {
-        def = SingleChoiceOptionTypes.option(props.key, props.content);
+        def = SingleChoiceOptionTypes.option(props.key, props.content, props);
         break;
       }
       case "input": {
@@ -293,7 +296,7 @@ export function ToOptionDef(
         break;
       }
       default: {
-        def = SingleChoiceOptionTypes.option(props.key, props.content);
+        def = SingleChoiceOptionTypes.option(props.key, props.content, props);
       }
     }
 
