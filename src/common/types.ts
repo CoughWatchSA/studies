@@ -57,7 +57,7 @@ export abstract class Survey extends SurveyDefinition {
     Question: new (key: string, strings: Record<string, Map<string, string>>) => T,
     condition?: Expression
   ): SurveySingleItem {
-    const item = new Question(this.key, this.strings).get();
+    const item = this.buildQuestion(Question);
 
     if (condition) item.condition = condition;
 
