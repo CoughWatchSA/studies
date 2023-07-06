@@ -14,7 +14,7 @@ export class Q13_Alcohol extends SingleChoiceQuestion {
 
     this.options = {
       isRequired: true,
-      responseOptions: ToOptionDef(this, [Q13_Alcohol.Responses.Yes, Q13_Alcohol.Responses.No], strings),
+      responseOptions: ToOptionDef(this, [Q13_Alcohol.Responses.No, Q13_Alcohol.Responses.Yes], strings),
     };
   }
 }
@@ -27,11 +27,11 @@ export namespace Q13_Alcohol {
   export const Responses: Record<TResponses, TResponse> = {
     Yes: {
       key: "yes",
-      value: "0",
+      value: "1",
     },
     No: {
       key: "no",
-      value: "1",
+      value: "0",
     },
   };
 }

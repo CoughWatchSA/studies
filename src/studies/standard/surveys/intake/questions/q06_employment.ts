@@ -14,11 +14,7 @@ export class Q06_Employment extends SingleChoiceQuestion {
 
     this.options = {
       isRequired: true,
-      responseOptions: ToOptionDef(
-        this,
-        [Q06_Employment.Responses.Yes, Q06_Employment.Responses.No],
-        strings
-      ),
+      responseOptions: ToOptionDef(this, [Q06_Employment.Responses.No, Q06_Employment.Responses.Yes], strings),
     };
   }
 }
@@ -31,11 +27,11 @@ export namespace Q06_Employment {
   export const Responses: Record<TResponses, TResponse> = {
     Yes: {
       key: "yes",
-      value: "0",
+      value: "1",
     },
     No: {
       key: "no",
-      value: "1",
+      value: "0",
     },
   };
 }

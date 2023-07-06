@@ -14,11 +14,7 @@ export class Q01_FluVaccine extends SingleChoiceQuestion {
 
     this.options = {
       isRequired: true,
-      responseOptions: ToOptionDef(
-        this,
-        [Q01_FluVaccine.Responses.Yes, Q01_FluVaccine.Responses.No],
-        strings
-      ),
+      responseOptions: ToOptionDef(this, [Q01_FluVaccine.Responses.No, Q01_FluVaccine.Responses.Yes], strings),
     };
   }
 }
@@ -31,11 +27,11 @@ export namespace Q01_FluVaccine {
   export const Responses: Record<TResponses, TResponse> = {
     Yes: {
       key: "yes",
-      value: "0",
+      value: "1",
     },
     No: {
       key: "no",
-      value: "1",
+      value: "0",
     },
   };
 }

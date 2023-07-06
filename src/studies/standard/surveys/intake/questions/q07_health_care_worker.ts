@@ -16,7 +16,7 @@ export class Q07_HealthCareWorker extends SingleChoiceQuestion {
       isRequired: true,
       responseOptions: ToOptionDef(
         this,
-        [Q07_HealthCareWorker.Responses.Yes, Q07_HealthCareWorker.Responses.No],
+        [Q07_HealthCareWorker.Responses.No, Q07_HealthCareWorker.Responses.Yes],
         strings
       ),
     };
@@ -31,11 +31,11 @@ export namespace Q07_HealthCareWorker {
   export const Responses: Record<TResponses, TResponse> = {
     Yes: {
       key: "yes",
-      value: "0",
+      value: "1",
     },
     No: {
       key: "no",
-      value: "1",
+      value: "0",
     },
   };
 }

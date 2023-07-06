@@ -14,11 +14,7 @@ export class Q08_Educator extends SingleChoiceQuestion {
 
     this.options = {
       isRequired: true,
-      responseOptions: ToOptionDef(
-        this,
-        [Q08_Educator.Responses.Yes, Q08_Educator.Responses.No],
-        strings
-      ),
+      responseOptions: ToOptionDef(this, [Q08_Educator.Responses.No, Q08_Educator.Responses.Yes], strings),
     };
   }
 }
@@ -31,11 +27,11 @@ export namespace Q08_Educator {
   export const Responses: Record<TResponses, TResponse> = {
     Yes: {
       key: "yes",
-      value: "0",
+      value: "1",
     },
     No: {
       key: "no",
-      value: "1",
+      value: "0",
     },
   };
 }

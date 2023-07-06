@@ -16,7 +16,7 @@ export class Q10_PublicTransport extends SingleChoiceQuestion {
       isRequired: true,
       responseOptions: ToOptionDef(
         this,
-        [Q10_PublicTransport.Responses.Yes, Q10_PublicTransport.Responses.No],
+        [Q10_PublicTransport.Responses.No, Q10_PublicTransport.Responses.Yes],
         strings
       ),
     };
@@ -31,11 +31,11 @@ export namespace Q10_PublicTransport {
   export const Responses: Record<TResponses, TResponse> = {
     Yes: {
       key: "yes",
-      value: "0",
+      value: "1",
     },
     No: {
       key: "no",
-      value: "1",
+      value: "0",
     },
   };
 }

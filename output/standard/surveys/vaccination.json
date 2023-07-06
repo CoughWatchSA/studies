@@ -72,7 +72,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Yes"
+                              "str": "No"
                             }
                           ]
                         }
@@ -87,7 +87,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "No"
+                              "str": "Yes"
                             }
                           ]
                         }
@@ -227,7 +227,7 @@
             },
             {
               "dtype": "str",
-              "str": "0"
+              "str": "1"
             }
           ]
         }
@@ -269,7 +269,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Yes"
+                              "str": "No"
                             }
                           ]
                         }
@@ -284,7 +284,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "No"
+                              "str": "Yes"
                             }
                           ]
                         }
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "key": "vaccination.PB_KTPA",
+        "key": "vaccination.PB_7l0Q",
         "type": "pageBreak"
       },
       {
@@ -361,7 +361,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Yes"
+                              "str": "No"
                             }
                           ]
                         }
@@ -376,7 +376,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "No"
+                              "str": "Yes"
                             }
                           ]
                         }
@@ -557,7 +557,7 @@
             },
             {
               "dtype": "str",
-              "str": "0"
+              "str": "1"
             }
           ]
         }

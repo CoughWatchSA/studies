@@ -14,7 +14,7 @@ export class Q14_Tobacco extends SingleChoiceQuestion {
 
     this.options = {
       isRequired: true,
-      responseOptions: ToOptionDef(this, [Q14_Tobacco.Responses.Yes, Q14_Tobacco.Responses.No], strings),
+      responseOptions: ToOptionDef(this, [Q14_Tobacco.Responses.No, Q14_Tobacco.Responses.Yes], strings),
     };
   }
 }
@@ -27,11 +27,11 @@ export namespace Q14_Tobacco {
   export const Responses: Record<TResponses, TResponse> = {
     Yes: {
       key: "yes",
-      value: "0",
+      value: "1",
     },
     No: {
       key: "no",
-      value: "1",
+      value: "0",
     },
   };
 }
