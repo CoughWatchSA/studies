@@ -35,6 +35,15 @@ export const NoResponse: Record<TNoResponse, TCommonResponseWithKeys<TNoResponse
   },
 };
 
+export type TDontRemeberResponse = "DontRemember";
+export const DontRememberResponse: Record<TDontRemeberResponse, TCommonResponseWithKeys<TDontRemeberResponse>> = {
+  DontRemember: {
+    key: "dont_remember",
+    textKey: "dont_remember",
+    value: "-1",
+  },
+};
+
 export type TYesNoResponses = TYesResponse | TNoResponse;
 export const YesNoResponses: Record<TYesNoResponses, TCommonResponseWithKeys<TYesNoResponses>> = {
   ...NoResponse,

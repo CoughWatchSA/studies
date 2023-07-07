@@ -27,6 +27,9 @@ import {
 const commonStrings = {
   yes: { en: "Yes" },
   no: { en: "No" },
+  dont_remember: {
+    en: "I don't know / I don't remember",
+  },
   date_placeholder_ymd: {
     en: "select date",
   },
