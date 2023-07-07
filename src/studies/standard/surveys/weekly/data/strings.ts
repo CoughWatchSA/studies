@@ -37,33 +37,38 @@ const commonStrings = {
     en: "please specify",
   },
   "test_result.positive": {
-    en: "Positive"
+    en: "Positive",
   },
-    "test_result.negative": {
-    en: "Negative"
+  "test_result.negative": {
+    en: "Negative",
   },
   "test_result.not_conclusive": {
-    en: "N/A"
+    en: "N/A",
   },
   "test_type.pcr": {
-    en: "PCR"
+    en: "PCR",
   },
-    "test_type.rapid": {
-    en: "Rapid"
+  "test_type.rapid": {
+    en: "Rapid",
   },
   "test_type.unknown": {
-    en: "I do not know"
+    en: "I do not know",
   },
-  "ends_before_starting": {
+  ends_before_starting: {
     en: "End date must be posterior to start date",
   },
-  "starts_after_ending": {
+  starts_after_ending: {
     en: "Start date must be anterior to end date",
   },
-  "outside_symptoms_span": {
+  outside_symptoms_span: {
     en: "Date must be inside symptoms interval",
   },
-
+  not_required_hint: {
+    en: "You can leave this answer blank if you don't rememenber / don't know what to answer",
+  },
+  "input_not_filled": {
+    en: "Please fill the input field",
+  },
 };
 
 const questionsStrings: Record<"name" | "description" | "duration", { en: string }> &
@@ -138,17 +143,26 @@ const questionsStrings: Record<"name" | "description" | "duration", { en: string
   "q03_symptoms_ended.ongoing": {
     en: "Still ongoing",
   },
+  "q03_symptoms_ended.dont_remember": {
+    en: "Yes, I don't remember when",
+  },
   "q04_symptoms_started.title": {
     en: "When did the first symptoms appear?",
   },
+  "q04_symptoms_started.date": {
+    en: "",
+  },
   "q05_fever_started.title": {
     en: "When did your fever begin?",
+  },
+  "q05_fever_started.date": {
+    en: "",
   },
   "q05_1_temperature.title": {
     en: "Did you measure your temperature and if so, what was the temperature?",
   },
   "q05_1_temperature.no": {
-    en: "No",
+    en: "I haven’t measured it",
   },
   "q05_1_temperature.below37": {
     en: "Yes, below 37°C",
@@ -167,9 +181,6 @@ const questionsStrings: Record<"name" | "description" | "duration", { en: string
   },
   "q05_1_temperature.above39": {
     en: "Yes, 40°C or more",
-  },
-  "q05_1_temperature.dont_know": {
-    en: "I don’t know/can’t remember",
   },
   "q06_seek_care.title": {
     en: "Because of your symptoms, did you seek any medical care (face-to-face visit or teleconsult)?",
@@ -219,7 +230,9 @@ const questionsStrings: Record<"name" | "description" | "duration", { en: string
   "q07_test_taken_any.covid": {
     en: "Covid19",
   },
-  "q07_1a_influenza_test_results.title": {
+  "q07_test_taken_any.none": {
+    en: "None of the above",
+  },"q07_1a_influenza_test_results.title": {
     en: "What was the result for your Influenza test?",
   },
   "q07_2a_influenza_test_type.title": {
@@ -227,6 +240,9 @@ const questionsStrings: Record<"name" | "description" | "duration", { en: string
   },
   "q07_3a_influenza_test_date.title": {
     en: "When did you get tested for Influenza?",
+  },
+  "q07_3a_influenza_test_date.date": {
+    en: "",
   },
   "q07_1b_covid_test_results.title": {
     en: "What was the result for your Covid test?",
@@ -236,6 +252,9 @@ const questionsStrings: Record<"name" | "description" | "duration", { en: string
   },
   "q07_3b_covid_test_date.title": {
     en: "When did you get tested for Covid?",
+  },
+  "q07_3b_covid_test_date.date": {
+    en: "",
   },
   "q08_medication_any.title": {
     en: "Did you take any medication for these symptoms?",
@@ -260,9 +279,6 @@ const questionsStrings: Record<"name" | "description" | "duration", { en: string
   },
   "q08_medication_any.home_remedies": {
     en: "Home remedies",
-  },
-  "q08_medication_any.dont_know": {
-    en: "I don’t know/can’t remember",
   },
   "q08_medication_any.other": {
     en: "Other",

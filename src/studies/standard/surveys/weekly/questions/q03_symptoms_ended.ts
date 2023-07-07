@@ -5,6 +5,7 @@ import {
   LanguageMap,
   TResponseWithKeys,
 } from "../../../../../common/types";
+import { DontRememberResponse, TDontRemeberResponse } from "../constants";
 import { strings } from "../data/strings";
 
 export class Q03_SymptomsEnded extends SingleChoiceQuestion {
@@ -27,8 +28,7 @@ export class Q03_SymptomsEnded extends SingleChoiceQuestion {
 export namespace Q03_SymptomsEnded {
   export const key = "q03_symptoms_ended";
 
-  type TResponses = "Yes" | "Ongoing";
-
+  type TResponses = "Yes" | "Ongoing" | TDontRemeberResponse;
   export const Responses: Record<TResponses, TResponseWithKeys<TResponses>> = {
     Yes: {
       key: "yes",
@@ -43,6 +43,7 @@ export namespace Q03_SymptomsEnded {
         delta: { days: -7 },
       },
     },
+    ...DontRememberResponse,
     Ongoing: {
       value: "1",
       key: "ongoing"
