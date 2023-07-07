@@ -284,6 +284,9 @@ const s = {
   "q15_comorbidities.other": {
     en: "Other: ",
   },
+  "q15_comorbidities.validation.comorbidities_input": {
+    en: "Please describe the comorbidities",
+  },
   "q16_healthcare_sector.title": {
     en: "In what sector do you usually obtain healthcare?",
   },

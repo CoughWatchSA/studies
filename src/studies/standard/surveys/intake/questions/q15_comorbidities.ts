@@ -1,9 +1,11 @@
+import { SurveyEngine } from "case-editor-tools/surveys";
 import {
   TResponse,
   ToOptionDef,
   LanguageMap,
   MultipleChoiceQuestion,
   MultipleChoiceQuestionOptions,
+  generateLocStrings,
 } from "../../../../../common/types";
 
 export class Q15_Comorbidities extends MultipleChoiceQuestion {
@@ -37,6 +39,29 @@ export class Q15_Comorbidities extends MultipleChoiceQuestion {
         ],
         strings
       ),
+      customValidations: [
+        {
+          key: "comorbidities_input",
+          rule: SurveyEngine.logic.or(
+            SurveyEngine.logic.not(
+              SurveyEngine.responseHasKeysAny(this.key, "rg.mcg", Q15_Comorbidities.Responses.Other.value)
+            ),
+            SurveyEngine.checkResponseValueWithRegex(
+              this.key,
+              `rg.mcg.${Q15_Comorbidities.Responses.Other.value}`,
+              "[\\s\\S]+"
+            )
+          ),
+          type: "hard",
+        },
+      ],
+      bottomDisplayCompoments: [
+        {
+          role: "error",
+          content: generateLocStrings(strings[`${this.itemKey}.validation.comorbidities_input`]),
+          displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "comorbidities_input")),
+        },
+      ],
     };
   }
 }

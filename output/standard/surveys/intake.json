@@ -853,7 +853,7 @@
         ]
       },
       {
-        "key": "intake.PB_mUVB",
+        "key": "intake.PB_AEhZ",
         "type": "pageBreak"
       },
       {
@@ -1317,7 +1317,7 @@
         }
       },
       {
-        "key": "intake.PB_QbhB",
+        "key": "intake.PB_BLeM",
         "type": "pageBreak"
       },
       {
@@ -2281,7 +2281,7 @@
         }
       },
       {
-        "key": "intake.PB_Ohz9",
+        "key": "intake.PB_WksC",
         "type": "pageBreak"
       },
       {
@@ -2573,9 +2573,102 @@
                   }
                 }
               ]
+            },
+            {
+              "role": "error",
+              "content": [
+                {
+                  "code": "en",
+                  "parts": [
+                    {
+                      "str": "Please describe the comorbidities"
+                    }
+                  ]
+                }
+              ],
+              "displayCondition": {
+                "name": "not",
+                "data": [
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "getSurveyItemValidation",
+                      "data": [
+                        {
+                          "dtype": "str",
+                          "str": "this"
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "comorbidities_input"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
             }
           ]
-        }
+        },
+        "validations": [
+          {
+            "key": "comorbidities_input",
+            "rule": {
+              "name": "or",
+              "data": [
+                {
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "not",
+                    "data": [
+                      {
+                        "dtype": "exp",
+                        "exp": {
+                          "name": "responseHasKeysAny",
+                          "data": [
+                            {
+                              "dtype": "str",
+                              "str": "intake.q15_comorbidities"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "rg.mcg"
+                            },
+                            {
+                              "dtype": "str",
+                              "str": "16"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "dtype": "exp",
+                  "exp": {
+                    "name": "checkResponseValueWithRegex",
+                    "data": [
+                      {
+                        "dtype": "str",
+                        "str": "intake.q15_comorbidities"
+                      },
+                      {
+                        "dtype": "str",
+                        "str": "rg.mcg.16"
+                      },
+                      {
+                        "dtype": "str",
+                        "str": "[\\s\\S]+"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "type": "hard"
+          }
+        ]
       },
       {
         "key": "intake.q16_healthcare_sector",
