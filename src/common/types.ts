@@ -89,10 +89,12 @@ export type TChoiceOptionResponse = {
   role?: "option";
 } & TChoiceBaseResponse;
 
+// FIXME: conflicting definitions for disabled property, Omit from
+// TextInputProps
 export type TChoiceTextInputResponse = {
   role: "input";
 } & TChoiceBaseResponse &
-  TextInputProps;
+  Omit<TextInputProps, "disabled">;
 
 export type TChoiceDateInputResponse = {
   role: "dateInput";
