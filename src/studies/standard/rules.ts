@@ -1,5 +1,6 @@
 import { StudyEngine } from "case-editor-tools/expression-utils/studyEngineExpressions";
 import { StudyRules } from "case-editor-tools/types/studyRules";
+import { responseGroupKey, singleChoiceKey } from "case-editor-tools/constants/key-definitions";
 import { Expression } from "survey-engine/data_types";
 import { textInputResponseKey } from "../../common/constants";
 import { messages } from "./messages";
@@ -9,6 +10,7 @@ import { vaccination } from "./surveys/vaccination";
 import { weekly } from "./surveys/weekly";
 import { Q03_SymptomsEnded } from "./surveys/weekly/questions/q03_symptoms_ended";
 import { swabZipCodes } from "./surveys/intake/constants";
+import { Q01_1_SymptomsSameEpisode, Q04_SymptomsStarted } from "./surveys/weekly/questions";
 
 const entryRules: Expression[] = [
   StudyEngine.participantActions.assignedSurveys.add(intake.key, "normal"),
@@ -28,7 +30,7 @@ const handleIntake = StudyEngine.ifThen(
     // then:
     StudyEngine.participantActions.updateFlag(
       ParticipantFlags.eligibleForSwab.key,
-      ParticipantFlags.hasOnGoingSymptoms.values.yes
+      ParticipantFlags.eligibleForSwab.values.yes
     ),
     // else:
     StudyEngine.participantActions.updateFlag(
@@ -36,6 +38,11 @@ const handleIntake = StudyEngine.ifThen(
       ParticipantFlags.eligibleForSwab.values.no
     )
   )
+);
+
+const symptomsStart = StudyEngine.getResponseValueAsNum(
+  weekly.q04_symptoms_start.key,
+  `${responseGroupKey}.${singleChoiceKey}.${Q04_SymptomsStarted.Responses.Date.value}`
 );
 
 const handleWeekly = StudyEngine.ifThen(
@@ -54,15 +61,28 @@ const handleWeekly = StudyEngine.ifThen(
     // if has ongoing symptoms:
     StudyEngine.singleChoice.any(weekly.q03_symptoms_ended.key, Q03_SymptomsEnded.Responses.Ongoing.value),
     // then:
-    StudyEngine.participantActions.updateFlag(
-      ParticipantFlags.hasOnGoingSymptoms.key,
-      ParticipantFlags.hasOnGoingSymptoms.values.yes
+    StudyEngine.if(
+      // if had ongoing symptoms previously and part of the same episode, use the same date
+      StudyEngine.and(
+        StudyEngine.participantState.hasParticipantFlagKey(ParticipantFlags.ongoingSymptomsStart.key),
+        StudyEngine.singleChoice.any(
+          weekly.q01_1_symptoms_same_episode.key,
+          Q01_1_SymptomsSameEpisode.Responses.Yes.value
+        )
+      ),
+      StudyEngine.participantActions.updateFlag(
+        ParticipantFlags.ongoingSymptomsStart.key,
+        StudyEngine.participantState.getParticipantFlagValueAsNum(ParticipantFlags.ongoingSymptomsStart.key)
+      ),
+      // if not use the specified date, if exists
+      StudyEngine.if(
+        StudyEngine.singleChoice.any(weekly.q04_symptoms_start.key, Q04_SymptomsStarted.Responses.Date.value),
+        StudyEngine.participantActions.updateFlag(ParticipantFlags.ongoingSymptomsStart.key, symptomsStart),
+        StudyEngine.participantActions.updateFlag(ParticipantFlags.ongoingSymptomsStart.key, 0)
+      )
     ),
-    // else:
-    StudyEngine.participantActions.updateFlag(
-      ParticipantFlags.hasOnGoingSymptoms.key,
-      ParticipantFlags.hasOnGoingSymptoms.values.no
-    )
+    // else, remove the flag
+    StudyEngine.participantActions.removeFlag(ParticipantFlags.ongoingSymptomsStart.key)
   ),
   StudyEngine.if(
     // if is swab eligible:

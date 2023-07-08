@@ -1,10 +1,6 @@
 export const ParticipantFlags = {
-    hasOnGoingSymptoms: {
-        key: 'hasOngoingSymptoms',
-        values: {
-            no: '0',
-            yes: '1'
-        }
+    ongoingSymptomsStart: {
+        key: 'ongoingSymptomsStart',
     },
     eligibleForSwab: {
         key: 'eligibleForSwab',

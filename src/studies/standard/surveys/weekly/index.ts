@@ -36,30 +36,32 @@ class Weekly extends Survey {
   static surveyKey = "weekly";
 
   q03_symptoms_ended: SurveySingleItem;
+  q04_symptoms_start: SurveySingleItem;
+  q01_1_symptoms_same_episode: SurveySingleItem;
 
   constructor() {
     super(Weekly.surveyKey, strings);
 
+    this.q01_1_symptoms_same_episode = this.buildQuestion(Q01_1_SymptomsSameEpisode);
+    this.q04_symptoms_start = this.buildQuestion(Q04_SymptomsStarted);
     this.q03_symptoms_ended = this.buildQuestion(Q03_SymptomsEnded);
   }
 
   buildSurvey() {
-    const isOngoing = SurveyEngine.participantFlags.hasKeyAndValue(
-      ParticipantFlags.hasOnGoingSymptoms.key,
-      ParticipantFlags.hasOnGoingSymptoms.values.yes
-    );
+    const hasOngoingSymptoms = SurveyEngine.participantFlags.hasKey(ParticipantFlags.ongoingSymptomsStart.key);
+    const ongoingSymptomsStart = SurveyEngine.participantFlags.getAsNum(ParticipantFlags.ongoingSymptomsStart.key);
 
     const q01_symptoms_any = this.addQuestion(Q01_SymptomsAny);
 
     const hasSymptoms = SurveyEngine.singleChoice.any(q01_symptoms_any.key, Q01_SymptomsAny.Responses.Yes.value);
 
-    const q01_1_symptoms_same_episode = this.addQuestion(
-      Q01_1_SymptomsSameEpisode,
-      SurveyEngine.logic.and(hasSymptoms, isOngoing)
+    this.addConditionalItem(
+      this.q01_1_symptoms_same_episode,
+      SurveyEngine.logic.and(hasSymptoms, hasOngoingSymptoms)
     );
 
     const isSameEpisode = SurveyEngine.singleChoice.any(
-      q01_1_symptoms_same_episode.key,
+      this.q01_1_symptoms_same_episode.key,
       Q01_1_SymptomsSameEpisode.Responses.Yes.value
     );
 
@@ -69,27 +71,35 @@ class Weekly extends Survey {
 
     this.addPageBreak();
 
-    const q04_symptoms_start = this.addQuestion(
-      Q04_SymptomsStarted,
+    this.addConditionalItem(
+      this.q04_symptoms_start,
       SurveyEngine.logic.and(hasSymptoms, SurveyEngine.logic.not(isSameEpisode))
     );
 
-    const startsBeforeEnding = SurveyEngine.logic.or(
-      SurveyEngine.logic.not(helpers.responses.getValue(q04_symptoms_start)),
-      SurveyEngine.logic.not(helpers.responses.getValue(this.q03_symptoms_ended)),
-      SurveyEngine.compare.lte(
-        helpers.responses.getValue(q04_symptoms_start),
-        helpers.responses.getValue(this.q03_symptoms_ended)
+    const startsBeforeEnding = SurveyEngine.logic.and(
+      SurveyEngine.logic.or(
+        SurveyEngine.logic.not(helpers.responses.getValue(this.q04_symptoms_start)),
+        SurveyEngine.logic.not(helpers.responses.getValue(this.q03_symptoms_ended)),
+        SurveyEngine.compare.lte(
+          helpers.responses.getValue(this.q04_symptoms_start),
+          helpers.responses.getValue(this.q03_symptoms_ended)
+        )
+      ),
+      SurveyEngine.logic.or(
+        SurveyEngine.logic.not(isSameEpisode),
+        SurveyEngine.logic.not(ongoingSymptomsStart),
+        SurveyEngine.logic.not(helpers.responses.getValue(this.q03_symptoms_ended)),
+        SurveyEngine.compare.lte(ongoingSymptomsStart, helpers.responses.getValue(this.q03_symptoms_ended))
       )
     );
 
-    new ItemEditor(q04_symptoms_start).addValidation({
+    new ItemEditor(this.q04_symptoms_start).addValidation({
       key: "start_before_end",
       rule: startsBeforeEnding,
       type: "hard",
     });
 
-    new ItemEditor(q04_symptoms_start).addDisplayComponent({
+    new ItemEditor(this.q04_symptoms_start).addDisplayComponent({
       role: "error",
       content: generateLocStrings(strings["starts_after_ending"]),
       displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "start_before_end")),
@@ -113,18 +123,33 @@ class Weekly extends Survey {
 
     const q05_fever_started = this.addQuestion(Q05_FeverStarted, SurveyEngine.logic.and(hasSymptoms, hasFever));
 
-    const insideSymptomsSpan = SurveyEngine.logic.or(
-      SurveyEngine.logic.not(helpers.responses.getValue(q04_symptoms_start)),
-      SurveyEngine.logic.not(helpers.responses.getValue(this.q03_symptoms_ended)),
-      SurveyEngine.logic.not(helpers.responses.getValue(q05_fever_started)),
-      SurveyEngine.logic.and(
-        SurveyEngine.compare.gte(
-          helpers.responses.getValue(q05_fever_started),
-          helpers.responses.getValue(q04_symptoms_start)
-        ),
-        SurveyEngine.compare.lte(
-          helpers.responses.getValue(q05_fever_started),
-          helpers.responses.getValue(this.q03_symptoms_ended)
+    const insideSymptomsSpan = SurveyEngine.logic.and(
+      SurveyEngine.logic.or(
+        SurveyEngine.logic.not(helpers.responses.getValue(this.q04_symptoms_start)),
+        SurveyEngine.logic.not(helpers.responses.getValue(this.q03_symptoms_ended)),
+        SurveyEngine.logic.not(helpers.responses.getValue(q05_fever_started)),
+        SurveyEngine.logic.and(
+          SurveyEngine.compare.gte(
+            helpers.responses.getValue(q05_fever_started),
+            helpers.responses.getValue(this.q04_symptoms_start)
+          ),
+          SurveyEngine.compare.lte(
+            helpers.responses.getValue(q05_fever_started),
+            helpers.responses.getValue(this.q03_symptoms_ended)
+          )
+        )
+      ),
+      SurveyEngine.logic.or(
+        SurveyEngine.logic.not(isSameEpisode),
+        SurveyEngine.logic.not(ongoingSymptomsStart),
+        SurveyEngine.logic.not(helpers.responses.getValue(this.q03_symptoms_ended)),
+        SurveyEngine.logic.not(helpers.responses.getValue(q05_fever_started)),
+        SurveyEngine.logic.and(
+          SurveyEngine.compare.gte(helpers.responses.getValue(q05_fever_started), ongoingSymptomsStart),
+          SurveyEngine.compare.lte(
+            helpers.responses.getValue(q05_fever_started),
+            helpers.responses.getValue(this.q03_symptoms_ended)
+          )
         )
       )
     );
