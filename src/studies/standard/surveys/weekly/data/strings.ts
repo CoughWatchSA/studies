@@ -69,6 +69,9 @@ const commonStrings = {
   "input_not_filled": {
     en: "Please fill the input field",
   },
+  "no_date": {
+    en: "Please enter a valid date",
+  },
 };
 
 const questionsStrings: Record<"name" | "description" | "duration", { en: string }> &

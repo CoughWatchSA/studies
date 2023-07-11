@@ -76,6 +76,12 @@ class Weekly extends Survey {
       SurveyEngine.logic.and(hasSymptoms, SurveyEngine.logic.not(isSameEpisode))
     );
 
+    const hasDate = (item: SurveySingleItem, dateValue: string) =>
+      SurveyEngine.logic.or(
+        SurveyEngine.logic.not(SurveyEngine.singleChoice.any(item.key, dateValue)),
+        SurveyEngine.isDefined(helpers.responses.getValue(item))
+      );
+
     const startsBeforeEnding = SurveyEngine.logic.and(
       SurveyEngine.logic.or(
         SurveyEngine.logic.not(helpers.responses.getValue(this.q04_symptoms_start)),
@@ -105,6 +111,18 @@ class Weekly extends Survey {
       displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "start_before_end")),
     });
 
+    new ItemEditor(this.q04_symptoms_start).addValidation({
+      key: "has_date",
+      rule: hasDate(this.q04_symptoms_start, Q04_SymptomsStarted.Responses.Date.value),
+      type: "hard",
+    });
+
+    new ItemEditor(this.q04_symptoms_start).addDisplayComponent({
+      role: "error",
+      content: generateLocStrings(strings["no_date"]),
+      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "has_date")),
+    });
+
     this.addConditionalItem(this.q03_symptoms_ended, hasSymptoms);
 
     new ItemEditor(this.q03_symptoms_ended).addValidation({
@@ -117,6 +135,18 @@ class Weekly extends Survey {
       role: "error",
       content: generateLocStrings(strings["ends_before_starting"]),
       displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "end_after_start")),
+    });
+
+    new ItemEditor(this.q03_symptoms_ended).addValidation({
+      key: "has_date",
+      rule: hasDate(this.q03_symptoms_ended, Q03_SymptomsEnded.Responses.Yes.value),
+      type: "hard",
+    });
+
+    new ItemEditor(this.q03_symptoms_ended).addDisplayComponent({
+      role: "error",
+      content: generateLocStrings(strings["no_date"]),
+      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "has_date")),
     });
 
     this.addPageBreak();
@@ -164,6 +194,18 @@ class Weekly extends Survey {
       role: "error",
       content: generateLocStrings(strings["outside_symptoms_span"]),
       displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "inside_symptoms_span")),
+    });
+
+    new ItemEditor(q05_fever_started).addValidation({
+      key: "has_date",
+      rule: hasDate(q05_fever_started, Q05_FeverStarted.Responses.Date.value),
+      type: "hard",
+    });
+
+    new ItemEditor(q05_fever_started).addDisplayComponent({
+      role: "error",
+      content: generateLocStrings(strings["no_date"]),
+      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "has_date")),
     });
 
     this.addQuestion(Q05_1_Temperature, SurveyEngine.logic.and(hasSymptoms, hasFever));
