@@ -55,16 +55,16 @@ const commonStrings = {
     en: "I do not know",
   },
   ends_before_starting: {
-    en: "End date must be posterior to start date",
+    en: "Symptoms end date must be posterior to start date",
   },
   starts_after_ending: {
-    en: "Start date must be anterior to end date",
+    en: "Symptoms start date must be anterior to end date",
   },
   outside_symptoms_span: {
-    en: "Date must be inside symptoms interval",
+    en: "The selected date must fall inside your symptoms interval",
   },
   not_required_hint: {
-    en: "You can leave this answer blank if you don't rememenber / don't know what to answer",
+    en: "You can leave this answer blank if you don't rememember / don't know what to answer",
   },
   "input_not_filled": {
     en: "Please fill the input field",
