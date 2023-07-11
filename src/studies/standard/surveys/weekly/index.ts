@@ -1,6 +1,6 @@
 import { SurveyEngine } from "case-editor-tools/surveys";
 import { ItemEditor } from "case-editor-tools/surveys/survey-editor/item-editor";
-import { SurveySingleItem } from "survey-engine/data_types";
+import { Expression, SurveyItem, SurveySingleItem } from "survey-engine/data_types";
 import { generateLocStrings, Survey } from "../../../../common/types";
 import { ParticipantFlags } from "../../participantFalgs";
 import { strings } from "./data/strings";
@@ -47,6 +47,26 @@ class Weekly extends Survey {
     this.q03_symptoms_ended = this.buildQuestion(Q03_SymptomsEnded);
   }
 
+  addConditionalItem(item: SurveyItem, condition: Expression) {
+    if (condition) item.condition = condition;
+
+    super.addItem(item);
+  }
+
+  addValidation(item: SurveyItem, condition: Expression, key: string, errorText: Map<string, string>) {
+    new ItemEditor(item).addValidation({
+      key: key,
+      rule: condition,
+      type: "hard",
+    });
+
+    new ItemEditor(item).addDisplayComponent({
+      role: "error",
+      content: generateLocStrings(errorText),
+      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", key)),
+    });
+  }
+
   buildSurvey() {
     const hasOngoingSymptoms = SurveyEngine.participantFlags.hasKey(ParticipantFlags.ongoingSymptomsStart.key);
     const ongoingSymptomsStart = SurveyEngine.participantFlags.getAsNum(ParticipantFlags.ongoingSymptomsStart.key);
@@ -55,10 +75,7 @@ class Weekly extends Survey {
 
     const hasSymptoms = SurveyEngine.singleChoice.any(q01_symptoms_any.key, Q01_SymptomsAny.Responses.Yes.value);
 
-    this.addConditionalItem(
-      this.q01_1_symptoms_same_episode,
-      SurveyEngine.logic.and(hasSymptoms, hasOngoingSymptoms)
-    );
+    this.addConditionalItem(this.q01_1_symptoms_same_episode, SurveyEngine.logic.and(hasSymptoms, hasOngoingSymptoms));
 
     const isSameEpisode = SurveyEngine.singleChoice.any(
       this.q01_1_symptoms_same_episode.key,
@@ -99,55 +116,25 @@ class Weekly extends Survey {
       )
     );
 
-    new ItemEditor(this.q04_symptoms_start).addValidation({
-      key: "start_before_end",
-      rule: startsBeforeEnding,
-      type: "hard",
-    });
+    this.addValidation(this.q04_symptoms_start, startsBeforeEnding, "start_before_end", strings["starts_after_ending"]);
 
-    new ItemEditor(this.q04_symptoms_start).addDisplayComponent({
-      role: "error",
-      content: generateLocStrings(strings["starts_after_ending"]),
-      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "start_before_end")),
-    });
-
-    new ItemEditor(this.q04_symptoms_start).addValidation({
-      key: "has_date",
-      rule: hasDate(this.q04_symptoms_start, Q04_SymptomsStarted.Responses.Date.value),
-      type: "hard",
-    });
-
-    new ItemEditor(this.q04_symptoms_start).addDisplayComponent({
-      role: "error",
-      content: generateLocStrings(strings["no_date"]),
-      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "has_date")),
-    });
+    this.addValidation(
+      this.q04_symptoms_start,
+      hasDate(this.q04_symptoms_start, Q04_SymptomsStarted.Responses.Date.value),
+      "has_date",
+      strings["no_date"]
+    );
 
     this.addConditionalItem(this.q03_symptoms_ended, hasSymptoms);
 
-    new ItemEditor(this.q03_symptoms_ended).addValidation({
-      key: "end_after_start",
-      rule: startsBeforeEnding,
-      type: "hard",
-    });
+    this.addValidation(this.q03_symptoms_ended, startsBeforeEnding, "end_after_start", strings["ends_before_starting"]);
 
-    new ItemEditor(this.q03_symptoms_ended).addDisplayComponent({
-      role: "error",
-      content: generateLocStrings(strings["ends_before_starting"]),
-      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "end_after_start")),
-    });
-
-    new ItemEditor(this.q03_symptoms_ended).addValidation({
-      key: "has_date",
-      rule: hasDate(this.q03_symptoms_ended, Q03_SymptomsEnded.Responses.Yes.value),
-      type: "hard",
-    });
-
-    new ItemEditor(this.q03_symptoms_ended).addDisplayComponent({
-      role: "error",
-      content: generateLocStrings(strings["no_date"]),
-      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "has_date")),
-    });
+    this.addValidation(
+      this.q03_symptoms_ended,
+      hasDate(this.q03_symptoms_ended, Q03_SymptomsEnded.Responses.Yes.value),
+      "has_date",
+      strings["no_date"]
+    );
 
     this.addPageBreak();
 
@@ -184,29 +171,14 @@ class Weekly extends Survey {
       )
     );
 
-    new ItemEditor(q05_fever_started).addValidation({
-      key: "inside_symptoms_span",
-      rule: insideSymptomsSpan,
-      type: "hard",
-    });
+    this.addValidation(q05_fever_started, insideSymptomsSpan, "inside_symptoms_span", strings["outside_symptoms_span"]);
 
-    new ItemEditor(q05_fever_started).addDisplayComponent({
-      role: "error",
-      content: generateLocStrings(strings["outside_symptoms_span"]),
-      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "inside_symptoms_span")),
-    });
-
-    new ItemEditor(q05_fever_started).addValidation({
-      key: "has_date",
-      rule: hasDate(q05_fever_started, Q05_FeverStarted.Responses.Date.value),
-      type: "hard",
-    });
-
-    new ItemEditor(q05_fever_started).addDisplayComponent({
-      role: "error",
-      content: generateLocStrings(strings["no_date"]),
-      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "has_date")),
-    });
+    this.addValidation(
+      q05_fever_started,
+      hasDate(q05_fever_started, Q05_FeverStarted.Responses.Date.value),
+      "has_date",
+      strings["no_date"]
+    );
 
     this.addQuestion(Q05_1_Temperature, SurveyEngine.logic.and(hasSymptoms, hasFever));
 

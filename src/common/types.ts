@@ -1,5 +1,5 @@
 import { Expression, ExpressionArg, LocalizedString, SurveyItem, SurveySingleItem } from "survey-engine/data_types";
-import { SingleChoiceOptionTypes, SurveyItems } from "case-editor-tools/surveys";
+import { SingleChoiceOptionTypes, SurveyEngine, SurveyItems } from "case-editor-tools/surveys";
 import {
   DateInputProps,
   DateInputQuestionProps,
@@ -16,6 +16,7 @@ import { DropDownQuestionProps, OptionQuestionProps } from "case-editor-tools/su
 
 import _ from "lodash";
 import type { SnakeCase } from "type-fest";
+import { ItemEditor } from "case-editor-tools/surveys/survey-editor/item-editor";
 
 export type LanguageMap = Record<string, Map<string, string>>;
 
@@ -66,11 +67,6 @@ export abstract class Survey extends SurveyDefinition {
     return item;
   }
 
-  addConditionalItem(item: SurveyItem, condition: Expression) {
-    if (condition) item.condition = condition;
-
-    super.addItem(item);
-  }
 }
 
 export type DateInputProperties = DateInputProps & { key: string; displayCondition?: Expression };
@@ -263,7 +259,7 @@ export function ToOptionDef(
       ...response,
       ...{
         key: response.value,
-        content:  content ? content : response.textKey ? text[response.textKey] : new Map([["en", "TODO"]]),
+        content: content ? content : response.textKey ? text[response.textKey] : new Map([["en", "TODO"]]),
       },
       ...{
         disabled:
