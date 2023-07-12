@@ -3140,15 +3140,153 @@
                   {
                     "dtype": "exp",
                     "exp": {
-                      "name": "UPDATE_FLAG",
+                      "name": "IF",
                       "data": [
                         {
-                          "dtype": "str",
-                          "str": "hasOngoingSymptoms"
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "and",
+                            "data": [
+                              {
+                                "dtype": "exp",
+                                "exp": {
+                                  "name": "hasParticipantFlagKey",
+                                  "data": [
+                                    {
+                                      "dtype": "str",
+                                      "str": "ongoingSymptomsStart"
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "dtype": "exp",
+                                "exp": {
+                                  "name": "responseHasKeysAny",
+                                  "data": [
+                                    {
+                                      "dtype": "str",
+                                      "str": "weekly.q01_1_symptoms_same_episode"
+                                    },
+                                    {
+                                      "dtype": "str",
+                                      "str": "rg.scg"
+                                    },
+                                    {
+                                      "dtype": "str",
+                                      "str": "1"
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
                         },
                         {
-                          "dtype": "str",
-                          "str": "1"
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "UPDATE_FLAG",
+                            "data": [
+                              {
+                                "dtype": "str",
+                                "str": "ongoingSymptomsStart"
+                              },
+                              {
+                                "dtype": "exp",
+                                "exp": {
+                                  "name": "parseValueAsNum",
+                                  "returnType": "float",
+                                  "data": [
+                                    {
+                                      "dtype": "exp",
+                                      "exp": {
+                                        "name": "getParticipantFlagValue",
+                                        "data": [
+                                          {
+                                            "dtype": "str",
+                                            "str": "ongoingSymptomsStart"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "IF",
+                            "data": [
+                              {
+                                "dtype": "exp",
+                                "exp": {
+                                  "name": "responseHasKeysAny",
+                                  "data": [
+                                    {
+                                      "dtype": "str",
+                                      "str": "weekly.q04_symptoms_started"
+                                    },
+                                    {
+                                      "dtype": "str",
+                                      "str": "rg.scg"
+                                    },
+                                    {
+                                      "dtype": "str",
+                                      "str": "0"
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "dtype": "exp",
+                                "exp": {
+                                  "name": "UPDATE_FLAG",
+                                  "data": [
+                                    {
+                                      "dtype": "str",
+                                      "str": "ongoingSymptomsStart"
+                                    },
+                                    {
+                                      "dtype": "exp",
+                                      "exp": {
+                                        "name": "getResponseValueAsNum",
+                                        "returnType": "float",
+                                        "data": [
+                                          {
+                                            "dtype": "str",
+                                            "str": "weekly.q04_symptoms_started"
+                                          },
+                                          {
+                                            "dtype": "str",
+                                            "str": "rg.scg.0"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "dtype": "exp",
+                                "exp": {
+                                  "name": "UPDATE_FLAG",
+                                  "data": [
+                                    {
+                                      "dtype": "str",
+                                      "str": "ongoingSymptomsStart"
+                                    },
+                                    {
+                                      "dtype": "num",
+                                      "num": 0
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
                         }
                       ]
                     }
@@ -3156,15 +3294,11 @@
                   {
                     "dtype": "exp",
                     "exp": {
-                      "name": "UPDATE_FLAG",
+                      "name": "REMOVE_FLAG",
                       "data": [
                         {
                           "dtype": "str",
-                          "str": "hasOngoingSymptoms"
-                        },
-                        {
-                          "dtype": "str",
-                          "str": "0"
+                          "str": "ongoingSymptomsStart"
                         }
                       ]
                     }
