@@ -1,9 +1,11 @@
+import { SurveyEngine } from "case-editor-tools/surveys";
 import {
   ToOptionDefDict,
   LanguageMap,
   MultipleChoiceQuestion,
   MultipleChoiceQuestionOptions,
   TResponseWithKeys,
+  generateLocStrings,
 } from "../../../../../common/types";
 import { strings } from "../data/strings";
 
@@ -16,6 +18,29 @@ export class Q02_SymptomsWhich extends MultipleChoiceQuestion {
     this.options = {
       isRequired: true,
       responseOptions: ToOptionDefDict(this, Q02_SymptomsWhich.Responses, strings),
+      customValidations: [
+        {
+          key: "other_not_filled",
+          rule: SurveyEngine.logic.or(
+            SurveyEngine.logic.not(
+              SurveyEngine.responseHasKeysAny(this.key, "rg.mcg", Q02_SymptomsWhich.Responses.Other.value)
+            ),
+            SurveyEngine.checkResponseValueWithRegex(
+              this.key,
+              `rg.mcg.${Q02_SymptomsWhich.Responses.Other.value}`,
+              "[\\s\\S]+"
+            )
+          ),
+          type: "hard",
+        },
+      ],
+      bottomDisplayCompoments: [
+        {
+          role: "error",
+          content: generateLocStrings(strings["input_not_filled"]),
+          displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", "other_not_filled")),
+        },
+      ],
     };
   }
 }
