@@ -25,6 +25,7 @@ export namespace Q07_3a_InfluenzaTestDate {
     Date: {
       key: "date",
       value: "0",
+      role: "dateInput",
       ...illnessTestDateOptions,
     },
     ...StandardResponses

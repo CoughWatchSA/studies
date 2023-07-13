@@ -690,7 +690,7 @@
         }
       },
       {
-        "key": "weekly.PB_WrA2",
+        "key": "weekly.PB_eydp",
         "type": "pageBreak"
       },
       {
@@ -3019,7 +3019,7 @@
         }
       },
       {
-        "key": "weekly.PB_Yevc",
+        "key": "weekly.PB_7pE3",
         "type": "pageBreak"
       },
       {
@@ -5059,7 +5059,7 @@
         }
       },
       {
-        "key": "weekly.PB_oCiN",
+        "key": "weekly.PB_0jb2",
         "type": "pageBreak"
       },
       {
@@ -5623,7 +5623,7 @@
         }
       },
       {
-        "key": "weekly.PB_vI62",
+        "key": "weekly.PB_qPxB",
         "type": "pageBreak"
       },
       {
@@ -6128,7 +6128,7 @@
                   "items": [
                     {
                       "key": "0",
-                      "role": "option",
+                      "role": "dateInput",
                       "content": [
                         {
                           "code": "en",
@@ -6139,7 +6139,45 @@
                           ]
                         }
                       ],
-                      "style": []
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "select date"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "dateInputMode": {
+                          "str": "YMD"
+                        },
+                        "min": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": -604800
+                              }
+                            ]
+                          }
+                        },
+                        "max": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      }
                     },
                     {
                       "key": "-1",
@@ -6557,7 +6595,7 @@
                   "items": [
                     {
                       "key": "0",
-                      "role": "option",
+                      "role": "dateInput",
                       "content": [
                         {
                           "code": "en",
@@ -6568,7 +6606,45 @@
                           ]
                         }
                       ],
-                      "style": []
+                      "description": [
+                        {
+                          "code": "en",
+                          "parts": [
+                            {
+                              "str": "select date"
+                            }
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "dateInputMode": {
+                          "str": "YMD"
+                        },
+                        "min": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": -604800
+                              }
+                            ]
+                          }
+                        },
+                        "max": {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "timestampWithOffset",
+                            "data": [
+                              {
+                                "dtype": "num",
+                                "num": 0
+                              }
+                            ]
+                          }
+                        }
+                      }
                     },
                     {
                       "key": "-1",
@@ -6660,7 +6736,7 @@
         }
       },
       {
-        "key": "weekly.PB_Bsav",
+        "key": "weekly.PB_MkT6",
         "type": "pageBreak"
       },
       {
