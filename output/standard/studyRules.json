@@ -3218,12 +3218,17 @@
                         {
                           "dtype": "exp",
                           "exp": {
-                            "name": "IF",
+                            "name": "UPDATE_FLAG",
                             "data": [
+                              {
+                                "dtype": "str",
+                                "str": "ongoingSymptomsStart"
+                              },
                               {
                                 "dtype": "exp",
                                 "exp": {
-                                  "name": "responseHasKeysAny",
+                                  "name": "getResponseValueAsNum",
+                                  "returnType": "float",
                                   "data": [
                                     {
                                       "dtype": "str",
@@ -3231,56 +3236,7 @@
                                     },
                                     {
                                       "dtype": "str",
-                                      "str": "rg.scg"
-                                    },
-                                    {
-                                      "dtype": "str",
-                                      "str": "0"
-                                    }
-                                  ]
-                                }
-                              },
-                              {
-                                "dtype": "exp",
-                                "exp": {
-                                  "name": "UPDATE_FLAG",
-                                  "data": [
-                                    {
-                                      "dtype": "str",
-                                      "str": "ongoingSymptomsStart"
-                                    },
-                                    {
-                                      "dtype": "exp",
-                                      "exp": {
-                                        "name": "getResponseValueAsNum",
-                                        "returnType": "float",
-                                        "data": [
-                                          {
-                                            "dtype": "str",
-                                            "str": "weekly.q04_symptoms_started"
-                                          },
-                                          {
-                                            "dtype": "str",
-                                            "str": "rg.scg.0"
-                                          }
-                                        ]
-                                      }
-                                    }
-                                  ]
-                                }
-                              },
-                              {
-                                "dtype": "exp",
-                                "exp": {
-                                  "name": "UPDATE_FLAG",
-                                  "data": [
-                                    {
-                                      "dtype": "str",
-                                      "str": "ongoingSymptomsStart"
-                                    },
-                                    {
-                                      "dtype": "num",
-                                      "num": 0
+                                      "str": "rg.date"
                                     }
                                   ]
                                 }
