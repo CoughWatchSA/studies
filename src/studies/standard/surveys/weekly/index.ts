@@ -31,6 +31,7 @@ import {
   Q09_2_TimeOffDays,
   Q09_RoutineChange,
 } from "./questions";
+import { datePickerKey } from "case-editor-tools/constants/key-definitions";
 
 class Weekly extends Survey {
   static surveyKey = "weekly";
@@ -93,11 +94,16 @@ class Weekly extends Survey {
       SurveyEngine.logic.and(hasSymptoms, SurveyEngine.logic.not(isSameEpisode))
     );
 
-    const hasDate = (item: SurveySingleItem, dateValue: string) =>
-      SurveyEngine.logic.or(
+    const hasDate = (item: SurveySingleItem, dateValue?: string) =>
+      {
+      if (dateValue !== undefined) {
+      return SurveyEngine.logic.or(
         SurveyEngine.logic.not(SurveyEngine.singleChoice.any(item.key, dateValue)),
         SurveyEngine.isDefined(helpers.responses.getValue(item))
-      );
+      )} else {
+        return SurveyEngine.isDefined(helpers.responses.getValue(item))
+      }
+      };
 
     const startsBeforeEnding = SurveyEngine.logic.and(
       SurveyEngine.logic.or(
@@ -118,12 +124,12 @@ class Weekly extends Survey {
 
     this.addValidation(this.q04_symptoms_start, startsBeforeEnding, "start_before_end", strings["starts_after_ending"]);
 
-    this.addValidation(
-      this.q04_symptoms_start,
-      hasDate(this.q04_symptoms_start, Q04_SymptomsStarted.Responses.Date.value),
-      "has_date",
-      strings["no_date"]
-    );
+    // this.addValidation(
+    //   this.q04_symptoms_start,
+    //   hasDate(this.q04_symptoms_start),
+    //   "has_date",
+    //   strings["no_date"]
+    // );
 
     this.addConditionalItem(this.q03_symptoms_ended, hasSymptoms);
 
@@ -216,13 +222,27 @@ class Weekly extends Survey {
 
     this.addQuestion(Q07_2a_InfluenzaTestType, SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza));
 
-    this.addQuestion(Q07_3a_InfluenzaTestDate, SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza));
+    const q07_3a_influenza_test_date = this.addQuestion(Q07_3a_InfluenzaTestDate, SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza));
+
+    this.addValidation(
+      q07_3a_influenza_test_date,
+      hasDate(q07_3a_influenza_test_date, Q07_3a_InfluenzaTestDate.Responses.Date.value),
+      "has_date",
+      strings["no_date"]
+    );
 
     this.addQuestion(Q07_1b_CovidTestResults, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
 
     this.addQuestion(Q07_2b_CovidTestType, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
 
-    this.addQuestion(Q07_3b_CovidTestDate, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
+    const q07_3b_covid_test_date = this.addQuestion(Q07_3b_CovidTestDate, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
+
+    this.addValidation(
+      q07_3b_covid_test_date,
+      hasDate(q07_3b_covid_test_date, Q07_3b_CovidTestDate.Responses.Date.value),
+      "has_date",
+      strings["no_date"]
+    );
 
     this.addPageBreak();
 

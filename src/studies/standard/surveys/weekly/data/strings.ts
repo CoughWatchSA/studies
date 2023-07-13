@@ -152,9 +152,6 @@ const questionsStrings: Record<"name" | "description" | "duration", { en: string
   "q04_symptoms_started.title": {
     en: "When did the first symptoms appear?",
   },
-  "q04_symptoms_started.date": {
-    en: "",
-  },
   "q05_fever_started.title": {
     en: "When did your fever begin?",
   },

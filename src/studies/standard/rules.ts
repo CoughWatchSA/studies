@@ -1,6 +1,6 @@
 import { StudyEngine } from "case-editor-tools/expression-utils/studyEngineExpressions";
 import { StudyRules } from "case-editor-tools/types/studyRules";
-import { responseGroupKey, singleChoiceKey } from "case-editor-tools/constants/key-definitions";
+import { datePickerKey, responseGroupKey, singleChoiceKey } from "case-editor-tools/constants/key-definitions";
 import { Expression } from "survey-engine/data_types";
 import { textInputResponseKey } from "../../common/constants";
 import { messages } from "./messages";
@@ -42,7 +42,7 @@ const handleIntake = StudyEngine.ifThen(
 
 const symptomsStart = StudyEngine.getResponseValueAsNum(
   weekly.q04_symptoms_start.key,
-  `${responseGroupKey}.${singleChoiceKey}.${Q04_SymptomsStarted.Responses.Date.value}`
+  `${responseGroupKey}.${datePickerKey}`
 );
 
 const handleWeekly = StudyEngine.ifThen(
@@ -74,12 +74,8 @@ const handleWeekly = StudyEngine.ifThen(
         ParticipantFlags.ongoingSymptomsStart.key,
         StudyEngine.participantState.getParticipantFlagValueAsNum(ParticipantFlags.ongoingSymptomsStart.key)
       ),
-      // if not use the specified date, if exists
-      StudyEngine.if(
-        StudyEngine.singleChoice.any(weekly.q04_symptoms_start.key, Q04_SymptomsStarted.Responses.Date.value),
-        StudyEngine.participantActions.updateFlag(ParticipantFlags.ongoingSymptomsStart.key, symptomsStart),
-        StudyEngine.participantActions.updateFlag(ParticipantFlags.ongoingSymptomsStart.key, 0)
-      )
+      // if not use the specified date
+      StudyEngine.participantActions.updateFlag(ParticipantFlags.ongoingSymptomsStart.key, symptomsStart),
     ),
     // else, remove the flag
     StudyEngine.participantActions.removeFlag(ParticipantFlags.ongoingSymptomsStart.key)
