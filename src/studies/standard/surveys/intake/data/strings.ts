@@ -233,6 +233,9 @@ const s = {
   "q15_comorbidities.title": {
     en: "Do you have any of the following comorbidities (underlying medical illness)?",
   },
+  "q15_comorbidities.no_underlying_medical_conditions": {
+    en: "No underlying medical conditions",
+  },
   "q15_comorbidities.chronic_cardiac_diseases": {
     en: "Chronic cardiac diseases",
   },
