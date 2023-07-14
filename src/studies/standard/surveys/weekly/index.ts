@@ -54,20 +54,6 @@ class Weekly extends Survey {
     super.addItem(item);
   }
 
-  addValidation(item: SurveyItem, condition: Expression, key: string, errorText: Map<string, string>) {
-    new ItemEditor(item).addValidation({
-      key: key,
-      rule: condition,
-      type: "hard",
-    });
-
-    new ItemEditor(item).addDisplayComponent({
-      role: "error",
-      content: generateLocStrings(errorText),
-      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", key)),
-    });
-  }
-
   buildSurvey() {
     const hasOngoingSymptoms = SurveyEngine.participantFlags.hasKey(ParticipantFlags.ongoingSymptomsStart.key);
     const ongoingSymptomsStart = SurveyEngine.participantFlags.getAsNum(ParticipantFlags.ongoingSymptomsStart.key);
@@ -94,16 +80,16 @@ class Weekly extends Survey {
       SurveyEngine.logic.and(hasSymptoms, SurveyEngine.logic.not(isSameEpisode))
     );
 
-    const hasDate = (item: SurveySingleItem, dateValue?: string) =>
-      {
+    const hasDate = (item: SurveySingleItem, dateValue?: string) => {
       if (dateValue !== undefined) {
-      return SurveyEngine.logic.or(
-        SurveyEngine.logic.not(SurveyEngine.singleChoice.any(item.key, dateValue)),
-        SurveyEngine.isDefined(helpers.responses.getValue(item))
-      )} else {
-        return SurveyEngine.isDefined(helpers.responses.getValue(item))
+        return SurveyEngine.logic.or(
+          SurveyEngine.logic.not(SurveyEngine.singleChoice.any(item.key, dateValue)),
+          SurveyEngine.isDefined(helpers.responses.getValue(item))
+        );
+      } else {
+        return SurveyEngine.isDefined(helpers.responses.getValue(item));
       }
-      };
+    };
 
     const startsBeforeEnding = SurveyEngine.logic.and(
       SurveyEngine.logic.or(
@@ -222,7 +208,10 @@ class Weekly extends Survey {
 
     this.addQuestion(Q07_2a_InfluenzaTestType, SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza));
 
-    const q07_3a_influenza_test_date = this.addQuestion(Q07_3a_InfluenzaTestDate, SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza));
+    const q07_3a_influenza_test_date = this.addQuestion(
+      Q07_3a_InfluenzaTestDate,
+      SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza)
+    );
 
     this.addValidation(
       q07_3a_influenza_test_date,
@@ -235,7 +224,10 @@ class Weekly extends Survey {
 
     this.addQuestion(Q07_2b_CovidTestType, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
 
-    const q07_3b_covid_test_date = this.addQuestion(Q07_3b_CovidTestDate, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
+    const q07_3b_covid_test_date = this.addQuestion(
+      Q07_3b_CovidTestDate,
+      SurveyEngine.logic.and(hasSymptoms, hasTestedCovid)
+    );
 
     this.addValidation(
       q07_3b_covid_test_date,

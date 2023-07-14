@@ -11,6 +11,9 @@ const s = {
   dateInput_year: {
     en: "Year",
   },
+  leave_date_blank: {
+    en: "Leave the date blank if you don't remember",
+  },
   "q01_flu_vaccine.title": {
     en: "Have you received a flu vaccine for this year (2023)?",
   },
@@ -22,6 +25,9 @@ const s = {
   },
   "q01_1_flu_vaccine_when.title": {
     en: "When were you vaccinated?",
+  },
+  "q01_1_flu_vaccine_when.questionSubText": {
+    en: "Leave it empty if you don't remember",
   },
   "q01_1_flu_vaccine_when.inputLabel": {
     en: "Date",
@@ -64,6 +70,9 @@ const s = {
   },
   "q02_2a_covid_vaccine_first_dose.title": {
     en: "Please select which vaccine did you receive for the first dose and when you received it",
+  },
+  covid_vaccine_doses_date_validation: {
+    en: "Please make sure vaccine dates are ordered correctly",
   },
   "q02_2a_covid_vaccine_first_dose.pfizer": {
     en: "Pfizer - Date: ",

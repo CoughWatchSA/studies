@@ -14,6 +14,7 @@ export class Q02_2c_CovidVaccine_Third_Dose extends SingleChoiceQuestion {
 
     this.options = {
       isRequired: true,
+      questionSubText: strings["leave_date_blank"],
       responseOptions: ToOptionDef(
         this,
         [Q02_2c_CovidVaccine_Third_Dose.Responses.Pfizer, Q02_2c_CovidVaccine_Third_Dose.Responses.JohnsonJohnson],

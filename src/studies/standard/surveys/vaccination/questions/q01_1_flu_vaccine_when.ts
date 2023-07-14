@@ -7,7 +7,8 @@ export class Q01_1_FluVaccineWhen extends DateInputQuestion {
     super(parentKey, Q01_1_FluVaccineWhen.key, strings);
 
     this.options = {
-      isRequired: true,
+      isRequired: false,
+      questionSubText: strings[`${Q01_1_FluVaccineWhen.key}.questionSubText`],
       dateInputMode: "YM",
       maxRelativeDate: {
         delta: { years: 0 },

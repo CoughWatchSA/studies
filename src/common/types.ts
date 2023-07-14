@@ -67,6 +67,19 @@ export abstract class Survey extends SurveyDefinition {
     return item;
   }
 
+  addValidation(item: SurveyItem, condition: Expression, key: string, errorText: Map<string, string>) {
+    new ItemEditor(item).addValidation({
+      key: key,
+      rule: condition,
+      type: "hard",
+    });
+
+    new ItemEditor(item).addDisplayComponent({
+      role: "error",
+      content: generateLocStrings(errorText),
+      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", key)),
+    });
+  }
 }
 
 export type DateInputProperties = DateInputProps & { key: string; displayCondition?: Expression };

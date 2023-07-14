@@ -14,6 +14,7 @@ export class Q02_2e_CovidVaccine_Fifth_Dose extends SingleChoiceQuestion {
 
     this.options = {
       isRequired: true,
+      questionSubText: strings["leave_date_blank"],
       responseOptions: ToOptionDef(
         this,
         [Q02_2e_CovidVaccine_Fifth_Dose.Responses.Pfizer, Q02_2e_CovidVaccine_Fifth_Dose.Responses.JohnsonJohnson],
