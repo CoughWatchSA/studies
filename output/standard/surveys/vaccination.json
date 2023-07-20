@@ -199,6 +199,16 @@
                         }
                       ]
                     }
+                  ],
+                  "description": [
+                    {
+                      "code": "en",
+                      "parts": [
+                        {
+                          "str": "Year"
+                        }
+                      ]
+                    }
                   ]
                 }
               ]
@@ -312,7 +322,7 @@
         ]
       },
       {
-        "key": "vaccination.PB_7n5w",
+        "key": "vaccination.PB_ZMGV",
         "type": "pageBreak"
       },
       {
@@ -600,7 +610,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Pfizer - Date: "
+                              "str": "Pfizer"
                             }
                           ]
                         }
@@ -653,7 +663,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Johnson & Johnson - Date: "
+                              "str": "Johnson & Johnson"
                             }
                           ]
                         }
@@ -2578,7 +2588,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Pfizer - Date: "
+                              "str": "Pfizer"
                             }
                           ]
                         }
@@ -2631,7 +2641,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Johnson & Johnson - Date: "
+                              "str": "Johnson & Johnson"
                             }
                           ]
                         }
@@ -4552,7 +4562,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Pfizer - Date: "
+                              "str": "Pfizer"
                             }
                           ]
                         }
@@ -4605,7 +4615,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Johnson & Johnson - Date: "
+                              "str": "Johnson & Johnson"
                             }
                           ]
                         }
@@ -6522,7 +6532,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Pfizer - Date: "
+                              "str": "Pfizer"
                             }
                           ]
                         }
@@ -6575,7 +6585,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Johnson & Johnson - Date: "
+                              "str": "Johnson & Johnson"
                             }
                           ]
                         }
@@ -8488,7 +8498,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Pfizer - Date: "
+                              "str": "Pfizer"
                             }
                           ]
                         }
@@ -8541,7 +8551,7 @@
                           "code": "en",
                           "parts": [
                             {
-                              "str": "Johnson & Johnson - Date: "
+                              "str": "Johnson & Johnson"
                             }
                           ]
                         }

@@ -75,46 +75,46 @@ const s = {
     en: "Please make sure vaccine dates are ordered correctly",
   },
   "q02_2a_covid_vaccine_first_dose.pfizer": {
-    en: "Pfizer - Date: ",
+    en: "Pfizer",
   },
   "q02_2a_covid_vaccine_first_dose.johnsonjohnson": {
-    en: "Johnson & Johnson - Date: ",
+    en: "Johnson & Johnson",
   },
   "q02_2b_covid_vaccine_second_dose.title": {
     en: "Please select which vaccine did you receive for the second dose and when you received it",
   },
   "q02_2b_covid_vaccine_second_dose.pfizer": {
-    en: "Pfizer - Date: ",
+    en: "Pfizer",
   },
   "q02_2b_covid_vaccine_second_dose.johnsonjohnson": {
-    en: "Johnson & Johnson - Date: ",
+    en: "Johnson & Johnson",
   },
   "q02_2c_covid_vaccine_third_dose.title": {
     en: "Please select which vaccine did you receive for the third dose and when you received it",
   },
   "q02_2c_covid_vaccine_third_dose.pfizer": {
-    en: "Pfizer - Date: ",
+    en: "Pfizer",
   },
   "q02_2c_covid_vaccine_third_dose.johnsonjohnson": {
-    en: "Johnson & Johnson - Date: ",
+    en: "Johnson & Johnson",
   },
   "q02_2d_covid_vaccine_fourth_dose.title": {
     en: "Please select which vaccine did you receive for the fourth dose and when you received it",
   },
   "q02_2d_covid_vaccine_fourth_dose.pfizer": {
-    en: "Pfizer - Date: ",
+    en: "Pfizer",
   },
   "q02_2d_covid_vaccine_fourth_dose.johnsonjohnson": {
-    en: "Johnson & Johnson - Date: ",
+    en: "Johnson & Johnson",
   },
   "q02_2e_covid_vaccine_fifth_dose.title": {
     en: "Please select which vaccine did you receive for the fifth dose and when you received it",
   },
   "q02_2e_covid_vaccine_fifth_dose.pfizer": {
-    en: "Pfizer - Date: ",
+    en: "Pfizer",
   },
   "q02_2e_covid_vaccine_fifth_dose.johnsonjohnson": {
-    en: "Johnson & Johnson - Date: ",
+    en: "Johnson & Johnson",
   },
 };
 
