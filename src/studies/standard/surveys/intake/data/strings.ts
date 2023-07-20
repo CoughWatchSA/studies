@@ -38,6 +38,9 @@ const s = {
   "q03_postal_code.title": {
     en: "What is your residential postal code?",
   },
+  "q03_postal_code.placeholder": {
+    en: "1234",
+  },
   "q03_postal_code.inputLabel": {
     en: "Postal Code: ",
   },

@@ -8,6 +8,7 @@ import {
   generateLocStrings,
 } from "../../../../../common/types";
 import { textInputResponseKey } from "../../../../../common/constants";
+import { strings } from "../data/strings";
 
 export class Q02_Gender extends SingleChoiceQuestion {
   options: SingleChoiceQuestionOptions;
@@ -76,6 +77,7 @@ export namespace Q02_Gender {
       key: "prefer_to_self_describe",
       value: "3",
       role: "input",
+      placeholderText: strings["q02_gender.validation.gender_input"],
     },
   };
 }
