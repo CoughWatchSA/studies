@@ -80,13 +80,17 @@ const handleWeekly = StudyEngine.ifThen(
     // else, remove the flag
     StudyEngine.participantActions.removeFlag(ParticipantFlags.ongoingSymptomsStart.key)
   ),
+  // send swab invitation if:
   StudyEngine.if(
-    // if is swab eligible:
     StudyEngine.and(
+      // has ongoing symptoms
+      StudyEngine.singleChoice.any(weekly.q03_symptoms_ended.key, Q03_SymptomsEnded.Responses.Ongoing.value),
+      // swab eligible:
       StudyEngine.participantState.hasParticipantFlagKeyAndValue(
         ParticipantFlags.eligibleForSwab.key,
         ParticipantFlags.eligibleForSwab.values.yes
       ),
+      // not invited previously:
       StudyEngine.not(StudyEngine.participantState.hasParticipantFlagKey(ParticipantFlags.invitedForSwabOn.key))
     ),
     // then:
