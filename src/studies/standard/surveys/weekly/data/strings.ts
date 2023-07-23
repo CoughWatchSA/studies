@@ -116,7 +116,7 @@ const questionsStrings: Record<"name" | "description" | "duration", { en: string
     en: "When you filled in the previous questionnaire, you indicated that you were still ill. Are the symptoms you are reporting now part of the same episode?",
   },
   "q02_symptoms_which.title": {
-    en: "Please select the symptoms you experienced this week:",
+    en: "Please select the symptoms you experienced in the past week:",
   },
   "q02_symptoms_which.fever": { en: "Fever" },
   "q02_symptoms_which.chills": { en: "Chills" },
