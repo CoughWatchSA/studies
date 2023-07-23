@@ -12,7 +12,7 @@ export class Q04_SymptomsStarted extends DateInputQuestion {
       dateInputMode: "YMD",
       placeholderText: strings["date_placeholder_ymd"],
       maxRelativeDate: {
-        delta: { years: 0 },
+        delta: { days: -1 },
       },
       minRelativeDate: {
         delta: { days: -DateOptions.maxOnsetDays },

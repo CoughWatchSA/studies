@@ -5,7 +5,7 @@ import {
   LanguageMap,
   TResponseWithKeys,
 } from "../../../../../common/types";
-import { DontRememberResponse, TDontRemeberResponse } from "../constants";
+import { DateOptions, DontRememberResponse, TDontRemeberResponse } from "../constants";
 import { strings } from "../data/strings";
 
 export class Q03_SymptomsEnded extends SingleChoiceQuestion {
@@ -37,10 +37,10 @@ export namespace Q03_SymptomsEnded {
       dateInputMode: "YMD",
       placeholderText: strings["date_placeholder_ymd"],
       maxRelativeDate: {
-        delta: { days: 0 },
+        delta: { days: -1 },
       },
       minRelativeDate: {
-        delta: { days: -7 },
+        delta: { days: -DateOptions.maxOnsetDays },
       },
     },
     ...DontRememberResponse,
