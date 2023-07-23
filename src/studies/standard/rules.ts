@@ -18,9 +18,7 @@ const Options = {
 };
 
 const entryRules: Expression[] = [
-  StudyEngine.participantActions.assignedSurveys.add(intake.key, "normal"),
-  StudyEngine.participantActions.assignedSurveys.add(vaccination.key, "normal"),
-  StudyEngine.participantActions.assignedSurveys.add(weekly.key, "normal"),
+  StudyEngine.participantActions.assignedSurveys.add(intake.key, "prio"),
 ];
 
 const handleIntake = StudyEngine.ifThen(
