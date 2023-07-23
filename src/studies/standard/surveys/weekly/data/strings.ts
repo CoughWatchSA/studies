@@ -60,8 +60,11 @@ const commonStrings = {
   starts_after_ending: {
     en: "Symptoms start date must be anterior to end date",
   },
-  outside_symptoms_span: {
-    en: "The selected date must fall inside your symptoms interval",
+  before_symptoms_start: {
+    en: "The selected date must be posterior to symptoms' start date",
+  },
+  after_symptoms_end: {
+    en: "The selected date must be anterior to symptoms' end date",
   },
   not_required_hint: {
     en: "You can leave this answer blank if you don't rememember / don't know what to answer",

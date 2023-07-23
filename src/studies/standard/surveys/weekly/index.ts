@@ -132,45 +132,34 @@ class Weekly extends Survey {
 
     const q05_fever_started = this.addQuestion(Q05_FeverStarted, SurveyEngine.logic.and(hasSymptoms, hasFever));
 
-    const insideSymptomsSpan = SurveyEngine.logic.and(
+    const afterSymptomsStart = SurveyEngine.logic.and(
       SurveyEngine.logic.or(
         SurveyEngine.logic.not(helpers.responses.getValue(this.q04_symptoms_start)),
-        SurveyEngine.logic.not(helpers.responses.getValue(this.q03_symptoms_ended)),
         SurveyEngine.logic.not(helpers.responses.getValue(q05_fever_started)),
-        SurveyEngine.logic.and(
-          SurveyEngine.compare.gte(
-            helpers.responses.getValue(q05_fever_started),
-            helpers.responses.getValue(this.q04_symptoms_start)
-          ),
-          SurveyEngine.compare.lte(
-            helpers.responses.getValue(q05_fever_started),
-            helpers.responses.getValue(this.q03_symptoms_ended)
-          )
+        SurveyEngine.compare.gte(
+          helpers.responses.getValue(q05_fever_started),
+          helpers.responses.getValue(this.q04_symptoms_start)
         )
       ),
       SurveyEngine.logic.or(
         SurveyEngine.logic.not(isSameEpisode),
         SurveyEngine.logic.not(ongoingSymptomsStart),
-        SurveyEngine.logic.not(helpers.responses.getValue(this.q03_symptoms_ended)),
         SurveyEngine.logic.not(helpers.responses.getValue(q05_fever_started)),
-        SurveyEngine.logic.and(
-          SurveyEngine.compare.gte(helpers.responses.getValue(q05_fever_started), ongoingSymptomsStart),
-          SurveyEngine.compare.lte(
-            helpers.responses.getValue(q05_fever_started),
-            helpers.responses.getValue(this.q03_symptoms_ended)
-          )
-        )
+        SurveyEngine.compare.gte(helpers.responses.getValue(q05_fever_started), ongoingSymptomsStart)
       )
     );
 
-    this.addValidation(q05_fever_started, insideSymptomsSpan, "inside_symptoms_span", strings["outside_symptoms_span"]);
-
-    this.addValidation(
-      q05_fever_started,
-      hasDate(q05_fever_started, Q05_FeverStarted.Responses.Date.value),
-      "has_date",
-      strings["no_date"]
+    const beforeSymptomsEnd = SurveyEngine.logic.or(
+      SurveyEngine.logic.not(helpers.responses.getValue(this.q03_symptoms_ended)),
+      SurveyEngine.logic.not(helpers.responses.getValue(q05_fever_started)),
+      SurveyEngine.compare.lte(
+        helpers.responses.getValue(q05_fever_started),
+        helpers.responses.getValue(this.q03_symptoms_ended)
+      )
     );
+
+    this.addValidation(q05_fever_started, afterSymptomsStart, "after_symptoms_start", strings["before_symptoms_start"]);
+    this.addValidation(q05_fever_started, beforeSymptomsEnd, "before_symptoms_end", strings["after_symptoms_end"]);
 
     this.addQuestion(Q05_1_Temperature, SurveyEngine.logic.and(hasSymptoms, hasFever));
 
