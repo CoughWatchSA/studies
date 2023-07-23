@@ -69,7 +69,7 @@ export const ResponsesTestResult: Record<TResponsesTestResult, TCommonResponseWi
   },
 };
 
-export type TResponsesTestType = "Pcr" | "Rapid" | "Unknown";
+export type TResponsesTestType = "Pcr" | "Rapid";
 
 export const ResponsesTestType: Record<TResponsesTestType, TCommonResponseWithKeys<TResponsesTestType>> = {
   Pcr: {
@@ -81,10 +81,5 @@ export const ResponsesTestType: Record<TResponsesTestType, TCommonResponseWithKe
     key: "rapid",
     value: "1",
     textKey: "test_type.rapid",
-  },
-  Unknown: {
-    key: "unknown",
-    value: "2",
-    textKey: "test_type.unknown",
-  },
+  }
 };
