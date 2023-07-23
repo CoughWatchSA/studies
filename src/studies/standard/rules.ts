@@ -28,7 +28,8 @@ const handleIntake = StudyEngine.ifThen(
   // add weekly survey if not already there
   StudyEngine.ifThen(
     StudyEngine.not(StudyEngine.participantState.hasSurveyKeyAssigned(weekly.key)),
-    StudyEngine.participantActions.assignedSurveys.add(weekly.key, "prio")
+    StudyEngine.participantActions.assignedSurveys.add(weekly.key, "prio"),
+    StudyEngine.participantActions.assignedSurveys.add(vaccination.key, "prio")
   ),
   // add optional intake
   StudyEngine.participantActions.assignedSurveys.add(intake.key, "optional"),
