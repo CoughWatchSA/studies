@@ -33,55 +33,7 @@
             },
             {
               "dtype": "str",
-              "str": "normal"
-            }
-          ]
-        }
-      },
-      {
-        "dtype": "exp",
-        "exp": {
-          "name": "ADD_NEW_SURVEY",
-          "data": [
-            {
-              "dtype": "str",
-              "str": "vaccination"
-            },
-            {
-              "dtype": "num",
-              "num": 0
-            },
-            {
-              "dtype": "num",
-              "num": 0
-            },
-            {
-              "dtype": "str",
-              "str": "normal"
-            }
-          ]
-        }
-      },
-      {
-        "dtype": "exp",
-        "exp": {
-          "name": "ADD_NEW_SURVEY",
-          "data": [
-            {
-              "dtype": "str",
-              "str": "weekly"
-            },
-            {
-              "dtype": "num",
-              "num": 0
-            },
-            {
-              "dtype": "num",
-              "num": 0
-            },
-            {
-              "dtype": "str",
-              "str": "normal"
+              "str": "prio"
             }
           ]
         }
