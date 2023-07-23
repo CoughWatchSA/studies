@@ -123,6 +123,94 @@
             {
               "dtype": "exp",
               "exp": {
+                "name": "REMOVE_SURVEYS_BY_KEY",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "intake"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "IFTHEN",
+                "data": [
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "not",
+                      "data": [
+                        {
+                          "dtype": "exp",
+                          "exp": {
+                            "name": "hasSurveyKeyAssigned",
+                            "data": [
+                              {
+                                "dtype": "str",
+                                "str": "weekly"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "ADD_NEW_SURVEY",
+                      "data": [
+                        {
+                          "dtype": "str",
+                          "str": "weekly"
+                        },
+                        {
+                          "dtype": "num",
+                          "num": 0
+                        },
+                        {
+                          "dtype": "num",
+                          "num": 0
+                        },
+                        {
+                          "dtype": "str",
+                          "str": "prio"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "ADD_NEW_SURVEY",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "intake"
+                  },
+                  {
+                    "dtype": "num",
+                    "num": 0
+                  },
+                  {
+                    "dtype": "num",
+                    "num": 0
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "optional"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "exp",
+              "exp": {
                 "name": "IF",
                 "data": [
                   {
@@ -3096,7 +3184,7 @@
                       "data": [
                         {
                           "dtype": "num",
-                          "num": 3600
+                          "num": 14400
                         }
                       ]
                     }
@@ -3275,6 +3363,26 @@
                         {
                           "dtype": "exp",
                           "exp": {
+                            "name": "responseHasKeysAny",
+                            "data": [
+                              {
+                                "dtype": "str",
+                                "str": "weekly.q03_symptoms_ended"
+                              },
+                              {
+                                "dtype": "str",
+                                "str": "rg.scg"
+                              },
+                              {
+                                "dtype": "str",
+                                "str": "1"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "dtype": "exp",
+                          "exp": {
                             "name": "hasParticipantFlag",
                             "data": [
                               {
@@ -3366,6 +3474,70 @@
                         }
                       ]
                     }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "dtype": "exp",
+        "exp": {
+          "name": "IFTHEN",
+          "data": [
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "checkSurveyResponseKey",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "vaccination"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "REMOVE_SURVEYS_BY_KEY",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "vaccination"
+                  }
+                ]
+              }
+            },
+            {
+              "dtype": "exp",
+              "exp": {
+                "name": "ADD_NEW_SURVEY",
+                "data": [
+                  {
+                    "dtype": "str",
+                    "str": "vaccination"
+                  },
+                  {
+                    "dtype": "exp",
+                    "exp": {
+                      "name": "timestampWithOffset",
+                      "data": [
+                        {
+                          "dtype": "num",
+                          "num": 2592000
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "dtype": "num",
+                    "num": 0
+                  },
+                  {
+                    "dtype": "str",
+                    "str": "prio"
                   }
                 ]
               }
