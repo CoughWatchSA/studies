@@ -12,6 +12,11 @@ import { Q03_SymptomsEnded } from "./surveys/weekly/questions/q03_symptoms_ended
 import { swabZipCodes } from "./surveys/intake/constants";
 import { Q01_1_SymptomsSameEpisode, Q04_SymptomsStarted } from "./surveys/weekly/questions";
 
+const Options = {
+  weeklyResubmitHours: 4,
+  vaccinationResubmitDays: 30,
+};
+
 const entryRules: Expression[] = [
   StudyEngine.participantActions.assignedSurveys.add(intake.key, "normal"),
   StudyEngine.participantActions.assignedSurveys.add(vaccination.key, "normal"),
@@ -20,6 +25,16 @@ const entryRules: Expression[] = [
 
 const handleIntake = StudyEngine.ifThen(
   StudyEngine.checkSurveyResponseKey(intake.key),
+  // remove assigned intake
+  StudyEngine.participantActions.assignedSurveys.remove(intake.key, "all"),
+  // add weekly survey if not already there
+  StudyEngine.ifThen(
+    StudyEngine.not(StudyEngine.participantState.hasSurveyKeyAssigned(weekly.key)),
+    StudyEngine.participantActions.assignedSurveys.add(weekly.key, "prio")
+  ),
+  // add optional intake
+  StudyEngine.participantActions.assignedSurveys.add(intake.key, "optional"),
+  // maybe add swab eligible flag
   StudyEngine.if(
     // if eligible for swab:
     StudyEngine.or(
@@ -53,7 +68,7 @@ const handleWeekly = StudyEngine.ifThen(
     weekly.key,
     "prio",
     StudyEngine.timestampWithOffset({
-      hours: 1,
+      hours: Options.weeklyResubmitHours,
     })
   ),
   // Manage flags:
@@ -75,7 +90,7 @@ const handleWeekly = StudyEngine.ifThen(
         StudyEngine.participantState.getParticipantFlagValueAsNum(ParticipantFlags.ongoingSymptomsStart.key)
       ),
       // if not use the specified date
-      StudyEngine.participantActions.updateFlag(ParticipantFlags.ongoingSymptomsStart.key, symptomsStart),
+      StudyEngine.participantActions.updateFlag(ParticipantFlags.ongoingSymptomsStart.key, symptomsStart)
     ),
     // else, remove the flag
     StudyEngine.participantActions.removeFlag(ParticipantFlags.ongoingSymptomsStart.key)
@@ -109,4 +124,17 @@ const handleWeekly = StudyEngine.ifThen(
   )
 );
 
-export const studyRules = new StudyRules(entryRules, [handleIntake, handleWeekly]);
+const handleVaccination = StudyEngine.ifThen(
+  StudyEngine.checkSurveyResponseKey(vaccination.key),
+  // remove vaccination and re-add it with a new timeout
+  StudyEngine.participantActions.assignedSurveys.remove(vaccination.key, "all"),
+  StudyEngine.participantActions.assignedSurveys.add(
+    vaccination.key,
+    "prio",
+    StudyEngine.timestampWithOffset({
+      days: Options.vaccinationResubmitDays,
+    })
+  )
+);
+
+export const studyRules = new StudyRules(entryRules, [handleIntake, handleWeekly, handleVaccination]);
