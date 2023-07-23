@@ -208,33 +208,13 @@ class Weekly extends Survey {
 
     this.addQuestion(Q07_2a_InfluenzaTestType, SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza));
 
-    const q07_3a_influenza_test_date = this.addQuestion(
-      Q07_3a_InfluenzaTestDate,
-      SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza)
-    );
-
-    this.addValidation(
-      q07_3a_influenza_test_date,
-      hasDate(q07_3a_influenza_test_date, Q07_3a_InfluenzaTestDate.Responses.Date.value),
-      "has_date",
-      strings["no_date"]
-    );
+    this.addQuestion(Q07_3a_InfluenzaTestDate, SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza));
 
     this.addQuestion(Q07_1b_CovidTestResults, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
 
     this.addQuestion(Q07_2b_CovidTestType, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
 
-    const q07_3b_covid_test_date = this.addQuestion(
-      Q07_3b_CovidTestDate,
-      SurveyEngine.logic.and(hasSymptoms, hasTestedCovid)
-    );
-
-    this.addValidation(
-      q07_3b_covid_test_date,
-      hasDate(q07_3b_covid_test_date, Q07_3b_CovidTestDate.Responses.Date.value),
-      "has_date",
-      strings["no_date"]
-    );
+    this.addQuestion(Q07_3b_CovidTestDate, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
 
     this.addPageBreak();
 

@@ -155,9 +155,6 @@ const questionsStrings: Record<"name" | "description" | "duration", { en: string
   "q05_fever_started.title": {
     en: "When did your fever begin?",
   },
-  "q05_fever_started.date": {
-    en: "",
-  },
   "q05_1_temperature.title": {
     en: "Did you measure your temperature and if so, what was the temperature?",
   },
@@ -241,9 +238,6 @@ const questionsStrings: Record<"name" | "description" | "duration", { en: string
   "q07_3a_influenza_test_date.title": {
     en: "When did you get tested for Influenza?",
   },
-  "q07_3a_influenza_test_date.date": {
-    en: "",
-  },
   "q07_1b_covid_test_results.title": {
     en: "What was the result for your Covid test?",
   },
@@ -252,9 +246,6 @@ const questionsStrings: Record<"name" | "description" | "duration", { en: string
   },
   "q07_3b_covid_test_date.title": {
     en: "When did you get tested for Covid?",
-  },
-  "q07_3b_covid_test_date.date": {
-    en: "",
   },
   "q08_medication_any.title": {
     en: "Did you take any medication for these symptoms?",
