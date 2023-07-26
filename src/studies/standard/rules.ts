@@ -14,25 +14,22 @@ import { Q01_1_SymptomsSameEpisode, Q04_SymptomsStarted } from "./surveys/weekly
 
 const Options = {
   weeklyResubmitHours: 4,
-  vaccinationResubmitDays: 30,
 };
 
-const entryRules: Expression[] = [
-  StudyEngine.participantActions.assignedSurveys.add(intake.key, "prio"),
-];
+const entryRules: Expression[] = [StudyEngine.participantActions.assignedSurveys.add(intake.key, "prio")];
 
 const handleIntake = StudyEngine.ifThen(
   StudyEngine.checkSurveyResponseKey(intake.key),
   // remove assigned intake
   StudyEngine.participantActions.assignedSurveys.remove(intake.key, "all"),
+  // add optional intake
+  StudyEngine.participantActions.assignedSurveys.add(intake.key, "optional"),
   // add weekly survey if not already there
   StudyEngine.ifThen(
     StudyEngine.not(StudyEngine.participantState.hasSurveyKeyAssigned(weekly.key)),
     StudyEngine.participantActions.assignedSurveys.add(weekly.key, "prio"),
     StudyEngine.participantActions.assignedSurveys.add(vaccination.key, "prio")
   ),
-  // add optional intake
-  StudyEngine.participantActions.assignedSurveys.add(intake.key, "optional"),
   // maybe add swab eligible flag
   StudyEngine.if(
     // if eligible for swab:
@@ -127,13 +124,8 @@ const handleVaccination = StudyEngine.ifThen(
   StudyEngine.checkSurveyResponseKey(vaccination.key),
   // remove vaccination and re-add it with a new timeout
   StudyEngine.participantActions.assignedSurveys.remove(vaccination.key, "all"),
-  StudyEngine.participantActions.assignedSurveys.add(
-    vaccination.key,
-    "prio",
-    StudyEngine.timestampWithOffset({
-      days: Options.vaccinationResubmitDays,
-    })
-  )
+  // add optional vaccination
+  StudyEngine.participantActions.assignedSurveys.add(vaccination.key, "optional")
 );
 
 export const studyRules = new StudyRules(entryRules, [handleIntake, handleWeekly, handleVaccination]);
