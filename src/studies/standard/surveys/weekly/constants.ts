@@ -12,7 +12,7 @@ export const illnessTestDateOptions: DateInputProps = {
     delta: { years: 0 },
   },
   minRelativeDate: {
-    delta: { days: -7 },
+    delta: { days: -13 },
   },
   placeholderText: strings["date_placeholder_ymd"],
 };
