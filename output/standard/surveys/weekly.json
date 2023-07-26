@@ -50,7 +50,7 @@
                   "code": "en",
                   "parts": [
                     {
-                      "str": "Have you experienced any symptoms in the past week?"
+                      "str": "Have you experienced any symptoms recently?"
                     }
                   ]
                 }
@@ -290,7 +290,7 @@
                   "code": "en",
                   "parts": [
                     {
-                      "str": "Please select the symptoms you experienced in the past week:"
+                      "str": "Please select the symptoms you experienced:"
                     }
                   ]
                 }
@@ -781,7 +781,7 @@
         }
       },
       {
-        "key": "weekly.PB_8iUe",
+        "key": "weekly.PB_AZdY",
         "type": "pageBreak"
       },
       {
@@ -823,7 +823,7 @@
                         "data": [
                           {
                             "dtype": "num",
-                            "num": -604800
+                            "num": -1123200
                           }
                         ]
                       }
@@ -835,7 +835,7 @@
                         "data": [
                           {
                             "dtype": "num",
-                            "num": -86400
+                            "num": 0
                           }
                         ]
                       }
@@ -1759,7 +1759,7 @@
                             "data": [
                               {
                                 "dtype": "num",
-                                "num": -604800
+                                "num": -1123200
                               }
                             ]
                           }
@@ -1771,7 +1771,7 @@
                             "data": [
                               {
                                 "dtype": "num",
-                                "num": -86400
+                                "num": 0
                               }
                             ]
                           }
@@ -2801,7 +2801,7 @@
         }
       },
       {
-        "key": "weekly.PB_TBLw",
+        "key": "weekly.PB_l83B",
         "type": "pageBreak"
       },
       {
@@ -2843,7 +2843,7 @@
                         "data": [
                           {
                             "dtype": "num",
-                            "num": -604800
+                            "num": -1123200
                           }
                         ]
                       }
@@ -4255,7 +4255,7 @@
         }
       },
       {
-        "key": "weekly.PB_sjLS",
+        "key": "weekly.PB_BHLd",
         "type": "pageBreak"
       },
       {
@@ -4910,7 +4910,7 @@
         }
       },
       {
-        "key": "weekly.PB_lvF8",
+        "key": "weekly.PB_TvCb",
         "type": "pageBreak"
       },
       {
@@ -5925,7 +5925,7 @@
         }
       },
       {
-        "key": "weekly.PB_al77",
+        "key": "weekly.PB_ceCI",
         "type": "pageBreak"
       },
       {
