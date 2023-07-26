@@ -37,7 +37,7 @@ export namespace Q03_SymptomsEnded {
       dateInputMode: "YMD",
       placeholderText: strings["date_placeholder_ymd"],
       maxRelativeDate: {
-        delta: { days: -1 },
+        delta: { days: 0 },
       },
       minRelativeDate: {
         delta: { days: -DateOptions.maxOnsetDays },

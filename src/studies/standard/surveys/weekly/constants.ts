@@ -3,7 +3,7 @@ import { TCommonResponseWithKeys } from "../../../../common/types";
 import { strings } from "./data/strings";
 
 export const DateOptions = {
-  maxOnsetDays: 7,
+  maxOnsetDays: 13,
 };
 
 export const illnessTestDateOptions: DateInputProps = {

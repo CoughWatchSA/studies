@@ -110,13 +110,13 @@ const questionsStrings: Record<"name" | "description" | "duration", { en: string
     en: "Duration 5-10 minutes",
   },
   "q01_symptoms_any.title": {
-    en: "Have you experienced any symptoms in the past week?",
+    en: "Have you experienced any symptoms recently?",
   },
   "q01_1_symptoms_same_episode.title": {
     en: "When you filled in the previous questionnaire, you indicated that you were still ill. Are the symptoms you are reporting now part of the same episode?",
   },
   "q02_symptoms_which.title": {
-    en: "Please select the symptoms you experienced in the past week:",
+    en: "Please select the symptoms you experienced:",
   },
   "q02_symptoms_which.fever": { en: "Fever" },
   "q02_symptoms_which.chills": { en: "Chills" },
