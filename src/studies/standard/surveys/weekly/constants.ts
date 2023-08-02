@@ -52,19 +52,19 @@ export const YesNoResponses: Record<TYesNoResponses, TCommonResponseWithKeys<TYe
 
 export type TResponsesTestResult = "Positive" | "Negative" | "NotConclusive";
 export const ResponsesTestResult: Record<TResponsesTestResult, TCommonResponseWithKeys<TResponsesTestResult>> = {
-  Positive: {
-    key: "positive",
-    value: "0",
-    textKey: "test_result.positive",
-  },
   Negative: {
     key: "negative",
-    value: "1",
+    value: "0",
     textKey: "test_result.negative",
+  },
+  Positive: {
+    key: "positive",
+    value: "1",
+    textKey: "test_result.positive",
   },
   NotConclusive: {
     key: "not_conclusive",
-    value: "2",
+    value: "-1",
     textKey: "test_result.not_conclusive",
   },
 };
