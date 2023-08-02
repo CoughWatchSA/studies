@@ -204,7 +204,7 @@ export namespace Q15_Comorbidities {
     },
     Other: {
       key: "other",
-      value: "16",
+      value: "99",
       role: "input",
       disabled: disabledRule,
     },
