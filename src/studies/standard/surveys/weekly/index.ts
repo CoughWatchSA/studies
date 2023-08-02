@@ -1,5 +1,4 @@
 import { SurveyEngine } from "case-editor-tools/surveys";
-import { ItemEditor } from "case-editor-tools/surveys/survey-editor/item-editor";
 import { Expression, SurveyItem, SurveySingleItem } from "survey-engine/data_types";
 import { generateLocStrings, Survey } from "../../../../common/types";
 import { ParticipantFlags } from "../../participantFalgs";
@@ -31,7 +30,6 @@ import {
   Q09_2_TimeOffDays,
   Q09_RoutineChange,
 } from "./questions";
-import { datePickerKey } from "case-editor-tools/constants/key-definitions";
 
 class Weekly extends Survey {
   static surveyKey = "weekly";
@@ -91,35 +89,78 @@ class Weekly extends Survey {
       }
     };
 
-    const startsBeforeEnding = SurveyEngine.logic.and(
-      SurveyEngine.logic.or(
-        SurveyEngine.logic.not(helpers.responses.getValue(this.q04_symptoms_start)),
-        SurveyEngine.logic.not(helpers.responses.getValue(this.q03_symptoms_ended)),
-        SurveyEngine.compare.lte(
-          helpers.responses.getValue(this.q04_symptoms_start),
-          helpers.responses.getValue(this.q03_symptoms_ended)
+    const hasStartDate = helpers.responses.getValue(this.q04_symptoms_start);
+    const hasOngoingDate = SurveyEngine.logic.and(isSameEpisode, ongoingSymptomsStart);
+
+    const isAfterSymptomsStart = (date_question: SurveySingleItem) =>
+      SurveyEngine.logic.and(
+        SurveyEngine.logic.or(
+          SurveyEngine.logic.not(helpers.responses.getValue(this.q04_symptoms_start)),
+          SurveyEngine.logic.not(helpers.responses.getValue(date_question)),
+          SurveyEngine.compare.gte(
+            helpers.responses.getValue(date_question),
+            helpers.responses.getValue(this.q04_symptoms_start)
+          )
+        ),
+        SurveyEngine.logic.or(
+          SurveyEngine.logic.not(isSameEpisode),
+          SurveyEngine.logic.not(ongoingSymptomsStart),
+          SurveyEngine.logic.not(helpers.responses.getValue(date_question)),
+          SurveyEngine.compare.gte(helpers.responses.getValue(date_question), ongoingSymptomsStart)
         )
-      ),
-      SurveyEngine.logic.or(
-        SurveyEngine.logic.not(isSameEpisode),
-        SurveyEngine.logic.not(ongoingSymptomsStart),
-        SurveyEngine.logic.not(helpers.responses.getValue(this.q03_symptoms_ended)),
-        SurveyEngine.compare.lte(ongoingSymptomsStart, helpers.responses.getValue(this.q03_symptoms_ended))
-      )
-    );
+      );
 
-    this.addValidation(this.q04_symptoms_start, startsBeforeEnding, "start_before_end", strings["starts_after_ending"]);
+    const addAfterSymptomsStartValidation = (date_question: SurveySingleItem) => {
+      this.addValidation(
+        date_question,
+        SurveyEngine.logic.or(SurveyEngine.logic.not(hasStartDate), isAfterSymptomsStart(date_question)),
+        "after_symptoms_start",
+        {
+          role: "text",
+          style: [{ key: "className", value: "text-danger mt-2 fw-bold" }],
+          items: [
+            { role: "text", content: generateLocStrings(strings["before_symptoms_start"]) },
+            {
+              role: "dateDisplay",
+              content: [
+                {
+                  code: "en",
+                  parts: [{ dtype: "exp", exp: helpers.responses.getValue(this.q04_symptoms_start) }],
+                },
+              ],
+              style: [{ key: "dateFormat", value: "EEEE MM/dd/yy" }],
+            },
+          ],
+        }
+      );
 
-    // this.addValidation(
-    //   this.q04_symptoms_start,
-    //   hasDate(this.q04_symptoms_start),
-    //   "has_date",
-    //   strings["no_date"]
-    // );
+      this.addValidation(
+        date_question,
+        SurveyEngine.logic.or(SurveyEngine.logic.not(hasOngoingDate), isAfterSymptomsStart(date_question)),
+        "after_symptoms_start_ongoing",
+        {
+          role: "text",
+          style: [{ key: "className", value: "text-danger mt-2 fw-bold" }],
+          items: [
+            { role: "text", content: generateLocStrings(strings["before_symptoms_start"]) },
+            {
+              role: "dateDisplay",
+              content: [
+                {
+                  code: "en",
+                  parts: [{ dtype: "exp", exp: ongoingSymptomsStart }],
+                },
+              ],
+              style: [{ key: "dateFormat", value: "EEEE MM/dd/yy" }],
+            },
+          ],
+        }
+      );
+    };
 
     this.addConditionalItem(this.q03_symptoms_ended, hasSymptoms);
 
-    this.addValidation(this.q03_symptoms_ended, startsBeforeEnding, "end_after_start", strings["ends_before_starting"]);
+    addAfterSymptomsStartValidation(this.q03_symptoms_ended);
 
     this.addValidation(
       this.q03_symptoms_ended,
@@ -132,24 +173,7 @@ class Weekly extends Survey {
 
     const q05_fever_started = this.addQuestion(Q05_FeverStarted, SurveyEngine.logic.and(hasSymptoms, hasFever));
 
-    const afterSymptomsStart = SurveyEngine.logic.and(
-      SurveyEngine.logic.or(
-        SurveyEngine.logic.not(helpers.responses.getValue(this.q04_symptoms_start)),
-        SurveyEngine.logic.not(helpers.responses.getValue(q05_fever_started)),
-        SurveyEngine.compare.gte(
-          helpers.responses.getValue(q05_fever_started),
-          helpers.responses.getValue(this.q04_symptoms_start)
-        )
-      ),
-      SurveyEngine.logic.or(
-        SurveyEngine.logic.not(isSameEpisode),
-        SurveyEngine.logic.not(ongoingSymptomsStart),
-        SurveyEngine.logic.not(helpers.responses.getValue(q05_fever_started)),
-        SurveyEngine.compare.gte(helpers.responses.getValue(q05_fever_started), ongoingSymptomsStart)
-      )
-    );
-
-    const beforeSymptomsEnd = SurveyEngine.logic.or(
+    const isBeforeSymptomsEnd = SurveyEngine.logic.or(
       SurveyEngine.logic.not(helpers.responses.getValue(this.q03_symptoms_ended)),
       SurveyEngine.logic.not(helpers.responses.getValue(q05_fever_started)),
       SurveyEngine.compare.lte(
@@ -158,8 +182,25 @@ class Weekly extends Survey {
       )
     );
 
-    this.addValidation(q05_fever_started, afterSymptomsStart, "after_symptoms_start", strings["before_symptoms_start"]);
-    this.addValidation(q05_fever_started, beforeSymptomsEnd, "before_symptoms_end", strings["after_symptoms_end"]);
+    this.addValidation(q05_fever_started, isBeforeSymptomsEnd, "before_symptoms_end", {
+      role: "text",
+      style: [{ key: "className", value: "text-danger mt-2 fw-bold" }],
+      items: [
+        { role: "text", content: generateLocStrings(strings["after_symptoms_end"]) },
+        {
+          role: "dateDisplay",
+          content: [
+            {
+              code: "en",
+              parts: [{ dtype: "exp", exp: helpers.responses.getValue(this.q03_symptoms_ended) }],
+            },
+          ],
+          style: [{ key: "dateFormat", value: "EEEE MM/dd/yy" }],
+        },
+      ],
+    });
+
+    addAfterSymptomsStartValidation(q05_fever_started);
 
     this.addQuestion(Q05_1_Temperature, SurveyEngine.logic.and(hasSymptoms, hasFever));
 
@@ -197,13 +238,20 @@ class Weekly extends Survey {
 
     this.addQuestion(Q07_2a_InfluenzaTestType, SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza));
 
-    this.addQuestion(Q07_3a_InfluenzaTestDate, SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza));
+    const q07_3a_influenza_test_date = this.addQuestion(
+      Q07_3a_InfluenzaTestDate,
+      SurveyEngine.logic.and(hasSymptoms, hasTestedInfluenza)
+    );
+
+    addAfterSymptomsStartValidation(q07_3a_influenza_test_date);
 
     this.addQuestion(Q07_1b_CovidTestResults, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
 
     this.addQuestion(Q07_2b_CovidTestType, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
 
-    this.addQuestion(Q07_3b_CovidTestDate, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
+    const q07_3b_covid_test_date = this.addQuestion(Q07_3b_CovidTestDate, SurveyEngine.logic.and(hasSymptoms, hasTestedCovid));
+
+    addAfterSymptomsStartValidation(q07_3b_covid_test_date);
 
     this.addPageBreak();
 

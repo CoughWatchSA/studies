@@ -1,4 +1,11 @@
-import { Expression, ExpressionArg, LocalizedString, SurveyItem, SurveySingleItem } from "survey-engine/data_types";
+import {
+  Expression,
+  ExpressionArg,
+  ItemComponent,
+  LocalizedString,
+  SurveyItem,
+  SurveySingleItem,
+} from "survey-engine/data_types";
 import { SingleChoiceOptionTypes, SurveyEngine, SurveyItems } from "case-editor-tools/surveys";
 import {
   DateInputProps,
@@ -67,18 +74,30 @@ export abstract class Survey extends SurveyDefinition {
     return item;
   }
 
-  addValidation(item: SurveyItem, condition: Expression, key: string, errorText: Map<string, string>) {
+  addValidation(item: SurveyItem, condition: Expression, key: string, errorText: ItemComponent | Map<string, string>) {
     new ItemEditor(item).addValidation({
       key: key,
       rule: condition,
       type: "hard",
     });
 
-    new ItemEditor(item).addDisplayComponent({
-      role: "error",
-      content: generateLocStrings(errorText),
-      displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", key)),
-    });
+    const isItemComponent = (item: typeof errorText): item is ItemComponent => {
+      const role = (item as ItemComponent).role;
+      return role !== undefined;
+    };
+
+    if (isItemComponent(errorText)) {
+      new ItemEditor(item).addDisplayComponent({
+        ...errorText,
+        displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", key)),
+      });
+    } else {
+      new ItemEditor(item).addDisplayComponent({
+        role: "error",
+        content: generateLocStrings(errorText),
+        displayCondition: SurveyEngine.logic.not(SurveyEngine.getSurveyItemValidation("this", key)),
+      });
+    }
   }
 }
 

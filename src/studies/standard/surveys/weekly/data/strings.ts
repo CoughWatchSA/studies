@@ -55,16 +55,16 @@ const commonStrings = {
     en: "I do not know",
   },
   ends_before_starting: {
-    en: "Symptoms end date must be posterior to start date",
+    en: "Symptoms end date must be posterior to start date: ",
   },
   starts_after_ending: {
-    en: "Symptoms start date must be anterior to end date",
+    en: "Symptoms start date must be anterior to end date: ",
   },
   before_symptoms_start: {
-    en: "The selected date must be posterior to symptoms' start date",
+    en: "The selected date must be posterior to symptoms' start date: ",
   },
   after_symptoms_end: {
-    en: "The selected date must be anterior to symptoms' end date",
+    en: "The selected date must be anterior to symptoms' end date: ",
   },
   not_required_hint: {
     en: "You can leave this answer blank if you don't rememember / don't know what to answer",
