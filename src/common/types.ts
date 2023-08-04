@@ -49,6 +49,7 @@ export abstract class Survey extends SurveyDefinition {
       name: strings["name"],
       description: strings["description"],
       durationText: strings["duration"],
+      requireLoginBeforeSubmission: true
     });
 
     this.strings = strings;
