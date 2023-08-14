@@ -322,7 +322,7 @@
         ]
       },
       {
-        "key": "vaccination.PB_zxyl",
+        "key": "vaccination.PB_6VMS",
         "type": "pageBreak"
       },
       {
@@ -428,7 +428,7 @@
                   "code": "en",
                   "parts": [
                     {
-                      "str": "How many doses of the Pfizer vaccine did you receive?"
+                      "str": "How many doses of the COVID-19 vaccine did you receive?"
                     }
                   ]
                 }

@@ -51,7 +51,7 @@ const s = {
     en: "No",
   },
   "q02_1_covid_vaccine_doses.title": {
-    en: "How many doses of the Pfizer vaccine did you receive?",
+    en: "How many doses of the COVID-19 vaccine did you receive?",
   },
   "q02_1_covid_vaccine_doses.one_dose": {
     en: "One dose",
