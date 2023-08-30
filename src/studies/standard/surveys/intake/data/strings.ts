@@ -249,7 +249,7 @@ const s = {
     en: "Chronic pulmonary disease (not ashtma)",
   },
   "q15_comorbidities.ashtma": {
-    en: "Ashtma (physician diagnosed)",
+    en: "Asthma (physician diagnosed)",
   },
   "q15_comorbidities.tuberculosis_pulmonary": {
     en: "Tuberculosis (pulmonary)",
